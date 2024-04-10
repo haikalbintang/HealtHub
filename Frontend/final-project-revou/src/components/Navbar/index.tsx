@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="flex items-center justify-center gap-32">
         <h1>Recipe</h1>
         <h1>About us</h1>
-        <h1>recipe</h1>
+        <h1>Logo</h1>
         <h1>Products</h1>
         <h1>Sign In</h1>
       </div>
