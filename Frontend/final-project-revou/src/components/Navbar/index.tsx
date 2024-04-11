@@ -20,9 +20,9 @@ const Navbar = () => {
         </div>
       </div>
       <div className="relative z-10 pb-10 justify-center flex items-center ">
-        <div>
+        {/* <div>
           <h1>logo</h1>
-        </div>
+        </div> */}
         <div className="hidden lg:flex lg:justify-center lg:items-center">
           <ul className="flex gap-32">
             <li>
