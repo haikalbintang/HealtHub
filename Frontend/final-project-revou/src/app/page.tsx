@@ -54,7 +54,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex justify-center items-center">
-        <Button>Learn More</Button>
+        <Button className="bg-red-500 text-xl font-bold ">Learn More</Button>
       </div>
       {/* End Discover content */}
       <SliderImagev2 foodImages={foodImages} />

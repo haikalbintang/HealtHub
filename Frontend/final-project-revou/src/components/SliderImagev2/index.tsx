@@ -45,16 +45,18 @@ const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
             </Button>
           </div>
           <div className="hidden justify-center items-center p-5 lg:flex">
-            <Button>Learn More</Button>
+            <Button className="bg-red-500 text-xl font-bold">
+              See all recipes
+            </Button>
           </div>
         </div>
         <div className="flex-col justify-center items-center ">
           <div className="hidden justify-end items-center gap-2 pb-2 lg:flex">
             {/* Add previous and next buttons */}
-            <Button onClick={goToPrevious} className="rounded-full">
+            <Button onClick={goToPrevious} className="rounded-full bg-red-500">
               {"<"}
             </Button>
-            <Button onClick={goToNext} className="rounded-full">
+            <Button onClick={goToNext} className="rounded-full bg-red-500">
               {">"}
             </Button>
           </div>
