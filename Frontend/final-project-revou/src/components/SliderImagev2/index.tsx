@@ -75,18 +75,53 @@ const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
               <h2
                 style={{
                   position: "absolute",
-                  top: "50%",
+                  bottom: "20%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
-                  color: "red", // Adjust color as needed
-                  zIndex: 1, // Ensure the title is above the image
+                  color: "white",
+                  zIndex: 1,
                   margin: "0",
                   padding: "0",
                   width: "100%",
                 }}
+                className="text-2xl font-bold"
               >
-                Your Title Here
+                Spaghetti lasagne
               </h2>
+              <div
+                className="flex gap-2"
+                style={{
+                  position: "absolute",
+                  bottom: "5%",
+                  left: "15%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                  zIndex: 1,
+                  margin: "0",
+                  padding: "0",
+                  width: "20%",
+                }}
+              >
+                <Button className="rounded-full">logo</Button>
+                <h1 className="flex justify-center items-center">Easy</h1>
+              </div>
+              <div
+                className="flex gap-2"
+                style={{
+                  position: "absolute",
+                  bottom: "5%",
+                  right: "15%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                  zIndex: 1,
+                  margin: "0",
+                  padding: "0",
+                  width: "20%",
+                }}
+              >
+                <Button className="rounded-full">logo</Button>
+                <h1 className="flex justify-center items-center">20Min</h1>
+              </div>
             </div>
             <div style={{ position: "relative", textAlign: "center" }}>
               <img
@@ -102,18 +137,53 @@ const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
               <h2
                 style={{
                   position: "absolute",
-                  top: "50%",
+                  bottom: "20%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
-                  color: "red", // Adjust color as needed
-                  zIndex: 1, // Ensure the title is above the image
+                  color: "white",
+                  zIndex: 1,
                   margin: "0",
                   padding: "0",
                   width: "100%",
                 }}
+                className="text-2xl font-bold"
               >
-                Your Title Here
+                Spaghetti lasagne
               </h2>
+              <div
+                className="flex gap-2"
+                style={{
+                  position: "absolute",
+                  bottom: "5%",
+                  left: "15%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                  zIndex: 1,
+                  margin: "0",
+                  padding: "0",
+                  width: "20%",
+                }}
+              >
+                <Button className="rounded-full">logo</Button>
+                <h1 className="flex justify-center items-center">Easy</h1>
+              </div>
+              <div
+                className="flex gap-2"
+                style={{
+                  position: "absolute",
+                  bottom: "5%",
+                  right: "15%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                  zIndex: 1,
+                  margin: "0",
+                  padding: "0",
+                  width: "20%",
+                }}
+              >
+                <Button className="rounded-full">logo</Button>
+                <h1 className="flex justify-center items-center">20Min</h1>
+              </div>
             </div>
             <div style={{ position: "relative", textAlign: "center" }}>
               <img
@@ -129,18 +199,53 @@ const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
               <h2
                 style={{
                   position: "absolute",
-                  top: "50%",
+                  bottom: "20%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
-                  color: "red", // Adjust color as needed
-                  zIndex: 1, // Ensure the title is above the image
+                  color: "white",
+                  zIndex: 1,
                   margin: "0",
                   padding: "0",
                   width: "100%",
                 }}
+                className="text-2xl font-bold"
               >
-                Your Title Here
+                Spaghetti lasagne
               </h2>
+              <div
+                className="flex gap-2"
+                style={{
+                  position: "absolute",
+                  bottom: "5%",
+                  left: "15%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                  zIndex: 1,
+                  margin: "0",
+                  padding: "0",
+                  width: "20%",
+                }}
+              >
+                <Button className="rounded-full">logo</Button>
+                <h1 className="flex justify-center items-center">Easy</h1>
+              </div>
+              <div
+                className="flex gap-2"
+                style={{
+                  position: "absolute",
+                  bottom: "5%",
+                  right: "15%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                  zIndex: 1,
+                  margin: "0",
+                  padding: "0",
+                  width: "20%",
+                }}
+              >
+                <Button className="rounded-full">logo</Button>
+                <h1 className="flex justify-center items-center">20Min</h1>
+              </div>
             </div>
 
             {/* <img
