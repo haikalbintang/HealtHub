@@ -26,9 +26,9 @@ const SliderImage: React.FC<ImageSliderProps> = ({ images }) => {
       <img
         src={images[currentIndex]}
         alt="Slider"
-        className="w-full h-full object-fill"
+        className="w-full h-full object-cover"
         style={{
-          maxHeight: "100vh",
+          maxHeight: "80vh",
           display: "block",
           margin: "0 auto",
           //   objectPosition: "bottom",
