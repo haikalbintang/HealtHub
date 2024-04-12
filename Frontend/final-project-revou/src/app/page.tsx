@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import SliderImage from "@/components/SliderImage";
 import SliderImagev2 from "@/components/SliderImagev2";
 import SliderV3 from "@/components/SliderImagev3";
+import HeroPage from "@/components/HeroPage";
 import image1 from "../components/images/1.jpg";
 import image2 from "../components/images/2.png";
 import logo1 from "../components/images/logo1.png";
@@ -75,6 +76,7 @@ export default function Home() {
       {/* End Discover content */}
       <SliderImagev2 foodImages={foodImages} />
       <SliderV3 images={foodImagesv2} />
+      <HeroPage />
     </main>
   );
 }
