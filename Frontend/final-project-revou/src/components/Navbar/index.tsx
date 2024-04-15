@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import svg1 from "../images/svg/whole-foods-1.svg";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
@@ -77,8 +78,8 @@ const Navbar = () => {
         {/* <div>
           <h1>logo</h1>
         </div> */}
-        <div className="hidden lg:flex lg:justify-center lg:items-center">
-          <ul className="flex gap-32">
+        <div className="hidden lg:flex lg:justify-center lg:items-center font-serif text-lg">
+          <ul className="flex gap-32 justify-center items-center">
             <li>
               <a href="#">Recipe</a>
             </li>
@@ -86,7 +87,9 @@ const Navbar = () => {
               <a href="#">About us</a>
             </li>
             <li>
-              <a href="#">Logo</a>
+              <a href="#">
+                <img src={svg1.src} alt="" />
+              </a>
             </li>
             <li>
               <a href="#">Products</a>

@@ -36,17 +36,17 @@ const SliderImage: React.FC<ImageSliderProps> = ({ images }) => {
       <div className="absolute inset-0 flex flex-col justify-between p-6">
         <div className="text-center">
           <div className="absolute inset-0 flex flex-col justify-center items-center p-6">
-            <h1 className="text-4xl font-bold text-white mb-4 text-center">
+            <h1 className="text-9xl font-extrabold text-white mb-4 text-center">
               Escape to Italy
             </h1>
-            <h2 className="text-2xl font-semibold text-white text-center">
+            <h2 className="text-4xl font-semibold text-white text-center">
               Discover our Italian recipes
             </h2>
           </div>
         </div>
         <div className="flex justify-center">
-          <Button className="h-12 px-8 text-lg font-semibold bg-green-500 hover:bg-green-600 text-white rounded-full focus:outline-none">
-            Add to Cart
+          <Button className="h-12 px-8 text-lg font-semibold bg-red-500 text-white rounded-full ">
+            Discover Now !
           </Button>
         </div>
       </div>
