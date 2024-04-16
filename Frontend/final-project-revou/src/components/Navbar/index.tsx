@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="hidden items-center justify-around sm:hidden lg:flex p-5 pb-10">
+      <div className="hidden items-center justify-around sm:hidden lg:flex p-5 pb-8 bg-orange-200">
         <div className="flex gap-2">
           <svg
             width="25px"
@@ -29,7 +29,11 @@ const Navbar = () => {
         </div>
         <div className="flex justify-between gap-20">
           <div className="flex border-b-2 border-black">
-            <input type="text" placeholder="search here" />
+            <input
+              type="text"
+              placeholder="search here"
+              className="bg-transparent border-transparent border-none"
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 30 30"
@@ -125,11 +129,7 @@ const Navbar = () => {
             <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="px-5 pt-4 flex items-center justify-between">
                 <div>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                    alt=""
-                  />
+                  <img src={svg1.src} alt="" />
                 </div>
                 <div className="-mr-2">
                   <button
@@ -166,12 +166,6 @@ const Navbar = () => {
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                 >
                   About us
-                </a>
-                <a
-                  href="#"
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                >
-                  Logo
                 </a>
                 <a
                   href="#"
