@@ -29,23 +29,23 @@ const LoginPage: React.FC = () => {
             </div>
             <div className="flex flex-col gap-2 p-5">
               <div className="flex py-2">
-                <Button className="gap-1 w-72 bg-slate-300 text-black hover:bg-slate-200">
+                <Button className="gap-1 w-72 py-6 bg-slate-200 text-black hover:bg-slate-100">
                   <img
                     src={googlesvg.src}
                     alt="Google logo."
-                    className="w-9 h-9"
+                    className="w-12 h-12"
                   />
-                  Sign in with Google
+                  <p className="text-base">Sign in with Google</p>
                 </Button>
               </div>
               <div className="flex py-2">
-                <Button className="gap-1 w-72 bg-slate-300 text-black hover:bg-slate-200">
-                  <img src={facebooksvg.src} alt="" className="w-7 h-7 pr-1" />
-                  Sign in with Facebook
+                <Button className="gap-1 w-72 py-6 bg-slate-200 text-black hover:bg-slate-100">
+                  <img src={facebooksvg.src} alt="" className="w-8 h-8 mr-2" />
+                  <p className="text-base">Sign in with Facebook</p>
                 </Button>
               </div>
               <div className="flex justify-center items-center mt-6">
-                <p className="text-base">Or sign in with email</p>
+                <p className="text-base">----- Or Sign in with Email -----</p>
               </div>
               {/* Email and Password input fields */}
               <div>
@@ -73,7 +73,7 @@ const LoginPage: React.FC = () => {
                       value={password}
                       className="border border-gray-300 rounded-xl w-72 p-2 text-sm"
                       onChange={(e) => setPassword(e.target.value)}
-                      placeholder="Enter your email"
+                      placeholder="Enter your password"
                       style={{ paddingLeft: "35px" }}
                     />
                     <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
@@ -93,13 +93,13 @@ const LoginPage: React.FC = () => {
                 </h1>
               </div>
               <div>
-                <Button className=" w-72 bg-red-500 hover:bg-red-600 mt-4">
-                  Login
+                <Button className="w-72 bg-red-500 hover:bg-red-600 mt-4">
+                  <p className="text-base">Login</p>
                 </Button>
               </div>
               <div>
                 <p className="text-sm">
-                  Don't have an account? sign up{" "}
+                  Don't have an account? Sign up{" "}
                   <span className="text-red-500">here</span>
                 </p>
               </div>
