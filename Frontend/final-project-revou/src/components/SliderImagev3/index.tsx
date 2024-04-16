@@ -34,22 +34,24 @@ const SliderV3: React.FC<ImageSliderProps> = ({ images }) => {
       <div className="flex justify-center items-center text-4xl font-bold p-5">
         <h1>For All Your Desires</h1>
       </div>
-      <div className="flex justify-center items-center ">
-        <div className="grid grid-cols-4 grid-rows-4 gap-2 h-96">
-          <div className="col-span-2 row-span-4 p-1">
+      <div className="flex justify-center items-center">
+        <div className="grid grid-cols-4 grid-rows-4 gap-3 h-96 p-3">
+          <div className="col-span-2 row-span-4">
             <img
-              className="object-cover w-full h-full rounded-"
+              className="object-cover w-full h-full rounded-xl"
               src={images[middleIndex]}
               alt=""
             />
           </div>
 
-          <div className="col-span-2 row-span-2 ">
+          <div className="col-span-2 row-span-2">
             <img
-              className="object-cover w-full h-full pb-2 rounded-xl"
+              className="object-cover w-full h-full rounded-xl"
               src={images[previousIndex]}
               alt=""
             />
+          </div>
+          <div className="col-span-2 row-span-2">
             <img
               className="object-cover w-full h-full rounded-xl"
               src={images[nextIndex]}
