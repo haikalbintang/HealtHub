@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import svg1 from "../images/svg/whole-foods-1.svg";
+import Link from "next/link";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
@@ -96,7 +98,7 @@ const Navbar = () => {
               <a href="#">Products</a>
             </li>
             <li>
-              <a href="#">Sign In</a>
+              <Link href="/LoginPage">Sign In</Link>
             </li>
           </ul>
         </div>
