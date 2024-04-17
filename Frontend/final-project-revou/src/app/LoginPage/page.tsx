@@ -18,14 +18,16 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="">
       {/* <Navbar /> */}
       <div className="flex lg:max-h-screen ">
-        <div className="flex justify-center items-center lg:w-1/2 bg-slate-50">
+        <div className="flex justify-center items-center pl-20 lg:w-1/2 bg-slate-50">
           <div className="justify-start items-center">
             <div className="p-5 pb-3">
               <h1 className="text-3xl font-bold">WELCOME!</h1>
-              <p className="text-slate-700">Please enter your details.</p>
+              <p className="text-slate-700">
+                Please choose Your Sign in method.
+              </p>
             </div>
             <div className="flex flex-col gap-2 p-5">
               <div className="flex py-2">
@@ -106,8 +108,8 @@ const LoginPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="hidden lg:w-1/2 lg:flex ">
-          <img src={bg1.src} alt="" className="object-cover" />
+        <div className="hidden lg:w-1/2 lg:flex lg:p-5">
+          <img src={bg1.src} alt="" className="object-cover rounded-xl" />
         </div>
       </div>
     </div>

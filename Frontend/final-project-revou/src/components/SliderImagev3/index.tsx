@@ -25,7 +25,7 @@ const SliderV3: React.FC<ImageSliderProps> = ({ images }) => {
   const nextIndex = middleIndex === images.length - 1 ? 0 : middleIndex + 1;
 
   return (
-    <div>
+    <div className="">
       <div className="flex justify-center items-center p-2">
         <h1>-----</h1>
         <h1 className="text-xl font-bold">Our Ranges</h1>
