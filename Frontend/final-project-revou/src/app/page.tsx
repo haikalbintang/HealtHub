@@ -26,6 +26,8 @@ import foodImage3 from "../components/images/slidersv3/3.png";
 import foodImage4 from "../components/images/slidersv3/4.png";
 import foodImage5 from "../components/images/slidersv3/5.png";
 import foodImage6 from "../components/images/slidersv3/6.png";
+import SliderImagev2_1 from "@/components/SliderImagev2_1";
+
 export default function Home() {
   const images: string[] = [image1.src, image2.src];
   const foodImages: string[] = [food1.src, food2.src, food3.src, food4.src];
@@ -77,6 +79,7 @@ export default function Home() {
       </div>
       {/* End Discover content */}
       <SliderImagev2 foodImages={foodImages} />
+      <SliderImagev2_1 />
       <SliderV3 images={foodImagesv2} />
       <HeroPage />
       <Footer />
