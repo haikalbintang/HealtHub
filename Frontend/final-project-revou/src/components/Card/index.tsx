@@ -1,4 +1,3 @@
-import { Button } from "../ui/button";
 import chefsvg from "../images/svg/chef-hat-minimalistic-svgrepo-com.svg";
 import clocksvg from "../images/svg/clock-lines-svgrepo-com.svg";
 import cookgreensvg from "../images/svg/cook-svgrepo-com (green).svg";
@@ -36,7 +35,7 @@ export default function Card({
       </h1>
       <div
         className="flex gap-2 absolute bottom-0 left-8 -translate-x-2/4 -translate-y-2/4 text-white z-10 m-0 p-0 w-1/5"
-        style={{ bottom: "2%", left: "17%" }}
+        style={{ bottom: "3%", left: "20%" }}
       >
         {/* <Button
           className={`rounded-full ${
@@ -49,7 +48,7 @@ export default function Card({
         >
           D
         </Button> */}
-        <img
+        {/* <img
           src={
             difficulty === "Easy"
               ? cookgreensvg.src
@@ -59,14 +58,25 @@ export default function Card({
           }
           alt="Cooking icon."
           className="w-8 h-8"
-        />
-        <h2 className="flex justify-center items-center text-sm">
+        /> */}
+        <button
+          className={`${
+            difficulty === "Easy"
+              ? "bg-green-500"
+              : difficulty === "Medium"
+              ? "bg-yellow-500"
+              : "bg-red-500"
+          } text-white text-sm py-1 px-2 rounded-xl`}
+        >
           {difficulty}
-        </h2>
+        </button>
+        {/* <h2 className="flex justify-center items-center text-sm">
+          {difficulty}
+        </h2> */}
       </div>
       <div
         className="flex gap-2 absolute -translate-x-2/4 -translate-y-2/4 text-white z-10 m-0 p-0 w-1/5"
-        style={{ bottom: "2%", right: "12%" }}
+        style={{ bottom: "2%", right: "13%" }}
       >
         <img src={clocksvg.src} alt="Clock icon." className="w-8 h-8" />
         <h2 className="flex justify-center items-center text-sm">{time}</h2>
