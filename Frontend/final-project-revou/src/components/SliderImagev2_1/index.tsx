@@ -28,6 +28,7 @@ export default function SliderImagev2_1() {
       difficulty: "Hard",
       time: "1Hour",
       foodImage: food3.src,
+      role: "chef",
     },
     {
       title: "Spaghetti Lasagna",
@@ -46,6 +47,7 @@ export default function SliderImagev2_1() {
       difficulty: "Medium",
       time: "5Min",
       foodImage: food2.src,
+      role: "chef",
     },
     {
       title: "Spaghetti Lasagna",
@@ -76,7 +78,7 @@ export default function SliderImagev2_1() {
   };
 
   return (
-    <div className="p-5">
+    <div className="group p-5">
       <div className="flex flex-wrap justify-center items-center gap-3 lg:flex xl:flex">
         {displayCards.map((card, index) => (
           <Card
@@ -85,6 +87,7 @@ export default function SliderImagev2_1() {
             difficulty={card.difficulty}
             time={card.time}
             foodImage={card.foodImage}
+            role={card.role}
           />
         ))}
       </div>
@@ -92,14 +95,14 @@ export default function SliderImagev2_1() {
         <Button
           onClick={handlePrev}
           disabled={startIndex === 0}
-          className="rounded-full bg-red-500"
+          className="rounded-full bg-red-500 hover:bg-red-600"
         >
           {"<"}
         </Button>
         <Button
           onClick={handleNext}
           disabled={startIndex === cards.length - 4}
-          className="rounded-full bg-red-500"
+          className="rounded-full bg-red-500 hover:bg-red-600"
         >
           {">"}
         </Button>

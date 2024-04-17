@@ -26,7 +26,7 @@ const LoginPage: React.FC = () => {
             <div className="p-5 pb-3">
               <h1 className="text-3xl font-bold">WELCOME!</h1>
               <p className="text-slate-700">
-                Please choose Your Sign in method.
+                Please choose your Sign in method.
               </p>
             </div>
             <div className="flex flex-col gap-2 p-5">
