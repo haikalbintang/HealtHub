@@ -1,8 +1,8 @@
 import chefsvg from "../images/svg/chef-hat-minimalistic-svgrepo-com.svg";
 import clocksvg from "../images/svg/clock-lines-svgrepo-com.svg";
-import cookgreensvg from "../images/svg/cook-svgrepo-com (green).svg";
-import cookyellowsvg from "../images/svg/cook-svgrepo-com (yellow).svg";
-import cookredsvg from "../images/svg/cook-svgrepo-com (red).svg";
+// import cookgreensvg from "../images/svg/cook-svgrepo-com (green).svg";
+// import cookyellowsvg from "../images/svg/cook-svgrepo-com (yellow).svg";
+// import cookredsvg from "../images/svg/cook-svgrepo-com (red).svg";
 
 interface Props {
   title: string;
@@ -86,17 +86,19 @@ export default function Card({
       ></div>
       <div
         className={`absolute bottom-0 left-0 w-full h-full rounded-xl ${
-          role === "chef" ? "border-8 border-yellow-500 rounded-xl" : ""
+          role === "chef"
+            ? "border-8 border-yellow-500 rounded-xl"
+            : "border-8 border-slate-300 rounded-xl"
         }`}
       ></div>
       {role === "chef" ? (
         <>
-          <div className="absolute top-3 right-3 w-16 h-16 rotate-12">
+          <div className="absolute -top-6 -right-6 w-16 h-16 rotate-12">
             <img src={chefsvg.src} alt="Chef icon." />
           </div>
-          <h2 className="text-yellow-500 top-6 -right-5 text-base absolute font-bold z-10 m-0 p-0 w-full rotate-12">
+          {/* <h2 className="text-yellow-500 top-6 -right-5 text-base absolute font-bold z-10 m-0 p-0 w-full rotate-12">
             CHEF
-          </h2>
+          </h2> */}
         </>
       ) : null}
     </div>
