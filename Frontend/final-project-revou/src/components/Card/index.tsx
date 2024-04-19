@@ -1,5 +1,7 @@
-import chefsvg from "../images/svg/chef-hat-minimalistic-svgrepo-com.svg";
+import chefsvg from "../images/svg/3.png";
 import clocksvg from "../images/svg/clock-lines-svgrepo-com.svg";
+import gif1 from "../images/svg/gif/tapas2go-thumbs-up.gif";
+import gif2 from "../images/svg/gif/community.gif";
 import cookgreensvg from "../images/svg/cook-svgrepo-com (green).svg";
 import cookyellowsvg from "../images/svg/cook-svgrepo-com (yellow).svg";
 import cookredsvg from "../images/svg/cook-svgrepo-com (red).svg";
@@ -10,6 +12,7 @@ interface Props {
   time: string;
   foodImage: string;
   role?: string;
+  clasName?: string;
 }
 
 export default function Card({
@@ -20,12 +23,14 @@ export default function Card({
   role,
 }: Props) {
   return (
-    <div className={`relative text-center`}>
+    <div
+      className={`relative text-center hover:transform hover:scale-110 duration-300 rounded-xl `}
+    >
       <img
         src={foodImage}
         alt="Food image."
-        className={`block my-0 mx-auto h-auto rounded-xl`}
-        style={{ maxHeight: "55vh" }}
+        className={`block my-0 mx-auto h-auto  `}
+        style={{ maxHeight: "50vh" }}
       />
       <h1
         className="absolute bottom-1/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-xl font-bold text-white z-10 m-0 p-0 w-full"
@@ -81,23 +86,33 @@ export default function Card({
         <img src={clocksvg.src} alt="Clock icon." className="w-8 h-8" />
         <h2 className="flex justify-center items-center text-sm">{time}</h2>
       </div>
-      <div
+      {/* <div
         className={`absolute bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-black to-transparent rounded-xl `}
-      ></div>
-      <div
-        className={`absolute bottom-0 left-0 w-full h-full rounded-xl ${
-          role === "chef" ? "border-8 border-yellow-500 rounded-xl" : ""
-        }`}
-      ></div>
+      ></div> */}
+      <div className="">
+        <div
+          className={`absolute bottom-0 left-0 w-full h-full shadow-xl shadow-black  ring-1 overflow-hidden${
+            role === "chef" ? " border-gradient " : ""
+          }`}
+          style={{ borderColor: role === "chef" ? "border-red-500" : "" }}
+        ></div>
+      </div>
       {role === "chef" ? (
         <>
-          <div className="absolute top-3 right-3 w-16 h-16 rotate-12">
-            <img src={chefsvg.src} alt="Chef icon." />
+          <div className="absolute -top-12 -right-2 w-24 h-24 ">
+            <img src={gif1.src} alt="Chef icon." />
+            {/* <img src={chefsvg.src} alt="Chef icon." /> */}
           </div>
-          <h2 className="text-yellow-500 top-6 -right-5 text-base absolute font-bold z-10 m-0 p-0 w-full rotate-12">
+          {/* <h2 className="text-black font-extrabold absolute top-6 -right-32 text-base font-serif z-20 m-0 p-0 w-full rotate-12 ">
             CHEF
-          </h2>
+          </h2> */}
         </>
+      ) : null}
+      {role !== "chef" ? (
+        <div className="absolute -top-8 -right-2 w-24 h-24 ">
+          <img src={gif2.src} alt="Chef icon." />
+          {/* <img src={chefsvg.src} alt="Chef icon." /> */}
+        </div>
       ) : null}
     </div>
   );

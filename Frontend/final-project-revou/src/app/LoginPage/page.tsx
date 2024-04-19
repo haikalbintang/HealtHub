@@ -21,7 +21,7 @@ const LoginPage: React.FC = () => {
     <div className="">
       {/* <Navbar /> */}
       <div className="flex lg:max-h-screen ">
-        <div className="flex justify-center items-center pl-20 lg:w-1/2 bg-slate-50">
+        <div className="flex justify-center items-center  lg:w-1/2 lg:pl-20 bg-slate-50">
           <div className="justify-start items-center">
             <div className="p-5 pb-3">
               <h1 className="text-3xl font-bold">WELCOME!</h1>
@@ -46,8 +46,10 @@ const LoginPage: React.FC = () => {
                   <p className="text-base">Sign in with Facebook</p>
                 </Button>
               </div>
-              <div className="flex justify-center items-center mt-6">
-                <p className="text-base">----- Or Sign in with Email -----</p>
+              <div className="flex justify-center items-center mt-6 gap-2">
+                <h1>&mdash;&mdash;&mdash;</h1>
+                <p className="text-base"> Or Sign in with Email </p>
+                <h1>&mdash;&mdash;&mdash;</h1>
               </div>
               {/* Email and Password input fields */}
               <div>
