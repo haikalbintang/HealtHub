@@ -7,12 +7,12 @@ import facebooksvg from "../../components/images/svg/317727_facebook_social medi
 import inboxsvg from "../../components/images/svg/email-1-svgrepo-com.svg";
 import locksvg from "../../components/images/svg/4213432_closed_lock_password_protect_secure_icon.svg";
 
-type SetShowLoginModalType = (
+type SetToggleMenuType = (
   value: boolean | ((prev: boolean) => boolean)
 ) => void;
 
 interface Props {
-  setShowLoginModal: SetShowLoginModalType;
+  setShowLoginModal: SetToggleMenuType;
 }
 
 export default function LoginModal({ setShowLoginModal }: Props) {
