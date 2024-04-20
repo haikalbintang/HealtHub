@@ -116,7 +116,7 @@ const Navbar = ({ setShowLoginModal }: Props) => {
             </li>
           </ul>
         </div>
-        <div className="lg:hidden absolute top-0 left-0 p-2">
+        <div className="absolute top-0 left-0 p-2 lg:hidden">
           <button
             onClick={toggleMenu}
             type="button"
@@ -137,7 +137,7 @@ const Navbar = ({ setShowLoginModal }: Props) => {
             </svg>
           </button>
         </div>
-        {/* {isOpen && (
+        {isOpen && (
           <div className="lg:hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-left">
             <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="px-5 pt-4 flex items-center justify-between">
@@ -195,7 +195,7 @@ const Navbar = ({ setShowLoginModal }: Props) => {
               </div>
             </div>
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );
