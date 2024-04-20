@@ -113,14 +113,15 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
             </li>
           </ul>
         </div>
-        <div className="p-2 lg:hidden">
+        {/* Hamburger Menu */}
+        <div className="pt-4 pb-2 lg:hidden">
           <button
             onClick={toggleNavbarHamburgerMenu}
             type="button"
-            className="text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900"
+            className="text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-950"
           >
             <svg
-              className="h-6 w-6"
+              className="h-8 w-8"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

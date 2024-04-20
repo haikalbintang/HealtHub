@@ -78,35 +78,47 @@ export default function SliderImagev2_1() {
   };
 
   return (
-    <div className="group p-5">
-      <div className="flex flex-wrap justify-center items-center gap-8 lg:flex xl:flex">
-        {displayCards.map((card, index) => (
-          <Card
-            key={startIndex + index}
-            title={card.title}
-            difficulty={card.difficulty}
-            time={card.time}
-            foodImage={card.foodImage}
-            role={card.role}
-          />
-        ))}
+    <>
+      <div className="flex justify-center items-center px-6 pt-10 pb-4 text-xl gap-3 text-gray-700">
+        <h1>&mdash;&mdash;&mdash;&mdash;&mdash;</h1>
+        <h1 className="text-xl font-semibold text-gray-700 flex justify-center items-center text-center">
+          Be Inspired With
+        </h1>
+        <h1>&mdash;&mdash;&mdash;&mdash;&mdash;</h1>
       </div>
-      <div className="flex justify-center mt-4 gap-3">
-        <Button
-          onClick={handlePrev}
-          disabled={startIndex === 0}
-          className="rounded-full bg-red-500 hover:bg-red-600"
-        >
-          {"<"}
-        </Button>
-        <Button
-          onClick={handleNext}
-          disabled={startIndex === cards.length - 4}
-          className="rounded-full bg-red-500 hover:bg-red-600"
-        >
-          {">"}
-        </Button>
+      <h1 className="flex justify-center items-center text-3xl font-bold text-gray-800">
+        Our Recipes
+      </h1>
+      <div className="group p-5">
+        <div className="flex flex-wrap justify-center items-center gap-8 lg:flex xl:flex">
+          {displayCards.map((card, index) => (
+            <Card
+              key={startIndex + index}
+              title={card.title}
+              difficulty={card.difficulty}
+              time={card.time}
+              foodImage={card.foodImage}
+              role={card.role}
+            />
+          ))}
+        </div>
+        <div className="flex justify-center mt-8 gap-3">
+          <Button
+            onClick={handlePrev}
+            disabled={startIndex === 0}
+            className="rounded-full bg-red-500 hover:bg-red-600"
+          >
+            {"<"}
+          </Button>
+          <Button
+            onClick={handleNext}
+            disabled={startIndex === cards.length - 4}
+            className="rounded-full bg-red-500 hover:bg-red-600"
+          >
+            {">"}
+          </Button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

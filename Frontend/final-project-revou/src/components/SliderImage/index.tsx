@@ -27,7 +27,7 @@ const SliderImage: React.FC<ImageSliderProps> = ({ images }) => {
   }, [currentIndex]); // Run effect whenever currentIndex changes
 
   return (
-    <div className="pt-2">
+    <div className="px-3">
       <div className="relative overflow-hidden rounded-lg">
         <img
           src={images[currentIndex]}
