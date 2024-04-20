@@ -47,9 +47,9 @@ export default function Home() {
       <SliderImage images={images} />
       {/* Discover content */}
       <div className="flex justify-center items-center p-10 text-xl gap-3">
-        <h1>------</h1>
+        <h1>&mdash;&mdash;&mdash;&mdash;&mdash;</h1>
         <h1>Discover</h1>
-        <h1>------</h1>
+        <h1>&mdash;&mdash;&mdash;&mdash;&mdash;</h1>
       </div>
       <div className="flex justify-center items-center  text-3xl font-bold gap-3">
         Our Engagement
@@ -80,7 +80,7 @@ export default function Home() {
         <Button className="bg-red-500 text-xl font-bold ">Learn More</Button>
       </div>
       {/* End Discover content */}
-      <SliderImagev2 foodImages={foodImages} />
+      {/* <SliderImagev2 foodImages={foodImages} /> */}
       <SliderImagev2_1 />
       <SliderV3 images={foodImagesv2} />
       <HeroPage />

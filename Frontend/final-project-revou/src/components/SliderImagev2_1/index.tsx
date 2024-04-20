@@ -79,7 +79,7 @@ export default function SliderImagev2_1() {
 
   return (
     <div className="group p-5">
-      <div className="flex flex-wrap justify-center items-center gap-3 lg:flex xl:flex">
+      <div className="flex flex-wrap justify-center items-center gap-8 lg:flex xl:flex">
         {displayCards.map((card, index) => (
           <Card
             key={startIndex + index}

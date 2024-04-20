@@ -31,9 +31,9 @@ const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
       <div className="flex flex-wrap justify-center items-center lg:flex xl:flex">
         <div className="flex-col justify-center items-center">
           <div className="flex justify-center items-center p-5 gap-2">
-            <h1>-----</h1>
-            <h1 className="text-xl">Be Inspired With</h1>
-            <h1>-----</h1>
+            <h1 className="hidden lg:flex">&mdash;&mdash;&mdash;&mdash;</h1>
+            <h1 className="text-2xl lg:text-2xl">Be Inspired With</h1>
+            <h1 className="hidden lg:flex">&mdash;&mdash;&mdash;&mdash;</h1>
           </div>
           <div className="flex justify-center items-center text-3xl font-bold p-2">
             <Button onClick={goToPrevious} className="sm:hidden rounded-full">
