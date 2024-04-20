@@ -19,8 +19,8 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
   };
 
   return (
-    <div>
-      <div className="hidden items-center justify-around sm:hidden lg:flex p-5 bg-orange-200">
+    <>
+      <div className="hidden items-center justify-around sm:flex sm:gap-6 p-5 bg-orange-200">
         <div className="flex gap-2">
           <svg
             width="25px"
@@ -38,7 +38,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
           </svg>
           <h1>have a question? contact us</h1>
         </div>
-        <div className="flex justify-between gap-20">
+        <div className="flex justify-between gap-4 md:gap-8">
           <div className="flex border-b-2 border-black">
             <input
               type="text"
@@ -86,12 +86,10 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
           </div>
         </div>
       </div>
+      {/* Main Navbar */}
       <div className="relative z-10 justify-center flex items-center ">
-        {/* <div>
-          <h1>logo</h1>
-        </div> */}
-        <div className="hidden lg:flex lg:justify-center lg:items-center font-sans font-medium text-lg">
-          <ul className="flex gap-32 justify-center items-center">
+        <div className="hidden sm:flex sm:justify-center sm:items-center font-sans font-medium text-lg">
+          <ul className="flex gap-10 md:gap-16 lg:gap-28 xl:gap-32 2xl:gap-40 justify-center items-center">
             <li>
               <a href="#">Recipe</a>
             </li>
@@ -114,7 +112,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
           </ul>
         </div>
         {/* Hamburger Menu */}
-        <div className="pt-4 pb-2 lg:hidden">
+        <div className="pt-4 pb-2 sm:hidden">
           <button
             onClick={toggleNavbarHamburgerMenu}
             type="button"
@@ -135,8 +133,9 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
             </svg>
           </button>
         </div>
+        {/* End of Hamburger Menu */}
       </div>
-    </div>
+    </>
   );
 };
 
