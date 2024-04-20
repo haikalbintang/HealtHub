@@ -1,5 +1,3 @@
-"use client";
-import React, { useState } from "react";
 import svg1 from "../images/svg/whole-foods-1.svg";
 import Link from "next/link";
 
@@ -115,7 +113,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
             </li>
           </ul>
         </div>
-        <div className="block p-2 lg:hidden">
+        <div className="p-2 lg:hidden">
           <button
             onClick={toggleNavbarHamburgerMenu}
             type="button"

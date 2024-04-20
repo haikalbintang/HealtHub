@@ -15,7 +15,7 @@ export default function NavbarDropdown({
   setShowLoginModal,
 }: Props) {
   return (
-    <div className="lg:hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-left z-40">
+    <div className="lg:hidden absolute -top-6 inset-x-0 p-2 transition transform origin-top-left z-40">
       <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
         <div className="px-5 pt-4 flex items-center justify-between">
           <div>
