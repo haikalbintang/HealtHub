@@ -22,7 +22,7 @@ const SliderImage: React.FC<ImageSliderProps> = ({ images }) => {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-lg">
+    <div className="relative overflow-hidden rounded-lg z-0">
       <img
         src={images[currentIndex]}
         alt="Slider"

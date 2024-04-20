@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Navbar from "@/components/Navbar";
+
 import { Button } from "@/components/ui/button";
 import SliderImage from "@/components/SliderImage";
 import SliderImagev2 from "@/components/SliderImagev2";
@@ -28,6 +27,8 @@ import foodImage5 from "../components/images/slidersv3/5.png";
 import foodImage6 from "../components/images/slidersv3/6.png";
 import SliderImagev2_1 from "../components/SliderImagev2_1";
 
+import NavbarWrapper from "@/components/NavbarWrapper";
+
 export default function Home() {
   const images: string[] = [image1.src, image2.src];
   const foodImages: string[] = [food1.src, food2.src, food3.src, food4.src];
@@ -39,9 +40,10 @@ export default function Home() {
     foodImage5.src,
     foodImage6.src,
   ];
+
   return (
     <main>
-      <Navbar />
+      <NavbarWrapper />
       <SliderImage images={images} />
       {/* Discover content */}
       <div className="flex justify-center items-center p-10 text-xl gap-3">
