@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Navbar from "@/components/Navbar";
 import bg1 from "../../components/images/sliderImagesv2/food3.jpg";
 import googlesvg from "../../components/images/svg/7123025_logo_google_g_icon.svg";
 import facebooksvg from "../../components/images/svg/317727_facebook_social media_social_icon.svg";

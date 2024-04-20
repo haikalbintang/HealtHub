@@ -3,10 +3,22 @@ import React, { useState } from "react";
 import svg1 from "../images/svg/whole-foods-1.svg";
 import Link from "next/link";
 
-const Navbar = () => {
+type SetShowLoginModalType = (
+  value: boolean | ((prev: boolean) => boolean)
+) => void;
+
+interface Props {
+  setShowLoginModal: SetShowLoginModalType;
+}
+
+const Navbar = ({ setShowLoginModal }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+  const toggleLoginModal = () => {
+    setShowLoginModal((prev: boolean) => !prev);
   };
 
   return (
@@ -98,7 +110,9 @@ const Navbar = () => {
               <a href="#">Products</a>
             </li>
             <li>
-              <Link href="/LoginPage">Sign In</Link>
+              <Link href="" onClick={toggleLoginModal}>
+                Sign In
+              </Link>
             </li>
           </ul>
         </div>
@@ -123,7 +137,7 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        {isOpen && (
+        {/* {isOpen && (
           <div className="lg:hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-left">
             <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="px-5 pt-4 flex items-center justify-between">
@@ -181,7 +195,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
