@@ -15,13 +15,13 @@ export default function NavbarDropdown({
   setShowLoginModal,
 }: Props) {
   return (
-    <div className="lg:hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-left z-40">
+    <div className="lg:hidden absolute -top-6 inset-x-0 p-2 transition transform origin-top-left z-40">
       <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-        <div className="px-5 pt-4 flex items-center justify-between">
+        <div className="px-5 pt-4 flex items-start justify-between">
           <div>
             <img src={svg1.src} alt="" />
           </div>
-          <div className="-mr-2">
+          <div className="-mr-2 pt-2">
             <button
               onClick={() => setShowNavbarHamburgerMenu(false)}
               type="button"
@@ -29,7 +29,7 @@ export default function NavbarDropdown({
             >
               <span className="sr-only">Close menu</span>
               <svg
-                className="h-6 w-6"
+                className="h-8 w-8"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

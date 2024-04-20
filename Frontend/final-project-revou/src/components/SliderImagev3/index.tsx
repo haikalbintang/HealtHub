@@ -26,15 +26,17 @@ const SliderV3: React.FC<ImageSliderProps> = ({ images }) => {
 
   return (
     <div className="">
-      <div className="flex justify-center items-center p-2 gap-2">
+      <div className="flex justify-center items-center px-6 pt-10 pb-4 text-xl gap-3 text-gray-700">
         <h1>&mdash;&mdash;&mdash;&mdash;&mdash;</h1>
-        <h1 className="text-xl font-bold">Our Ranges</h1>
+        <h1 className="text-xl font-semibold text-gray-700 flex justify-center items-center text-center">
+          Our Ranges
+        </h1>
         <h1>&mdash;&mdash;&mdash;&mdash;&mdash;</h1>
       </div>
-      <div className="flex justify-center items-center text-4xl font-bold p-5">
-        <h1>For All Your Desires</h1>
-      </div>
-      <div className="flex justify-center items-center">
+      <h1 className="flex justify-center items-center text-3xl font-bold text-gray-800">
+        For All Your Desires
+      </h1>
+      <div className="flex justify-center items-center py-7">
         <div className="grid grid-cols-4 grid-rows-4 gap-3 h-96 p-3">
           <div className="col-span-2 row-span-4">
             <img

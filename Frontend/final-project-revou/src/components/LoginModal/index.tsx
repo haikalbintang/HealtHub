@@ -34,9 +34,11 @@ export default function LoginModal({ setShowLoginModal }: Props) {
         ></div>
 
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl z-50">
-          <div className="p-5 pb-3">
+          <div className="justify-center p-5 pb-3">
             <h1 className="text-3xl font-bold">WELCOME!</h1>
-            <p className="text-slate-700">Please choose your Sign in method.</p>
+            <p className="text-slate-700">
+              Please choose Sign-in option below.
+            </p>
           </div>
           <div className="flex flex-col gap-2 p-5">
             <div className="flex py-2">
