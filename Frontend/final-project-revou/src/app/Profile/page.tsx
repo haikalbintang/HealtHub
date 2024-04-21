@@ -24,17 +24,19 @@ const ProfilePage: React.FC = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center bg-red-500 ">
-      <div className="flex justify-center items-center p-16 m-10 ">
+    <div className="flex lg:flex justify-center items-center bg-red-500 overflow-hidden">
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:p-16 lg:m-10 overflow-hidden">
         <div className="flex justify-center items-center">
-          <ChefProfile className="lg:w-1/2 lg:h1/2 overflow-hidden" />
+          <ChefProfile className=" lg:w-1/2" />
         </div>
-        <div className="lg:w-1/2 lg:h-1/2 bg-white rounded-tr-3xl rounded-br-3xl overflow-hidden ">
+        <div className="w-full lg:w-1/2 lg:h-1/2 bg-white lg:rounded-tr-3xl lg:rounded-br-3xl overflow-hidden ">
           {chefMainCard.map((card: any) => (
             <div className=" 2xl:p-10">
               {chefMainCard[0].socialMedia.map((social: any) => (
-                <div className="flex justify-around gap-2">
-                  <h1 className=" pt-6 2xl:pt-6">{card.userRole}</h1>
+                <div className="flex flex-col lg:flex-row justify-around gap-2">
+                  <h1 className="flex justify-center items-center pt-6 2xl:pt-6">
+                    {card.userRole}
+                  </h1>
                   <div className="flex justify-center items-center gap-3 pt-4 2xl:p-8">
                     <div>
                       <Button>
@@ -54,7 +56,7 @@ const ProfilePage: React.FC = () => {
               <h1 className="text-5xl pl-10 py-5">{card.name}</h1>
               <h1 className=" pl-10  w-full">{card.description}</h1>
               {chefMainCard[0].socialMedia.map((social: any) => (
-                <div className="social-media pr-10 pt-6 flex justify-end items center">
+                <div className="social-media pr-10 pt-6 flex justify-center lg:justify-end items center">
                   <div className="flex gap-2">
                     <Button onClick={handleFollowToggle}>
                       {following ? "Following" : "+ Follow"}
@@ -103,7 +105,7 @@ const ProfilePage: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                <div className="flex justify-end pt-8 pb-4 gap-3">
+                <div className="flex justify-center lg:justify-end pt-24 lg:pt-8 lg:pb-4 gap-3">
                   <Button
                     onClick={handlePrev}
                     disabled={startIndex === 0}

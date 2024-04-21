@@ -136,7 +136,7 @@ const TestPage: React.FC<Props> = () => {
   };
 
   return (
-    <div className="flex justify-center items-center py-5">
+    <div className="flex justify-center items-center lg:py-5">
       <div className="flex flex-col justify-center items-center relative w-full h-full">
         {chefMainCard.map((chefCard, index) => (
           <div>
@@ -144,12 +144,12 @@ const TestPage: React.FC<Props> = () => {
               <img
                 src={chefMainCard[0].chefImage}
                 alt=""
-                className="w-full h-full object-cover rounded-tl-3xl overflow-hidden"
+                className="w-full h-full object-cover lg:rounded-tl-3xl overflow-hidden"
               />
             </div>
 
-            <div className="bgs-gradients w-full h-24 rounded-bl-3xl ">
-              <div className="flex absolute bottom-5 left-1/2 transform -translate-x-1/2 w-1/3 gap-2 ">
+            <div className="hidden lg:flex  bgs-gradients w-full h-24 lg:rounded-bl-3xl ">
+              <div className="flex absolute bottom-5 left-1/2 transform -translate-x-1/2 lg:w-1/3 gap-2 ">
                 {displayCards.map((subChefCard, subIndex) => (
                   <div key={subIndex} className="flex object-cover">
                     <img
@@ -161,7 +161,7 @@ const TestPage: React.FC<Props> = () => {
                   </div>
                 ))}
               </div>
-              <div className="flex justify-around items-center gap-3 pt-5 ">
+              <div className="flex justify-around items-center gap-3 pt-5 w-full">
                 <Button
                   onClick={handlePrev}
                   disabled={startIndex === 0}
