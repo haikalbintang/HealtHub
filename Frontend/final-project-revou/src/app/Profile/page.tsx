@@ -66,7 +66,7 @@ const ProfilePage: React.FC = () => {
                         <img
                           src={facebooksvg.src}
                           alt=""
-                          className="w-6 h-6 rounded-lg"
+                          className="w-10 h-10 rounded-lg"
                         />
                       </a>
                     </div>
@@ -75,7 +75,7 @@ const ProfilePage: React.FC = () => {
                         <img
                           src={tiktoksvg.src}
                           alt=""
-                          className="w-6 h-6 rounded-lg"
+                          className="w-10 h-10 rounded-lg"
                         />
                       </a>
                     </div>
