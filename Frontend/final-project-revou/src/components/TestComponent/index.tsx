@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "react-modal"; // Correct import statement for React Modal
+import Modal from "react-modal";
 
 function MyModal() {
   const [isOpen, setIsOpen] = useState(false);
