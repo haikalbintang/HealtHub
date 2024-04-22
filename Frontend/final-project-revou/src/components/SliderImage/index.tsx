@@ -22,9 +22,9 @@ const SliderImage: React.FC<ImageSliderProps> = ({ images }) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(goToNext, 4000); // Change image every 5 seconds
+    const interval = setInterval(goToNext, 4000);
     return () => clearInterval(interval);
-  }, [currentIndex]); // Run effect whenever currentIndex changes
+  }, [currentIndex]);
 
   return (
     <div className="px-3">

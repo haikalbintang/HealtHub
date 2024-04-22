@@ -12,6 +12,10 @@ export const recipeDetailCards = [
     time: "20Min",
     foodImage: Food1.src,
     servings: "4",
+    foodCategory: "Pasta",
+    foodOrigin: "Italy",
+    summary:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero nesciunt doloribus eveniet amet a distinctio quidem earum pariatur repellat id dolorum molestiae perspiciatis nobis ullam cumque, tenetur impedit assumenda rerum!",
     ingredients: [
       {
         name: "Pasta",
@@ -53,7 +57,7 @@ export const recipeDetailCards = [
     nuttritions: [
       {
         name: "Calories",
-        value: "200",
+        value: "200g",
       },
       {
         name: "Protein",
@@ -72,22 +76,30 @@ export const recipeDetailCards = [
 ];
 export default function RecipeHeroPage({ images }: ImageProps) {
   return (
-    <div className="lg:px-20">
-      <div className="flex justify-center items-center gap-2 bg-orange-800 w-full h-16 text-white  lg:rounded-t-3xl">
+    <div className=" pt-5 flex flex-col justify-center items-center">
+      <div
+        className="flex justify-center items-center gap-2 bg-orange-800 w-full h-16 text-white  lg:rounded-t-3xl"
+        style={{ maxWidth: "150vh" }}
+      >
         {recipeDetailCards.map((recipe: any) => (
-          <div className="flex gap-2">
+          <div className="flex justify-center items-center gap-2">
             <h1>Welcome {">"}</h1>
             <h1>The Recipes {">"}</h1>
             <h1>{recipe.title}</h1>
           </div>
         ))}
       </div>
-      <div className="relative ">
+      <div className="relative w-full flex justify-center items-center px-6 overflow-hidden">
         <img
           src={images[0]}
           alt=""
-          className="w-full object-cover lg:rounded-b-3xl"
-          style={{ maxHeight: "40vh" }}
+          className="w-full h-full object-cover lg:rounded-b-3xl"
+          style={{
+            maxHeight: "30vh",
+            maxWidth: "150vh",
+            display: "block",
+            objectPosition: "bottom",
+          }}
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white m-5">
           {recipeDetailCards.map((recipe: any) => (
@@ -143,7 +155,7 @@ export default function RecipeHeroPage({ images }: ImageProps) {
             </div>
           ))}
           <Button
-            className="bg-green-500 text-xl font-bold"
+            className="bg-green-500 text-xl font-bold "
             style={{ position: "absolute", bottom: "-10%" }}
           >
             See The Other Recipes
