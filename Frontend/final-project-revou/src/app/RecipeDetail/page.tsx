@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import RecipeHeroPage from "@/components/RecipeHeroPage";
 import Ingredients from "@/components/Ingredients";
 import { chefMainCard } from "@/components/ChefProfile";
-import { recipeDetailCards } from "@/components/RecipeHeroPage";
+import { recipeDetailCards } from "@/data";
 import Food1 from "../../components/images/sliderImagesv2/food1.jpg";
 
 import facebooksvg from "../../components/images/svg/317727_facebook_social media_social_icon.svg";
@@ -87,7 +87,7 @@ export default function Recipees() {
         </div>
       </div>
       {recipeDetailCards.map((card: any) => (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center lg:p-12">
           <h1 className="text-xl font-bold">Recipe Summary :</h1>
           <h1 className="flex justify-center items-center px-36">
             {card.summary}

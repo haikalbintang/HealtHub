@@ -1,79 +1,11 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Food1 from "../images/sliderImagesv2/food1.jpg";
-
+import { recipeDetailCards } from "@/data";
 interface ImageProps {
   images: string[];
 }
-export const recipeDetailCards = [
-  {
-    title: "Spaghetti Lasagna",
-    difficulty: "Easy",
-    time: "20Min",
-    foodImage: Food1.src,
-    servings: "4",
-    foodCategory: "Pasta",
-    foodOrigin: "Italy",
-    summary:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero nesciunt doloribus eveniet amet a distinctio quidem earum pariatur repellat id dolorum molestiae perspiciatis nobis ullam cumque, tenetur impedit assumenda rerum!",
-    ingredients: [
-      {
-        name: "Pasta",
-        ingredientsImage: Food1.src,
-        quantity: "500g",
-      },
-      {
-        name: "Tomato",
-        ingredientsImage: Food1.src,
-        quantity: "500g",
-      },
-      {
-        name: "Olive oil",
-        ingredientsImage: Food1.src,
-        quantity: "20ml",
-      },
-      {
-        name: "Salt",
-        ingredientsImage: Food1.src,
-        quantity: "500g",
-      },
-      {
-        name: "Pepper",
-        ingredientsImage: Food1.src,
-        quantity: "150g",
-      },
-    ],
-    instructions: [
-      {
-        step1: "Cut the pasta into bite-sized pieces.",
-        step2: "Heat up the olive oil in a pan.",
-        step3: "Add the garlic, tomato, and salt.",
-        step4: "Cook until the garlic is fragrant.",
-        step5: "Add the pasta and cook until the sauce thickens.",
-        step6: "Season with pepper.",
-        step7: "Serve immediately.",
-      },
-    ],
-    nuttritions: [
-      {
-        name: "Calories",
-        value: "200g",
-      },
-      {
-        name: "Protein",
-        value: "20g",
-      },
-      {
-        name: "Fat",
-        value: "20g",
-      },
-      {
-        name: "Carbs",
-        value: "20g",
-      },
-    ],
-  },
-];
+
 export default function RecipeHeroPage({ images }: ImageProps) {
   return (
     <div className=" pt-5 flex flex-col justify-center items-center">
