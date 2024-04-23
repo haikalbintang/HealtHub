@@ -45,7 +45,7 @@ const CommentSections = () => {
     <div>
       <div>
         <div className="p-10">
-          <div className="w-1/2 bg-slate-300 rounded-xl">
+          <div className=" bg-slate-300 rounded-xl">
             <div>
               <div className="flex- flex-col">
                 <div className="flex">
@@ -72,7 +72,7 @@ const CommentSections = () => {
               </div>
               {CommentsCard[0].comments.map((card: any) => (
                 <div className="flex p-5 border-b-2">
-                  <div className="p-2">
+                  <div className="hidden lg:flex gap-2">
                     <img
                       src={card.userImage}
                       alt=""
@@ -80,8 +80,15 @@ const CommentSections = () => {
                     />
                   </div>
                   <div className="flex flex-col justify-center items-center">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col p-2">
                       <div className="flex gap-3">
+                        <div className="lg:hidden">
+                          <img
+                            src={card.userImage}
+                            alt=""
+                            className=" h-14 w-14 rounded-full object-cover"
+                          />
+                        </div>
                         <h1>{card.username}</h1>
                         <h1>{card.time}</h1>
                       </div>
