@@ -36,6 +36,7 @@ export const chefMainCard = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
         recipeName: "Pizza Margharita",
         tags: ["#Easy", " #Spicy"],
+        likes: "100k",
       },
       {
         image: food2.src,
@@ -43,6 +44,7 @@ export const chefMainCard = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
         recipeName: "Spaghetti Oglio Olio",
         tags: ["#Normal", " #Low Sugar", " #High protein"],
+        likes: "100k",
       },
       {
         image: food3.src,
@@ -50,6 +52,7 @@ export const chefMainCard = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
         recipeName: "Fried Chicken",
         tags: ["#Normal", " #Low Sugar", " #High protein"],
+        likes: "100k",
       },
       {
         image: food4.src,
@@ -57,6 +60,7 @@ export const chefMainCard = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
         recipeName: "lemon squash",
         tags: ["#Normal", " #Low Sugar", " #High protein"],
+        likes: "100k",
       },
       {
         image: food2.src,
@@ -64,6 +68,7 @@ export const chefMainCard = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
         recipeName: "Gado Gado jakarta",
         tags: ["#Normal", " #Low Sugar", " #High protein"],
+        likes: "100k",
       },
     ],
     chefCards: [

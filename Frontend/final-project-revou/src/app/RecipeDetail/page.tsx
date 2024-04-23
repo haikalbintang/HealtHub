@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import RecipeHeroPage from "@/components/RecipeHeroPage";
 import Ingredients from "@/components/Ingredients";
+import Instructions from "@/components/Instructions";
 import { chefMainCard } from "@/components/ChefProfile";
 import { recipeDetailCards } from "@/data";
 import Food1 from "../../components/images/sliderImagesv2/food1.jpg";
@@ -48,7 +49,7 @@ export default function Recipees() {
           ))}
         </div>
         <div>
-          <Button>Lorem, ipsum.</Button>
+          <Button className="bg-red-400">Share this Recipe!</Button>
         </div>
         <div className="justify-center items-center ">
           {chefMainCard.map((card: any) => (
@@ -99,43 +100,7 @@ export default function Recipees() {
           <Ingredients className="flex justify-items-center items-center" />
         </div>
         <div className="lg:w-1/2 pt-10">
-          <div className="">
-            {recipeDetailCards[0].instructions.map((card: any) => (
-              <div className="p-2 gap-3">
-                <h1 className="text-2xl">Instructions :</h1>
-                <div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">1</Button>
-                    <h1>{card.step1}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">2</Button>
-                    <h1>{card.step2}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">3</Button>
-                    <h1>{card.step3}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">4</Button>
-                    <h1>{card.step4}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">5</Button>
-                    <h1>{card.step5}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">6</Button>
-                    <h1>{card.step6}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">7</Button>
-                    <h1>{card.step7}</h1>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <Instructions />
         </div>
       </div>
     </div>
