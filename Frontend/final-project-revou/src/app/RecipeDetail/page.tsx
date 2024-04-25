@@ -3,12 +3,21 @@ import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import RecipeHeroPage from "@/components/RecipeHeroPage";
 import Ingredients from "@/components/Ingredients";
-import { chefMainCard } from "@/components/ChefProfile";
-import { recipeDetailCards } from "@/components/RecipeHeroPage";
+import Instructions from "@/components/Instructions";
+import CommentSections from "@/components/CommentSection";
+import KitchenTools from "@/components/KitchenTools";
+import SliderImagev2 from "@/components/SliderImagev2";
+import HeroPage from "@/components/HeroPage";
+import { chefMainCard } from "@/data";
+import { recipeDetailCards } from "@/data";
 import Food1 from "../../components/images/sliderImagesv2/food1.jpg";
+import Food2 from "../../components/images/sliderImagesv2/food2.jpg";
+import Food3 from "../../components/images/sliderImagesv2/food3.jpg";
+import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
 
 import facebooksvg from "../../components/images/svg/317727_facebook_social media_social_icon.svg";
 import tiktoksvg from "../../components/images/svg/tiktok-logo-logo-svgrepo-com.svg";
+import knife from "../../components/images/cookingtools/cleaver-butcher-svgrepo-com.svg";
 import { Button } from "@/components/ui/button";
 
 export default function Recipees() {
@@ -19,36 +28,43 @@ export default function Recipees() {
       return str;
     }
   };
-  const images: string[] = [Food1.src];
+  const images: string[] = [Food1.src, Food2.src, Food3.src, Food4.src];
   return (
     <div className=" justify-center items-center">
-      {/* <Navbar /> */}
+      <Navbar />
       <RecipeHeroPage images={images} />
-      <div className="flex justify-around items-center pt-5 px-20">
-        <div className="flex justify-center items-center gap-10">
+      <div className="lg:flex justify-around items-center pt-5 px-20">
+        <div className="lg:flex justify-center items-center gap-10">
           {recipeDetailCards.map((card: any) => (
             <div className="flex justify-center items-center gap-4">
               <div className="flex  gap-5">
                 <div>
-                  <h1>Category:</h1>
-                  <h1>{card.foodCategory}</h1>
+                  <Button className="bg-amber-700">
+                    Category : {card.foodCategory}
+                  </Button>
                 </div>
                 <div>
-                  <h1>Origin:</h1>
-                  <h1>{card.foodOrigin}</h1>
+                  <Button className="bg-amber-700">
+                    Origin : {card.foodOrigin}
+                  </Button>
                 </div>
               </div>
             </div>
           ))}
-          {recipeDetailCards[0].nuttritions.map((card: any) => (
-            <div className="">
-              <h1>{card.name}</h1>
-              <h1>{card.value}</h1>
-            </div>
-          ))}
         </div>
-        <div>
-          <Button>Lorem, ipsum.</Button>
+        <div className="flex flex-col lg:flex-row justify-center  lg:justify-around items-center lg:gap-12 lg:pl-20 gap-5 pt-2 lg:pt-0">
+          <div>
+            <Button className="bg-amber-700">
+              Nutri Score :{" "}
+              <span className="text-gradients font-bold">8.0</span>
+            </Button>
+          </div>
+          <div>
+            <Button className="bg-amber-700">I love This Recipe</Button>
+          </div>
+          <div>
+            <Button className="bg-amber-700">Share this Recipe!</Button>
+          </div>
         </div>
         <div className="justify-center items-center ">
           {chefMainCard.map((card: any) => (
@@ -87,55 +103,41 @@ export default function Recipees() {
         </div>
       </div>
       {recipeDetailCards.map((card: any) => (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center lg:p-12">
           <h1 className="text-xl font-bold">Recipe Summary :</h1>
           <h1 className="flex justify-center items-center px-36">
             {card.summary}
           </h1>
         </div>
       ))}
-      <div className="lg:flex">
-        <div className="lg:w-1/2">
+      <div className="lg:flex lg:pl-20">
+        <div className="lg:w-1/3">
           <Ingredients className="flex justify-items-center items-center" />
         </div>
-        <div className="lg:w-1/2 pt-10">
-          <div className="">
-            {recipeDetailCards[0].instructions.map((card: any) => (
-              <div className="p-2 gap-3">
-                <h1 className="text-2xl">Instructions :</h1>
-                <div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">1</Button>
-                    <h1>{card.step1}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">2</Button>
-                    <h1>{card.step2}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">3</Button>
-                    <h1>{card.step3}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">4</Button>
-                    <h1>{card.step4}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">5</Button>
-                    <h1>{card.step5}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">6</Button>
-                    <h1>{card.step6}</h1>
-                  </div>
-                  <div className="flex items-center gap-2 p-2">
-                    <Button className="rounded-full bg-amber-700">7</Button>
-                    <h1>{card.step7}</h1>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <div className="lg:w-2/3 pt-8 px-5">
+          <Instructions />
+        </div>
+      </div>
+      <div className="lg:flex pt-10 lg:px-20  justify-center items-center gap-3">
+        {recipeDetailCards[0].tags.map((tag: any) => (
+          <div>
+            <h1 className="bg-slate-200 p-5 gap-2 rounded-xl w-full shadow-lg shadow-slate-500 ">
+              {tag}
+            </h1>
           </div>
+        ))}
+        {/* <KitchenTools /> */}
+      </div>
+      <div className="lg:flex lg:pl-20 lg:pt-5">
+        <div className="lg:w-1/3 ">
+          <CommentSections />
+        </div>
+        <div className="lg:w-2/3  lg:flex-col justify-start items-start pt-5 pr-10">
+          <SliderImagev2
+            foodImages={images}
+            title="Recipe Galery:"
+            className="h-1/3"
+          />
         </div>
       </div>
     </div>

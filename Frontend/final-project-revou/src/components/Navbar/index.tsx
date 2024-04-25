@@ -6,8 +6,8 @@ type SetToggleMenuType = (
 ) => void;
 
 interface Props {
-  setShowLoginModal: SetToggleMenuType;
-  setShowNavbarHamburgerMenu: SetToggleMenuType;
+  setShowLoginModal?: SetToggleMenuType;
+  setShowNavbarHamburgerMenu?: SetToggleMenuType;
 }
 
 const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {

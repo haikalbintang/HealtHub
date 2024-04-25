@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
-import { recipeDetailCards } from "../RecipeHeroPage";
+import { recipeDetailCards } from "@/data";
 
 interface Props {
   className?: string;

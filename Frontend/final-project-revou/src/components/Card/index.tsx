@@ -13,7 +13,7 @@ interface Props {
   time: string;
   foodImage: string;
   role?: string;
-  clasName?: string;
+  className?: string;
 }
 
 export default function Card({

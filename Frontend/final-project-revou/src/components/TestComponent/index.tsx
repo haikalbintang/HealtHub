@@ -1,22 +1,10 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
+import countryCode from "@/hooks/flags";
 
-function MyModal() {
-  const [isOpen, setIsOpen] = useState(false);
+function FlagsLogo() {
+  const [country, setCountry] = useState("");
 
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-
-  return (
-    <div>
-      <button onClick={openModal}>Open Modal</button>
-      <Modal isOpen={isOpen} onRequestClose={closeModal}>
-        <h2>Modal Title</h2>
-        <p>Modal content goes here.</p>
-        <button onClick={closeModal}>Close Modal</button>
-      </Modal>
-    </div>
-  );
+  return <div></div>;
 }
 
-export default MyModal;
+export default FlagsLogo;

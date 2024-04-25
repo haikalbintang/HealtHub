@@ -4,9 +4,11 @@ import { Button } from "../ui/button";
 
 interface ImageSliders {
   foodImages: string[];
+  title: string;
+  className?: string;
 }
 
-const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
+const SliderImagev2: React.FC<ImageSliders> = ({ foodImages, title }) => {
   const [middleIndex, setMiddleIndex] = useState<number>(0);
 
   const goToPrevious = () => {
@@ -21,32 +23,21 @@ const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
     );
   };
 
-  // Calculate the indices of the previous and next images
   const previousIndex =
     middleIndex === 0 ? foodImages.length - 1 : middleIndex - 1;
   const nextIndex = middleIndex === foodImages.length - 1 ? 0 : middleIndex + 1;
 
   return (
     <div className="p-5">
-      <div className="flex flex-wrap justify-center items-center lg:flex xl:flex">
-        <div className="flex-col justify-center items-center">
-          <div className="flex justify-center items-center p-5 gap-2">
-            <h1 className="hidden lg:flex">&mdash;&mdash;&mdash;&mdash;</h1>
-            <h1 className="text-2xl lg:text-2xl">Be Inspired With</h1>
-            <h1 className="hidden lg:flex">&mdash;&mdash;&mdash;&mdash;</h1>
-          </div>
+      <div className="flex flex-col justify-center items-center lg:flex xl:flex">
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="text-3xl font-bold">{title}</h1>
           <div className="flex justify-center items-center text-3xl font-bold p-2">
             <Button onClick={goToPrevious} className="sm:hidden rounded-full">
               {"<"}
             </Button>
-            <h1>Our Recipes</h1>
             <Button onClick={goToNext} className="sm:hidden rounded-full">
               {">"}
-            </Button>
-          </div>
-          <div className="hidden justify-center items-center p-5 lg:flex">
-            <Button className="bg-red-500 text-xl font-bold">
-              See all recipes
             </Button>
           </div>
         </div>
@@ -74,7 +65,7 @@ const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
                   margin: "0 auto",
                 }}
               />
-              <h2
+              {/* <h2
                 style={{
                   position: "absolute",
                   bottom: "20%",
@@ -89,8 +80,8 @@ const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
                 className="text-2xl font-bold"
               >
                 Spaghetti lasagne
-              </h2>
-              <div
+              </h2> */}
+              {/* <div
                 className="flex gap-2"
                 style={{
                   position: "absolute",
@@ -106,8 +97,8 @@ const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
               >
                 <Button className="rounded-full">logo</Button>
                 <h1 className="flex justify-center items-center">Easy</h1>
-              </div>
-              <div
+              </div> */}
+              {/* <div
                 className="flex gap-2"
                 style={{
                   position: "absolute",
@@ -123,7 +114,7 @@ const SliderImagev2: React.FC<ImageSliders> = ({ foodImages }) => {
               >
                 <Button className="rounded-full">logo</Button>
                 <h1 className="flex justify-center items-center">20Min</h1>
-              </div>
+              </div> */}
             </div>
             <div style={{ position: "relative", textAlign: "center" }}>
               <img
