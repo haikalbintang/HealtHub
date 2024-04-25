@@ -170,7 +170,7 @@ export default function LoginModal({
                 </div>
                 <div className="mt-2">
                   <p className="text-sm text-slate-700">
-                    Don't have an account? Sign up{" "}
+                    Don&apos;t have an account? Sign up{" "}
                     <span
                       onClick={() => goToRegisterFromLogin()}
                       className="text-red-500 hover:text-red-600 cursor-pointer hover:font-semibold"
