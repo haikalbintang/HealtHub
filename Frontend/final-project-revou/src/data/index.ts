@@ -1,4 +1,4 @@
-import food1 from "../components/images/sliderImagesv2/food1.jpg";
+import food1 from "../components/images/sliderImagesv2/authentic-italian-pasta.jpg";
 import food2 from "../components/images/sliderImagesv2/food2.jpg";
 import food3 from "../components/images/sliderImagesv2/food3.jpg";
 import food4 from "../components/images/sliderImagesv2/food4.jpg";
@@ -7,6 +7,12 @@ import chef1 from "../components/images/chefimage/Joel-Robuchon.jpg";
 import chef2 from "../components/images/chefimage/jemieolif.jpg";
 import chef3 from "../components/images/chefimage/gordonram.jpeg";
 import chef4 from "../components/images/chefimage/Pierre-Gagnaire.jpg";
+
+import tools1 from "../components/images/cookingtools/cleaver-butcher-svgrepo-com.svg";
+import tools2 from "../components/images/cookingtools/grater-svgrepo-com.svg";
+import tools3 from "../components/images/cookingtools/pizza-knife-svgrepo-com.svg";
+import tools4 from "../components/images/cookingtools/spatula-svgrepo-com.svg";
+
 export const recipeDetailCards = [
   {
     title: "Spaghetti Lasagna",
@@ -47,13 +53,10 @@ export const recipeDetailCards = [
     ],
     instructions: [
       {
-        step1: "Cut the pasta into bite-sized pieces.",
-        step2: "Heat up the olive oil in a pan.",
-        step3: "Add the garlic, tomato, and salt.",
-        step4: "Cook until the garlic is fragrant.",
-        step5: "Add the pasta and cook until the sauce thickens.",
-        step6: "Season with pepper.",
-        step7: "Serve immediately.",
+        1: "Cook the Pasta Bring a large pot of salted water to a boil. Cook the pasta according to the package instructions until al dente. Drain and set aside, reserving about 1/2 cup of pasta water.",
+        2: " Cut the tomatoes into small cubes and set aside. In a large skillet, heat the olive oil over medium heat. Add the garlic, and cook for 1 minute until fragrant.",
+        3: " Add the tomato cubes, salt, pepper, and the pasta water. Mix well and cook for 5-7 minutes until the sauce has thickened.",
+        4: " Add the pasta to the sauce and mix well. Serve immediately.",
       },
     ],
     nuttritions: [
@@ -73,6 +76,15 @@ export const recipeDetailCards = [
         name: "Carbs",
         value: "20g",
       },
+    ],
+    tags: [
+      "#Pasta",
+      "#Spaghetti",
+      "#Italian",
+      "#Easy",
+      "#5Min",
+      "#tasty",
+      "#healthy",
     ],
   },
 ];
@@ -151,7 +163,7 @@ export const chefMainCard = [
         recipeDescription:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
         recipeName: "Pizza Margharita",
-        tags: ["#Easy", " #Spicy"],
+        tags: ["#Easy", " #Spicy", " #Vegan"],
       },
       {
         image: food2.src,
@@ -181,6 +193,14 @@ export const chefMainCard = [
         recipeName: "Gado Gado jakarta",
         tags: ["#Normal", " #Low Sugar", " #High protein"],
       },
+    ],
+    kitchenTools: [
+      { toolsName: "knife kitchen", toolsImage: tools1.src },
+      { toolsName: "knife", toolsImage: tools2.src },
+      { toolsName: "knife", toolsImage: tools3.src },
+      { toolsName: "knife", toolsImage: tools4.src },
+      { toolsName: "knife", toolsImage: tools1.src },
+      { toolsName: "knife", toolsImage: tools2.src },
     ],
     chefCards: [
       {

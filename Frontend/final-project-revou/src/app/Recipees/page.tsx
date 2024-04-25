@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import HeroEveryPage from "@/components/HeroEveryPage";
 import foodBanner1 from "../../components/images/sliderImagesv2/food2.jpg";

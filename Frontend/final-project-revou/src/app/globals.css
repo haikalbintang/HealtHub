@@ -25,6 +25,17 @@
     background: linear-gradient(to right, #00b9ff, #2558a2);
   }
 
+  .recipe-gradients {
+    background: linear-gradient(to right, #ff8800, #a24425);
+  }
+
+  .text-gradients {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #f6c704, #edeb00);
+  }
+
   @keyframes rotateImage {
     from {
       transform: translate(-50%, -50%) rotate(-5deg);

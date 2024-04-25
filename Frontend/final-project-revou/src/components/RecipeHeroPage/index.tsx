@@ -9,7 +9,7 @@ interface ImageProps {
 export default function RecipeHeroPage({ images }: ImageProps) {
   return (
     <div className=" pt-5 flex flex-col justify-center items-center">
-      <div
+      {/* <div
         className="flex justify-center items-center gap-2 bg-orange-800 w-full h-16 text-white  lg:rounded-t-3xl"
         style={{ maxWidth: "150vh" }}
       >
@@ -20,17 +20,17 @@ export default function RecipeHeroPage({ images }: ImageProps) {
             <h1>{recipe.title}</h1>
           </div>
         ))}
-      </div>
+      </div> */}
       <div className="relative w-full flex justify-center items-center px-6 overflow-hidden">
         <img
-          src={images[0]}
+          src={recipeDetailCards[0].foodImage}
           alt=""
-          className="w-full h-full object-cover lg:rounded-b-3xl"
+          className="w-full h-full object-cover lg:rounded-3xl"
           style={{
-            maxHeight: "30vh",
+            maxHeight: "50vh",
             maxWidth: "150vh",
             display: "block",
-            objectPosition: "bottom",
+            objectPosition: "top",
           }}
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white m-5">
@@ -86,12 +86,12 @@ export default function RecipeHeroPage({ images }: ImageProps) {
               </div>
             </div>
           ))}
-          <Button
+          {/* <Button
             className="bg-green-500 text-xl font-bold "
             style={{ position: "absolute", bottom: "-10%" }}
           >
             See The Other Recipes
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>
