@@ -13,11 +13,24 @@ type SetToggleMenuType = (
 
 interface Props {
   setShowLoginModal: SetToggleMenuType;
+  setShowRegisterModal: SetToggleMenuType;
 }
 
-export default function LoginModal({ setShowLoginModal }: Props) {
+export default function LoginModal({
+  setShowLoginModal,
+  setShowRegisterModal,
+}: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // const toggleRegisterModal = () => {
+  //   setShowRegisterModal((prev: boolean) => !prev);
+  // };
+
+  function goToRegisterFromLogin() {
+    setShowLoginModal(false);
+    setShowRegisterModal(true);
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -35,12 +48,10 @@ export default function LoginModal({ setShowLoginModal }: Props) {
 
         <div className="fixed flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl z-50">
           {/* Sign-in options */}
-          <div className="px-0 sm:px-6 md:px-0 lg:px-6">
+          <div className="px-0 sm:p-6">
             <div className="justify-center p-5 pb-0">
-              <h1 className="text-3xl font-bold text-slate-700">WELCOME!</h1>
-              <p className="text-slate-600">
-                Please choose Sign-in option below.
-              </p>
+              <h1 className="text-3xl font-bold text-slate-700">Welcome Back!</h1>
+              <p className="text-slate-600">Please enter your credentials</p>
             </div>
             <div className="flex flex-col gap-2 p-5">
               <div className="flex py-2">
@@ -161,7 +172,7 @@ export default function LoginModal({ setShowLoginModal }: Props) {
                   <p className="text-sm text-slate-700">
                     Don't have an account? Sign up{" "}
                     <span
-                      onClick={() => setShowLoginModal(false)}
+                      onClick={() => goToRegisterFromLogin()}
                       className="text-red-500 hover:text-red-600 cursor-pointer hover:font-semibold"
                     >
                       here
