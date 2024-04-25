@@ -1,3 +1,32 @@
+import {
+  ControllerFieldState,
+  ControllerRenderProps,
+  FieldValues,
+  UseFormStateReturn,
+} from "react-hook-form";
+import { ReactElement, JSXElementConstructor } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import Modal from "../Modal";
+
+const formSchema = z.object({
+  username: z.string().min(2).max(50),
+});
+
 type SetToggleMenuType = (
   value: boolean | ((prev: boolean) => boolean)
 ) => void;
@@ -7,20 +36,46 @@ interface Props {
 }
 
 export default function RegisterModal({ setShowRegisterModal }: Props) {
-  return (
-    <>
-      <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
-        <div
-          className="fixed inset-0 bg-black opacity-50 z-40"
-          onClick={() => setShowRegisterModal(false)}
-        ></div>
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: "",
+    },
+  });
 
-        <div className="fixed flex top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl z-50">
-          <div className="px-0 sm:p-6">
-            <h1>REGISTER</h1>
-          </div>
-        </div>
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
+
+  return (
+    <Modal setShowModal={setShowRegisterModal}>
+      <div className="p-6">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <FormField
+              control={form.control}
+              name="username"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Username</FormLabel>
+                  <FormControl>
+                    <Input placeholder="shadcn" {...field} />
+                  </FormControl>
+                  <FormDescription>
+                    This is your public display name.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit">Submit</Button>
+          </form>
+        </Form>
       </div>
-    </>
+    </Modal>
   );
 }
