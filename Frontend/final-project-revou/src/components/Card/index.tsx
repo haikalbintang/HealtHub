@@ -14,6 +14,7 @@ interface Props {
   foodImage: string;
   role?: string;
   className?: string;
+  maxHeight?: string;
 }
 
 export default function Card({
@@ -22,6 +23,7 @@ export default function Card({
   time,
   foodImage,
   role,
+  maxHeight,
 }: Props) {
   return (
     <div
@@ -31,7 +33,7 @@ export default function Card({
         src={foodImage}
         alt="Food image."
         className={`block my-0 mx-auto h-auto  `}
-        style={{ maxHeight: "50vh" }}
+        style={{ maxHeight }}
       />
       <h1
         className="absolute bottom-1/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-xl font-bold text-white z-10 m-0 p-0 w-full"

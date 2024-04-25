@@ -2,8 +2,15 @@
 import React, { useState } from "react";
 import logo1 from "../../components/images/cookingtools/spatula-svgrepo-com.svg";
 import Card from "../../components/Card";
-import { Button } from "../ui/button";
 
+import { chefMainCard, chefMainCard2 } from "@/data";
+import HealtyRecipes from "./HealtyRecipes";
+import MainDishes from "./MainDishes";
+import Appetizers from "./Appetizers";
+import Desserts from "./Desserts";
+import Beverages from "./Beverages";
+import SideDishes from "./SideDishes";
+import { Button } from "../ui/button";
 import food1 from "../../components/images/sliderImagesv2/food1.jpg";
 const RecipeFeeds = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,49 +102,30 @@ const RecipeFeeds = () => {
           </div>
         </div>
         <div className="w-3/4 flex flex-col">
-          <div className="w-2/3 pt-10">
+          <div className="pt-10">
             <div className="flex flex-col">
               <h1 className="text-2xl">Discover Recipes</h1>
               <div className="flex gap-5 p-5">
                 {categories.map((category) => (
-                  <div
+                  <Button
                     key={category}
-                    className="category w-1/6 p-2 bg-slate-400 rounded-xl flex justify-center items-center"
+                    className="category p-2 bg-slate-400 "
                     onClick={() => handleCategoryClick(category)}
                   >
                     <h1>{category}</h1>
-                  </div>
+                  </Button>
                 ))}
               </div>
             </div>
           </div>
-          {selectedCategory === "Beverages" && <BeveragesList />}
-          {selectedCategory === "Side Dishes" && <SideDishesList />}
+          {selectedCategory === "Healty recipe" && <HealtyRecipes />}
+          {selectedCategory === "Main Dishes" && <MainDishes />}
+          {selectedCategory === "Appetizers" && <Appetizers />}
+          {selectedCategory === "Desserts" && <Desserts />}
+          {selectedCategory === "Beverages" && <Beverages />}
+          {selectedCategory === "Side Dishes" && <SideDishes />}
         </div>
       </div>
-    </div>
-  );
-};
-
-const BeveragesList: React.FC = () => {
-  return (
-    <div className="item-list">
-      <h2>Beverages</h2>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-      </ul>
-    </div>
-  );
-};
-const SideDishesList: React.FC = () => {
-  return (
-    <div className="item-list">
-      <h2>Side Dishes</h2>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-      </ul>
     </div>
   );
 };

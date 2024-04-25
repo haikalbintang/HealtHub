@@ -99,6 +99,7 @@ export default function SliderImagev2_1() {
               time={card.time}
               foodImage={card.foodImage}
               role={card.role}
+              maxHeight="50vh"
             />
           ))}
         </div>
