@@ -79,13 +79,45 @@ const RecipeFeeds = () => {
                   </div>
                   <h1>Loved</h1>
                 </div>
-                <div className="flex gap-2 justify-start items-center relative">
+                <div className="flex gap-2 justify-start items-center relative w-full">
                   <div className="p-2 rounded-xl ">
                     <img src={logo1.src} alt="" className="h-6 w-6" />
                   </div>
                   <h1>Nutrions</h1>
                   <div className="flex flex-col">
-                    <div className="absolute -right-10 bottom-2 text-white justify-center items-center">
+                    <div className="absolute -right-3 bottom-2 text-white justify-center items-center">
+                      <Button
+                        className="rounded-full shadow-sm shadow-black h-6 w-6"
+                        onClick={toggleMenu}
+                      >
+                        {">"}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex gap-2 justify-start items-center relative w-full">
+                  <div className="p-2 rounded-xl ">
+                    <img src={logo1.src} alt="" className="h-6 w-6" />
+                  </div>
+                  <h1>Type</h1>
+                  <div className="flex flex-col">
+                    <div className="absolute -right-3 bottom-2 text-white justify-center items-center">
+                      <Button
+                        className="rounded-full shadow-sm shadow-black h-6 w-6"
+                        onClick={toggleMenu}
+                      >
+                        {">"}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex w-full gap-2 justify-start items-center relative">
+                  <div className="p-2 rounded-xl ">
+                    <img src={logo1.src} alt="" className="h-6 w-6" />
+                  </div>
+                  <h1>Origin</h1>
+                  <div className="flex flex-col">
+                    <div className="absolute -right-3 bottom-2 text-white justify-center items-center">
                       <Button
                         className="rounded-full shadow-sm shadow-black h-6 w-6"
                         onClick={toggleMenu}
