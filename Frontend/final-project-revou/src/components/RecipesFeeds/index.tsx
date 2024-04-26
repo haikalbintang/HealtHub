@@ -79,51 +79,51 @@ const RecipeFeeds = () => {
                   </div>
                   <h1>Loved</h1>
                 </div>
-                <div className="flex gap-2 justify-start items-center relative w-full">
+                <div className="flex gap-2 justify-start items-center relative w-full hover:bg-red-200 hover:rounded-xl hover:shadow-xl hover:shadow-slate-200">
                   <div className="p-2 rounded-xl ">
                     <img src={logo1.src} alt="" className="h-6 w-6" />
                   </div>
                   <h1>Nutrions</h1>
                   <div className="flex flex-col">
-                    <div className="absolute -right-3 bottom-2 text-white justify-center items-center">
-                      <Button
-                        className="rounded-full shadow-sm shadow-black h-6 w-6"
+                    <div className="absolute right-2 bottom-2 text-white justify-center items-center">
+                      <button
+                        className="bg-slate-200 rounded-full  h-6 w-6 p-1 text-black flex justify-center items-center"
                         onClick={toggleMenu}
                       >
                         {">"}
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-2 justify-start items-center relative w-full">
+                <div className="flex gap-2 justify-start items-center relative w-full hover:bg-red-200 hover:rounded-xl hover:shadow-xl hover:shadow-slate-200">
                   <div className="p-2 rounded-xl ">
                     <img src={logo1.src} alt="" className="h-6 w-6" />
                   </div>
                   <h1>Type</h1>
                   <div className="flex flex-col">
-                    <div className="absolute -right-3 bottom-2 text-white justify-center items-center">
-                      <Button
-                        className="rounded-full shadow-sm shadow-black h-6 w-6"
+                    <div className="absolute right-2 bottom-2 text-white justify-center items-center">
+                      <button
+                        className="bg-slate-200 rounded-full  h-6 w-6 p-1 text-black flex justify-center items-center"
                         onClick={toggleMenu}
                       >
                         {">"}
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 </div>
-                <div className="flex w-full gap-2 justify-start items-center relative">
+                <div className="flex gap-2 justify-start items-center relative w-full hover:bg-red-200 hover:rounded-xl hover:shadow-xl hover:shadow-slate-200">
                   <div className="p-2 rounded-xl ">
                     <img src={logo1.src} alt="" className="h-6 w-6" />
                   </div>
                   <h1>Origin</h1>
                   <div className="flex flex-col">
-                    <div className="absolute -right-3 bottom-2 text-white justify-center items-center">
-                      <Button
-                        className="rounded-full shadow-sm shadow-black h-6 w-6"
+                    <div className="absolute right-2 bottom-2 text-white justify-center items-center">
+                      <button
+                        className="bg-slate-200 rounded-full  h-6 w-6 p-1 text-black flex justify-center items-center"
                         onClick={toggleMenu}
                       >
                         {">"}
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 </div>
