@@ -3,41 +3,57 @@ import { Button } from "@/components/ui/button";
 import { chefMainCard, chefMainCard2 } from "@/data";
 
 const Desserts: React.FC = () => {
-  const [showAll, setShowAll] = useState(false);
+  const [showCount, setShowCount] = useState(4);
 
-  const toggleShowAll = () => {
-    setShowAll(!showAll);
+  const toggleShowMore = () => {
+    setShowCount((prevCount) => prevCount + 4);
   };
+
+  const toggleShowLess = () => {
+    setShowCount((prevCount) => Math.max(4, prevCount - 4));
+  };
+
   return (
     <div className="item-list">
       <h2>Desserts</h2>
-      <div className="">
+      <div className=" pr-16 ">
         {chefMainCard2[0].recipe.map((recipeCategory, index) => (
-          <div className="grid grid-cols-5 gap-2 px-10 pt-5" key={index}>
-            {showAll
-              ? recipeCategory.category.Desserts.map((recipe, recipeIndex) => (
-                  <div key={recipeIndex}>
-                    <img src={recipe.image} alt="" className="rounded-xl" />
-                  </div>
-                ))
-              : recipeCategory.category.Desserts.slice(0, 5).map(
-                  (recipe, recipeIndex) => (
-                    <div key={recipeIndex}>
-                      <img src={recipe.image} alt="" className="rounded-xl" />
+          <div className="grid grid-cols-4 gap-4 px-10  pt-4 " key={index}>
+            {recipeCategory.category.Desserts.slice(0, showCount).map(
+              (recipe, recipeIndex) => (
+                <div
+                  key={recipeIndex}
+                  className="rounded-xl shadow-md shadow-black"
+                >
+                  <img src={recipe.image} alt="" className="rounded-t-xl " />
+                  <div className="flex flex-col gap-2 pt-2 bg-slate-400 rounded-b-xl p-5">
+                    <div className="flex justify-center items-center">
+                      {recipe.recipeName}
                     </div>
-                  )
-                )}
+                    <div className="flex justify-around items-center">
+                      <div>{recipe.difficulty}</div>
+                      <div>{recipe.servings}</div>
+                      <div>{recipe.nutriScore}</div>
+                    </div>
+                  </div>
+                </div>
+              )
+            )}
           </div>
         ))}
-        {chefMainCard2[0].recipe.some(
-          (category) => category.category.Desserts.length > 5
-        ) && (
-          <div className="px-10 pt-5 flex justify-end items-center">
-            <Button onClick={toggleShowAll} className="text-white">
-              {showAll ? "Show Less" : "Show More"}
+        <div className="px-10 pt-4 flex justify-end items-center gap-2">
+          {showCount > 4 && (
+            <Button onClick={toggleShowLess} className="text-white">
+              Show Less
             </Button>
-          </div>
-        )}
+          )}
+          {showCount <
+            chefMainCard2[0].recipe[0].category.Desserts.length && (
+            <Button onClick={toggleShowMore} className="text-white">
+              Show More
+            </Button>
+          )}
+        </div>
       </div>
     </div>
   );

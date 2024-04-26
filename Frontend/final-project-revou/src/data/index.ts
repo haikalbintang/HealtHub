@@ -257,13 +257,16 @@ export const chefMainCard2 = [
     recipe: [
       {
         category: {
-          Healtyrecipes: [
+          HealtyRecipes: [
             {
               recipeName: "Pizza Margharita",
               image: food1.src,
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -271,6 +274,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -278,6 +284,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -285,6 +294,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -292,6 +304,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -299,6 +314,59 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+            {
+              recipeName: "Pizza olio oglio",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+            {
+              recipeName: "Pizza olio oglio",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+            {
+              recipeName: "Pizza olio oglio",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+            {
+              recipeName: "Pizza olio oglio",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+            {
+              recipeName: "Pizza olio oglio",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
           ],
           Desserts: [
@@ -308,6 +376,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -315,6 +386,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -322,6 +396,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
           ],
           MainDishes: [
@@ -331,6 +408,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -338,6 +418,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -345,6 +428,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
           ],
           Appetizers: [
@@ -354,6 +440,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -361,6 +450,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
           ],
           Beverages: [
@@ -370,6 +462,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -377,6 +472,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -384,6 +482,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -391,6 +492,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
           ],
           SideDishes: [
@@ -400,6 +504,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -407,6 +514,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
             {
               recipeName: "Pizza olio oglio",
@@ -414,6 +524,9 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
             },
           ],
         },

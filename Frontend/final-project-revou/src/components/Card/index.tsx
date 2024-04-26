@@ -111,12 +111,6 @@ export default function Card({
           </h2> */}
         </>
       ) : null}
-      {role !== "chef" ? (
-        <div className="absolute -top-8 -right-2 w-24 h-24 ">
-          <img src={gif2.src} alt="Chef icon." />
-          {/* <img src={chefsvg.src} alt="Chef icon." /> */}
-        </div>
-      ) : null}
     </div>
   );
 }
