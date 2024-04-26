@@ -1,15 +1,28 @@
 "use client";
 import React, { useState } from "react";
 import logo1 from "../../components/images/cookingtools/spatula-svgrepo-com.svg";
+import SliderImage from "../SliderImage";
 import Card from "../../components/Card";
-import { Button } from "../ui/button";
 
-import food1 from "../../components/images/sliderImagesv2/food1.jpg";
+import { chefMainCard, chefMainCard2 } from "@/data";
+import HealtyRecipes from "./HealtyRecipes";
+import MainDishes from "./MainDishes";
+import Appetizers from "./Appetizers";
+import Desserts from "./Desserts";
+import Beverages from "./Beverages";
+import SideDishes from "./SideDishes";
+import { Button } from "../ui/button";
+import Food1 from "../../components/images/sliderImagesv2/food1.jpg";
+import Food2 from "../../components/images/sliderImagesv2/food2.jpg";
+import Food3 from "../../components/images/sliderImagesv2/food3.jpg";
+import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
+import NavbarWrapper from "../NavbarWrapper";
+import DiscoverContent from "../DiscoverContent";
 const RecipeFeeds = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const categories = [
-    "Healty recipe",
+    "Healty Recipe",
     "Appetizers",
     "Main Dishes",
     "Desserts",
@@ -27,117 +40,138 @@ const RecipeFeeds = () => {
     setSelectedCategory(category);
   };
 
+  const images: string[] = [Food1.src, Food2.src, Food3.src, Food4.src];
   return (
     <div className="">
+      <SliderImage images={images} maxHeight="300" className="hidden" />
       <div className="flex ">
-        <div className="w-1/4 min-h-screen flex flex-col justify-center items-start">
-          <div className="flex w-1/2 h-full flex-col-reverse justify-between items-start gap-3 p-3 bg-slate-400">
-            <div>
-              <h1>hello</h1>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2 hover:recipe-gradients w-full rounded-xl p-2 justify-start items-center bg-slate-200 hover:shadow-lg hover:shadow-slate-500">
-                <div className="bg-white p-2 rounded-xl">
-                  <img src={logo1.src} alt="" className="h-6 w-6" />
+        <div className="flex flex-col justify-center items-center  p-5">
+          <div className="flex flex-col justify-center items-center p-5">
+            <div className="flex justify-center items-center p-5">
+              <div className="flex flex-col gap-2 justify-center items-start p-5 bg-slate-50 rounded-lg shadow-lg shadow-slate-400 ">
+                <div className="flex gap-2 justify-start items-center  ">
+                  <div className="p-2 rounded-xl">
+                    <img src={logo1.src} alt="" className="h-6 w-6" />
+                  </div>
+                  <h1>Home</h1>
                 </div>
-                <h1>Home</h1>
-              </div>
-              <div className="flex gap-2 hover:recipe-gradients w-full rounded-xl p-2 justify-start items-center bg-slate-200 hover:shadow-lg hover:shadow-slate-500">
-                <div className="bg-white p-2 rounded-xl">
-                  <img src={logo1.src} alt="" className="h-6 w-6" />
+                <div className="flex gap-2 justify-start items-center ">
+                  <div className="p-2 rounded-xl">
+                    <img src={logo1.src} alt="" className="h-6 w-6" />
+                  </div>
+                  <h1>Recipees</h1>
                 </div>
-                <h1>Recipees</h1>
-              </div>
-              <div className="flex gap-2 hover:recipe-gradients w-full rounded-xl p-2 justify-start items-center bg-slate-200 hover:shadow-lg hover:shadow-slate-500">
-                <div className="bg-white p-2 rounded-xl">
-                  <img src={logo1.src} alt="" className="h-6 w-6" />
+                <div className="flex gap-2 justify-start items-center ">
+                  <div className="p-2 rounded-xl">
+                    <img src={logo1.src} alt="" className="h-6 w-6" />
+                  </div>
+                  <h1>My Recipees</h1>
                 </div>
-                <h1>My Recipees</h1>
-              </div>
-              <div className="flex gap-2 hover:recipe-gradients w-full rounded-xl p-2 justify-start items-center bg-slate-200 hover:shadow-lg hover:shadow-slate-500">
-                <div className="bg-white p-2 rounded-xl">
-                  <img src={logo1.src} alt="" className="h-6 w-6" />
+                <div className="flex gap-2 justify-start items-center ">
+                  <div className="p-2 rounded-xl">
+                    <img src={logo1.src} alt="" className="h-6 w-6" />
+                  </div>
+                  <h1>Followed Recipees</h1>
                 </div>
-                <h1>Followed Recipees</h1>
-              </div>
-              <div className="flex gap-2 hover:recipe-gradients w-full rounded-xl p-2 justify-start items-center bg-slate-200 hover:shadow-lg hover:shadow-slate-500">
-                <div className="bg-white p-2 rounded-xl">
-                  <img src={logo1.src} alt="" className="h-6 w-6" />
+                <div className="flex gap-2 justify-start items-center ">
+                  <div className="p-2 rounded-xl">
+                    <img src={logo1.src} alt="" className="h-6 w-6" />
+                  </div>
+                  <h1>Loved</h1>
                 </div>
-                <h1>Loved</h1>
-              </div>
-              <div className="flex gap-2 hover:recipe-gradients w-full rounded-xl p-2 justify-start items-center bg-slate-200 hover:shadow-lg hover:shadow-slate-500 relative">
-                <div className="bg-white p-2 rounded-xl ">
-                  <img src={logo1.src} alt="" className="h-6 w-6" />
-                </div>
-                <h1>Nutrions</h1>
-                <div className="flex flex-col">
-                  <div className="absolute right-5  text-white justify-center items-center">
-                    <Button
-                      className="rounded-full shadow-sm shadow-black h-6 w-6"
-                      onClick={toggleMenu}
-                    >
-                      {">"}
-                    </Button>
+                <div className="flex gap-2 justify-start items-center relative w-full hover:bg-red-200 hover:rounded-xl hover:shadow-xl hover:shadow-slate-200">
+                  <div className="p-2 rounded-xl ">
+                    <img src={logo1.src} alt="" className="h-6 w-6" />
+                  </div>
+                  <h1>Nutrions</h1>
+                  <div className="flex flex-col">
+                    <div className="absolute right-2 bottom-2 text-white justify-center items-center">
+                      <button
+                        className="bg-slate-200 rounded-full  h-6 w-6 p-1 text-black flex justify-center items-center"
+                        onClick={toggleMenu}
+                      >
+                        {">"}
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-              {isMenuOpen && (
-                <div className="bg-gray-200 p-4 rounded-xl">
-                  <ul>
-                    <li>Menu item 1</li>
-                    <li>Menu item 2</li>
-                    {/* Add more menu items here */}
-                  </ul>
+                <div className="flex gap-2 justify-start items-center relative w-full hover:bg-red-200 hover:rounded-xl hover:shadow-xl hover:shadow-slate-200">
+                  <div className="p-2 rounded-xl ">
+                    <img src={logo1.src} alt="" className="h-6 w-6" />
+                  </div>
+                  <h1>Type</h1>
+                  <div className="flex flex-col">
+                    <div className="absolute right-2 bottom-2 text-white justify-center items-center">
+                      <button
+                        className="bg-slate-200 rounded-full  h-6 w-6 p-1 text-black flex justify-center items-center"
+                        onClick={toggleMenu}
+                      >
+                        {">"}
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              )}
+                <div className="flex gap-2 justify-start items-center relative w-full hover:bg-red-200 hover:rounded-xl hover:shadow-xl hover:shadow-slate-200">
+                  <div className="p-2 rounded-xl ">
+                    <img src={logo1.src} alt="" className="h-6 w-6" />
+                  </div>
+                  <h1>Origin</h1>
+                  <div className="flex flex-col">
+                    <div className="absolute right-2 bottom-2 text-white justify-center items-center">
+                      <button
+                        className="bg-slate-200 rounded-full  h-6 w-6 p-1 text-black flex justify-center items-center"
+                        onClick={toggleMenu}
+                      >
+                        {">"}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                {isMenuOpen && (
+                  <div className=" transform translate-x-10 ease-out duration-400 p-4">
+                    <ul>
+                      <li>Menu item 1</li>
+                      <li>Menu item 2</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-        <div className="w-3/4 flex flex-col">
-          <div className="w-2/3 pt-10">
+        <div className="w-3/4 flex flex-col justify-center items-center ">
+          <div className="pt-10">
             <div className="flex flex-col">
-              <h1 className="text-2xl">Discover Recipes</h1>
+              <div>
+                <h1 className="text-2xl">Discover Recipes</h1>
+              </div>
               <div className="flex gap-5 p-5">
                 {categories.map((category) => (
-                  <div
+                  <Button
                     key={category}
-                    className="category w-1/6 p-2 bg-slate-400 rounded-xl flex justify-center items-center"
+                    className="category p-2 bg-slate-400 "
                     onClick={() => handleCategoryClick(category)}
                   >
                     <h1>{category}</h1>
-                  </div>
+                  </Button>
                 ))}
+              </div>
+              <div className="pt-5">
+                <h1>Recomended Recipes</h1>
+                <HealtyRecipes recipeCategoryName="" />
               </div>
             </div>
           </div>
-          {selectedCategory === "Beverages" && <BeveragesList />}
-          {selectedCategory === "Side Dishes" && <SideDishesList />}
+          {selectedCategory === "Healty Recipe" && (
+            <HealtyRecipes recipeCategoryName="Healty Recipes" />
+          )}
+          {selectedCategory === "Main Dishes" && <MainDishes />}
+          {selectedCategory === "Appetizers" && <Appetizers />}
+          {selectedCategory === "Desserts" && <Desserts />}
+          {selectedCategory === "Beverages" && <Beverages />}
+          {selectedCategory === "Side Dishes" && <SideDishes />}
         </div>
       </div>
-    </div>
-  );
-};
-
-const BeveragesList: React.FC = () => {
-  return (
-    <div className="item-list">
-      <h2>Beverages</h2>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-      </ul>
-    </div>
-  );
-};
-const SideDishesList: React.FC = () => {
-  return (
-    <div className="item-list">
-      <h2>Side Dishes</h2>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-      </ul>
     </div>
   );
 };

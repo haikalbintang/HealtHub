@@ -4,9 +4,15 @@ import { Button } from "../ui/button";
 
 interface ImageSliderProps {
   images: string[];
+  maxHeight?: string;
+  className?: string;
 }
 
-const SliderImage: React.FC<ImageSliderProps> = ({ images }) => {
+const SliderImage: React.FC<ImageSliderProps> = ({
+  images,
+  maxHeight,
+  className,
+}) => {
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
 
   const goToPrevious = () => {
@@ -34,7 +40,7 @@ const SliderImage: React.FC<ImageSliderProps> = ({ images }) => {
           alt="Slider"
           className="w-full h-full object-cover rounded-3xl"
           style={{
-            maxHeight: "50vh",
+            maxHeight: `${maxHeight}px`,
             maxWidth: "150vh",
             display: "block",
             margin: "0 auto",
@@ -65,7 +71,9 @@ const SliderImage: React.FC<ImageSliderProps> = ({ images }) => {
             &gt;
           </button> */}
           <div className="flex justify-center">
-            <Button className="h-12 px-8 text-lg font-semibold bg-red-500 text-white rounded-full z-10">
+            <Button
+              className={`${className} h-12 px-8 text-lg font-semibold bg-red-500 text-white rounded-full z-10`}
+            >
               Discover Now !
             </Button>
           </div>

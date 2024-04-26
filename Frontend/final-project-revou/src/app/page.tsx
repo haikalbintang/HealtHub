@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <main>
       <NavbarWrapper />
-      <SliderImage images={images} />
+      <SliderImage images={images} maxHeight="500" />
       <DiscoverContent />
       {/* <SliderImagev2 foodImages={foodImages} /> */}
       <SliderImagev2_1 />
