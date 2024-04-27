@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MyProfile from "../DedicatedProfilePage/MyProfile";
 import MyRecipe from "../DedicatedProfilePage/MyRecipe";
+import CreateRecipe from "../DedicatedProfilePage/CreateRecipe";
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
@@ -43,6 +44,7 @@ const Sidebar: React.FC = () => {
       <div className="w-3/5 p-5">
         {selectedCategory === "My Profile" && <MyProfile />}
         {selectedCategory === "My Recipe" && <MyRecipe />}
+        {selectedCategory === "Create Recipe" && <CreateRecipe />}
       </div>
     </div>
   );
