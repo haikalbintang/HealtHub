@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MyProfile from "../DedicatedProfilePage/MyProfile";
 import MyRecipe from "../DedicatedProfilePage/MyRecipe";
 import CreateRecipe from "../DedicatedProfilePage/CreateRecipe";
+import Security from "../DedicatedProfilePage/Security";
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
@@ -45,6 +46,7 @@ const Sidebar: React.FC = () => {
         {selectedCategory === "My Profile" && <MyProfile />}
         {selectedCategory === "My Recipe" && <MyRecipe />}
         {selectedCategory === "Create Recipe" && <CreateRecipe />}
+        {selectedCategory === "Security" && <Security />}
       </div>
     </div>
   );

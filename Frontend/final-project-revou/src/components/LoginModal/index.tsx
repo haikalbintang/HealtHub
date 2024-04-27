@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import axios from "axios";
 import { Button } from "@/components/ui/button";
 import bg1 from "../../components/images/sliderImagesv2/food3.jpg";
 import googlesvg from "../../components/images/svg/7123025_logo_google_g_icon.svg";
@@ -18,11 +19,33 @@ interface Props {
 export default function LoginModal({ setShowLoginModal }: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginData, setLoginData] = useState({
+    username: "",
+    password: "",
+  });
+  const API_BASE_URL = "http://127.0.0.1:5000";
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle login logic here
-    setShowLoginModal(false);
+    try {
+      await handleLogin();
+      setShowLoginModal(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/users/login`, {
+        username: loginData.username,
+        password: loginData.password,
+      });
+      localStorage.setItem("access_token", response.data.token);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -77,22 +100,24 @@ export default function LoginModal({ setShowLoginModal }: Props) {
                 </h2>
                 <h2 className="text-base">&mdash;&mdash;&mdash;</h2>
               </div>
-              <form action="{{}}" method="post">
+              <form onSubmit={handleSubmit}>
                 <div className="py-2">
                   <label
                     htmlFor="email"
                     className="text-sm cursor-pointer text-slate-600 font-semibold"
                   >
-                    Email
+                    username
                   </label>
                   <div className="relative ">
                     <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      value={email}
+                      type="text"
+                      name="username"
+                      id="username"
+                      value={loginData.username}
                       className="border border-gray-300 rounded-xl w-72 p-2 text-sm pl-9"
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) =>
+                        setLoginData({ ...loginData, username: e.target.value })
+                      }
                       placeholder="Enter your email"
                       required
                     />
@@ -113,9 +138,11 @@ export default function LoginModal({ setShowLoginModal }: Props) {
                       type="password"
                       name="password"
                       id="password"
-                      value={password}
+                      value={loginData.password}
                       className="border border-gray-300 rounded-xl w-72 p-2 text-sm pl-9"
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) =>
+                        setLoginData({ ...loginData, password: e.target.value })
+                      }
                       placeholder="Enter your password"
                       required
                     />
@@ -153,6 +180,7 @@ export default function LoginModal({ setShowLoginModal }: Props) {
                     className="w-72 bg-red-500 hover:bg-red-600 mt-4"
                     type="submit"
                     value={"Login"}
+                    onClick={handleLogin}
                   >
                     <p className="text-base">Login</p>
                   </Button>
