@@ -38,7 +38,7 @@ export default function RegisterModalS1({ form }: Props): JSX.Element {
             <FormControl>
               <Input placeholder="Password" type="password" {...field} />
             </FormControl>
-            <FormDescription></FormDescription>
+            <FormDescription>Minimum 8 characters</FormDescription>
             <FormMessage />
           </FormItem>
         )}

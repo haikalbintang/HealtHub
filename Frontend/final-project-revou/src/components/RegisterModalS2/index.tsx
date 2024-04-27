@@ -48,9 +48,9 @@ export default function RegisterModalS1({ form }: Props): JSX.Element {
         name="lastName"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Last Name</FormLabel>
+            <FormLabel>Last name</FormLabel>
             <FormControl>
-              <Input placeholder="lastName" {...field} />
+              <Input placeholder="Last name" {...field} />
             </FormControl>
             <FormDescription></FormDescription>
             <FormMessage />

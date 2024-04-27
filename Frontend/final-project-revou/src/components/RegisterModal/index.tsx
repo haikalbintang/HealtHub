@@ -16,12 +16,13 @@ const formSchema = z
     email: z.string().email(),
     password: z.string().min(8),
     passwordConfirm: z.string(),
-    username: z.string().min(2).max(50),
+    username: z.string().toLowerCase().min(2).max(50),
     firstName: z.string(),
     lastName: z.string(),
     resetPasswordQuestion: z.string(),
     resetPasswordAnswer: z.string(),
   })
+  .required()
   .refine(
     (data) => {
       return data.password === data.passwordConfirm;
@@ -32,17 +33,6 @@ const formSchema = z
     }
   );
 
-// type FormFields = {
-//   email: string;
-//   password: string;
-//   passwordConfirm: string;
-//   username: string;
-//   firstName: string;
-//   lastName: string;
-//   resetPasswordQuestion: string;
-//   resetPasswordAnswer: string;
-// };
-
 type SetToggleMenuType = (
   value: boolean | ((prev: boolean) => boolean)
 ) => void;
@@ -52,6 +42,7 @@ interface Props {
 }
 
 export default function RegisterModal({ setShowRegisterModal }: Props) {
+  // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -66,21 +57,19 @@ export default function RegisterModal({ setShowRegisterModal }: Props) {
     },
   });
 
-  const { currentStepIndex, steps, isFirstStep, isLastStep, back, next, step } =
-    useMultistepForm([
-      <RegisterModalS1 key={1} form={form} />,
-      <RegisterModalS2 key={2} form={form} />,
-      <RegisterModalS3 key={3} form={form} />,
-    ]);
-
-  // 1. Define your form.
-
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
+
+  const { currentStepIndex, steps, isFirstStep, isLastStep, back, next, step } =
+    useMultistepForm([
+      <RegisterModalS1 key={0} form={form} />,
+      <RegisterModalS2 key={1} form={form} />,
+      <RegisterModalS3 key={2} form={form} />,
+    ]);
 
   return (
     <Modal setShowModal={setShowRegisterModal}>
@@ -93,18 +82,20 @@ export default function RegisterModal({ setShowRegisterModal }: Props) {
             {step}
             <div className="flex justify-between">
               {!isFirstStep ? (
-                <Button onClick={back}>Back</Button>
+                <Button type="button" onClick={back}>
+                  Back
+                </Button>
               ) : (
-                <Button onClick={back} disabled>
+                <Button type="button" onClick={back} disabled>
                   Back
                 </Button>
               )}
               {isLastStep ? (
-                <Button className="bg-red-500 hover:bg-red-600" onClick={next}>
+                <Button className="bg-red-500 hover:bg-red-600" type={"submit"}>
                   Submit
                 </Button>
               ) : (
-                <Button onClick={next} type={"submit"}>
+                <Button type="button" onClick={next}>
                   Next
                 </Button>
               )}
