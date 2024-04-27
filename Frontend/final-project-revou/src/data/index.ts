@@ -16,8 +16,8 @@ import tools4 from "../components/images/cookingtools/spatula-svgrepo-com.svg";
 export const recipeDetailCards = [
   {
     title: "Spaghetti Lasagna",
-    difficulty: "Easy",
-    time: "20Min",
+    complexity: "Easy",
+    time: "20 Min",
     foodImage: food1.src,
     servings: "4",
     foodCategory: "Pasta",
@@ -92,51 +92,51 @@ export const recipeDetailCards = [
 export const cards = [
   {
     title: "Spaghetti Lasagna",
-    difficulty: "Easy",
+    complexity: "Easy",
     time: "20Min",
     foodImage: food1.src,
   },
   {
     title: "Spaghetti Lasagna",
-    difficulty: "Medium",
+    complexity: "Medium",
     time: "5Min",
     foodImage: food2.src,
   },
   {
     title: "Spaghetti Lasagna",
-    difficulty: "Hard",
+    complexity: "Hard",
     time: "1Hour",
     foodImage: food3.src,
     role: "chef",
   },
   {
     title: "Spaghetti Lasagna",
-    difficulty: "Easy",
+    complexity: "Easy",
     time: "25Min",
     foodImage: food4.src,
   },
   {
     title: "Spaghetti Lasagna",
-    difficulty: "Easy",
+    complexity: "Easy",
     time: "20Min",
     foodImage: food1.src,
   },
   {
     title: "Spaghetti Lasagna",
-    difficulty: "Medium",
+    complexity: "Medium",
     time: "5Min",
     foodImage: food2.src,
     role: "chef",
   },
   {
     title: "Spaghetti Lasagna",
-    difficulty: "Hard",
+    complexity: "Hard",
     time: "1Hour",
     foodImage: food3.src,
   },
   {
     title: "Spaghetti Lasagna",
-    difficulty: "Easy",
+    complexity: "Easy",
     time: "25Min",
     foodImage: food4.src,
   },
@@ -264,7 +264,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -274,7 +274,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -284,7 +284,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -294,7 +294,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -304,7 +304,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -314,7 +314,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -324,7 +324,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -334,7 +334,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -344,7 +344,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -354,7 +354,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -364,7 +364,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -376,7 +376,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -386,7 +386,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -396,7 +396,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -408,7 +408,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -418,7 +418,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -428,7 +428,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -440,7 +440,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -450,7 +450,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -462,7 +462,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -472,7 +472,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -482,7 +482,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -492,7 +492,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -504,7 +504,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -514,7 +514,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
@@ -524,7 +524,7 @@ export const chefMainCard2 = [
               recipeDescription:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
               tags: ["#Easy", "#Spicy", "#Vegan"],
-              difficulty: "easy",
+              complexity: "easy",
               servings: "2Person",
               nutriScore: "9.0",
             },
