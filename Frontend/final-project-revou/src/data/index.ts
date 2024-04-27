@@ -243,6 +243,13 @@ export const chefMainCard2 = [
   {
     chefImage: chef4.src,
     name: "Joel Robuchon",
+    firstName: "Joel",
+    lastName: "Robuchon",
+    email: "nQqjM@example.com",
+    phoneNumber: "081234567890",
+    country: "Indonesia",
+    city: "Jakarta",
+    postalCode: "12345",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, mollitia iure voluptas earum porro aliquid cum quae quasi, sequi, laborum at et excepturi quam voluptate!",
     userRole: "Famous Chef",
@@ -254,6 +261,7 @@ export const chefMainCard2 = [
         following: "100k",
       },
     ],
+    address: "Jakarta, Indonesia",
     recipe: [
       {
         category: {
