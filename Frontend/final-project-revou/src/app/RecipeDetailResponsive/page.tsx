@@ -18,6 +18,7 @@ import Food2 from "../../components/images/sliderImagesv2/food2.jpg";
 import Food3 from "../../components/images/sliderImagesv2/food3.jpg";
 
 import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
+import RecipeSummary from "@/components/RecipeSummary";
 
 export default function Recipees() {
   const truncate = (str: string) => {
@@ -36,25 +37,13 @@ export default function Recipees() {
       <RecipeHeroPage images={images} />
       <CatOrNutLoSh />
       <Author />
-      {/* Recipe summary */}
-      {recipeDetailCards.map((card: any) => (
-        <div
-          key={card.id}
-          className="flex flex-col justify-center items-center lg:p-12"
-        >
-          <h1 className="text-xl font-bold">Recipe Summary :</h1>
-          <h1 className="flex justify-center items-center px-36">
-            {card.summary}
-          </h1>
-        </div>
-      ))}
-      {/* End of recipe summary */}
+      <RecipeSummary />
       {/* Ingredients n Instructions */}
-      <div className="lg:flex lg:pl-20">
+      <div className="px-1 lg:flex lg:pl-20">
         <div className="lg:w-1/3">
           <Ingredients className="flex justify-items-center items-center" />
         </div>
-        <div className="lg:w-2/3 pt-8 px-5">
+        <div className="lg:w-2/3 pt-8">
           <Instructions />
         </div>
       </div>

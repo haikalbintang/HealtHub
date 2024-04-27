@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { recipeDetailCards } from "@/data";
@@ -14,49 +15,60 @@ const Ingredients: React.FC<Props> = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center pt-10">
+    <div className="flex flex-col mt-10">
       {recipeDetailCards.map((card: any) => (
-        <div className="flex justify-center lg:justify-around lg:w-3/4">
+        <div key={card.id} className="lg:justify-around lg:w-3/4 mb-3">
           <h1 className="flex justify-center items-center text-xl font-bold text-amber-700">
-            Ingredients
+            1. Ingredients
           </h1>
-          <div className="lg:flex gap-2 hidden">
-            <Button
-              onChange={handleChange}
-              className="rounded-full bg-amber-700"
-            >
-              -
-            </Button>
+          <div className="flex mt-4 lg:flex gap-2">
+            <div>
+              <Button
+                onChange={handleChange}
+                className="rounded-full bg-amber-900"
+              >
+                -
+              </Button>
+            </div>
             <div className="items-center">
               <input
                 type="number"
-                className=" text-white w-20 h-10 rounded-xl pl-4 bg-amber-700"
+                className=" text-white w-12 py-2 text-base rounded-xl pl-5 bg-amber-900"
                 defaultValue={card.servings}
               />
             </div>
-            <Button
-              onChange={handleChange}
-              className="rounded-full bg-amber-700"
-            >
-              +
-            </Button>
+            <div>
+              <Button
+                onChange={handleChange}
+                className="rounded-full bg-amber-900"
+              >
+                +
+              </Button>
+            </div>
           </div>
         </div>
       ))}
       {recipeDetailCards[0].ingredients.map((card: any) => (
-        <div className="flex justify-center w-full lg:justify-between items-center lg:w-3/4 container border-b-2 border-slate-200">
-          <div className="flex flex-start justify-start items-center gap-2 p-3 w-56">
-            <img
-              src={card.ingredientsImage}
-              alt=""
-              className="w-12 h-12 flex  rounded-full"
-            />
-            <h1 className="text-md w-24 flex justify-start items-center">
+        <div
+          key={card.id}
+          className="flex px-0 w-full justify-between lg:w-3/4 container border-b-2 border-slate-200"
+        >
+          <div className="flex flex-start justify-start items-center gap-2 py-1">
+            <picture>
+              <img
+                src={card.ingredientsImage}
+                alt=""
+                className="w-12 h-12 flex rounded-full"
+              />
+            </picture>
+            <p className="text-base font-medium text-amber-900 flex justify-start items-center">
               {card.name}
-            </h1>
+            </p>
           </div>
           <div className="flex justify-end items-center">
-            <h1 className="flex justify-end items-center">{card.quantity}</h1>
+            <h1 className="flex text-base font-semibold justify-end items-center">
+              {card.quantity}
+            </h1>
           </div>
         </div>
       ))}

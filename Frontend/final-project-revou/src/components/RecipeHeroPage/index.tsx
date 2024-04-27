@@ -62,9 +62,11 @@ export default function RecipeHeroPage({ images }: ImageProps) {
                         <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
                       </svg>
                     </div>
-                    <h1 className="ml-1 font-medium text-sm">
-                      {recipe.servings} People
-                    </h1>
+                    <div className="">
+                      <h1 className="ml-1 font-medium text-sm">
+                        {recipe.servings} People
+                      </h1>
+                    </div>
                   </div>
                   <div className="flex items-center  my-1 mr-4 text-black">
                     <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
@@ -77,7 +79,11 @@ export default function RecipeHeroPage({ images }: ImageProps) {
                         <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
                       </svg>
                     </div>
-                    <h1 className="ml-1 font-medium text-sm">{recipe.time}</h1>
+                    <div>
+                      <h1 className="ml-1 font-medium text-sm">
+                        {recipe.time}
+                      </h1>
+                    </div>
                   </div>
                   <div className="flex items-center  my-1 text-black">
                     <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
@@ -90,9 +96,11 @@ export default function RecipeHeroPage({ images }: ImageProps) {
                         <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
                       </svg>
                     </div>
-                    <h1 className="ml-1 font-medium text-sm">
-                      {recipe.complexity}
-                    </h1>
+                    <div>
+                      <h1 className="ml-1 font-medium text-sm">
+                        {recipe.complexity}
+                      </h1>
+                    </div>
                   </div>
                 </div>
                 {/* End of white box */}
