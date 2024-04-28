@@ -41,8 +41,11 @@ export default function LoginModal({ setShowLoginModal }: Props) {
         username: loginData.username,
         password: loginData.password,
       });
-      localStorage.setItem("access_token", response.data.token);
-      console.log(response);
+      const access_token = response.data.token.access_token;
+
+      localStorage.setItem("access_token", access_token);
+
+      console.log("Login successful!");
     } catch (error) {
       console.error(error);
     }

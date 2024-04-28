@@ -1,42 +1,95 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 const RecipeForm: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const [recipeData, setRecipeData] = useState({
     title: "",
-    image: "",
     description: "",
-    origin: "",
-    category: "",
-    cookTime: "",
+    cooktime: "",
     complexity: "",
     servings: "",
     budget: "",
-    instructions: [""],
+    instructions: "",
+    // category: "",
+    // image: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    index?: number
-  ) => {
-    const { name, value } = e.target;
-    if (index !== undefined) {
-      const newInstructions = [...formData.instructions];
-      newInstructions[index] = value;
-      setFormData({ ...formData, instructions: newInstructions });
-    } else {
-      setFormData({ ...formData, [name]: value });
+  const handleCreate = async () => {
+    const authToken = localStorage.getItem("access_token");
+    // console.log("auth", authToken);
+    try {
+      // console.log(authToken);
+      if (authToken) {
+        const headers = {
+          Authorization: `Bearer ${authToken}`,
+        };
+        const response = await axios.post(
+          "http://127.0.0.1:5000/recipes/create",
+          {
+            title: recipeData.title,
+            description: recipeData.description,
+            cooktime: recipeData.cooktime,
+            complexity: recipeData.complexity,
+            servings: recipeData.servings,
+            budget: recipeData.budget,
+            instructions: recipeData.instructions,
+            // image: recipeData.image,
+            // category: recipeData.category,
+          },
+          {
+            headers,
+          }
+        );
+        console.log("123", response);
+      }
+    } catch (error) {
+      // console.log("errorboy", error);
+      console.error(error);
     }
   };
-
-  const handleAddStep = () => {
-    setFormData({ ...formData, instructions: [...formData.instructions, ""] });
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      await handleCreate();
+    } catch (error) {
+      console.error(error);
+    }
   };
+  // const [formData, setFormData] = useState({
+  //   title: "",
+  //   image: "",
+  //   description: "",
+  //   origin: "",
+  //   category: "",
+  //   cookTime: "",
+  //   complexity: "",
+  //   servings: "",
+  //   budget: "",
+  //   instructions: "",
+  // });
 
-  const handleRemoveStep = (index: number) => {
-    const newInstructions = [...formData.instructions];
-    newInstructions.splice(index, 1);
-    setFormData({ ...formData, instructions: newInstructions });
-  };
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  //   index?: number
+  // ) => {
+  //   const { name, value } = e.target;
+  //   if (index !== undefined) {
+  //     const newInstructions = [...formData.instructions];
+  //     newInstructions[index] = value;
+  //     setFormData({ ...formData, instructions: newInstructions });
+  //   } else {
+  //     setFormData({ ...formData, [name]: value });
+  //   }
+  // };
+
+  // const handleAddStep = () => {
+  //   setFormData({ ...formData, instructions: [...formData.instructions, ""] });
+  // };
+
+  // const handleRemoveStep = (index: number) => {
+  //   const newInstructions = [...formData.instructions];
+  //   newInstructions.splice(index, 1);
+  //   setFormData({ ...formData, instructions: newInstructions });
+  // };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -50,24 +103,26 @@ const RecipeForm: React.FC = () => {
   return (
     <div className="max-w-lg mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Add New Recipe</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label
             htmlFor="title"
             className="block text-sm font-medium text-gray-700"
           >
-            Recipe Title
+            Title
           </label>
           <input
             type="text"
             id="title"
             name="title"
-            value={formData.title}
-            onChange={handleChange}
+            value={recipeData.title}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, title: e.target.value })
+            }
             className="mt-1 p-2 border rounded-md w-full"
           />
         </div>
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label
             htmlFor="image"
             className="block text-sm font-medium text-gray-700"
@@ -82,7 +137,7 @@ const RecipeForm: React.FC = () => {
             onChange={handleImageChange}
             className="mt-1 p-2 border rounded-md w-full"
           />
-        </div>
+        </div> */}
         <div className="mb-4">
           <label
             htmlFor="description"
@@ -94,8 +149,10 @@ const RecipeForm: React.FC = () => {
             type="text"
             id="description"
             name="description"
-            value={formData.description}
-            onChange={handleChange}
+            value={recipeData.description}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, description: e.target.value })
+            }
             className="mt-1 p-2 border rounded-md w-full"
           />
         </div>
@@ -110,8 +167,10 @@ const RecipeForm: React.FC = () => {
             type="text"
             id="cookTime"
             name="cookTime"
-            value={formData.cookTime}
-            onChange={handleChange}
+            value={recipeData.cooktime}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, cooktime: e.target.value })
+            }
             className="mt-1 p-2 border rounded-md w-full"
           />
         </div>
@@ -126,8 +185,10 @@ const RecipeForm: React.FC = () => {
             type="text"
             id="complexity"
             name="complexity"
-            value={formData.complexity}
-            onChange={handleChange}
+            value={recipeData.complexity}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, complexity: e.target.value })
+            }
             className="mt-1 p-2 border rounded-md w-full"
           />
         </div>
@@ -142,10 +203,31 @@ const RecipeForm: React.FC = () => {
             type="text"
             id="servings"
             name="servings"
-            value={formData.servings}
-            onChange={handleChange}
+            value={recipeData.servings}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, servings: e.target.value })
+            }
             className="mt-1 p-2 border rounded-md w-full"
             placeholder="Enter number of servings"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="budget"
+            className="block text-sm font-medium text-gray-700"
+          >
+            budget
+          </label>
+          <input
+            type="text"
+            id="budget"
+            name="budget"
+            value={recipeData.budget}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, budget: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter budget"
           />
         </div>
         <div className="mb-4">
@@ -155,26 +237,29 @@ const RecipeForm: React.FC = () => {
           >
             Instructions
           </label>
-          {formData.instructions.map((instruction, index) => (
-            <div key={index} className="flex items-center mt-1">
-              <textarea
-                value={instruction}
-                onChange={(e) => handleChange(e, index)}
-                className="p-4 border rounded-md flex-grow"
-                placeholder={`Step ${index + 1}`}
-              />
-              <button
-                type="button"
-                onClick={() => handleRemoveStep(index)}
-                className="ml-2 p-2 bg-red-500 text-white rounded-md"
-              >
-                Remove Step
-              </button>
-            </div>
-          ))}
+          {/* {formData.instructions.map((instruction, index) => ( */}
+          <div className="flex items-center mt-1">
+            <textarea
+              value={recipeData.instructions}
+              onChange={(e) =>
+                setRecipeData({ ...recipeData, instructions: e.target.value })
+              }
+              // onChange={(e) => handleChange(e, index)}
+              className="p-4 border rounded-md flex-grow"
+              // placeholder={`Step ${index + 1}`}
+            />
+            <button
+              type="button"
+              // onClick={() => handleRemoveStep(index)}
+              className="ml-2 p-2 bg-red-500 text-white rounded-md"
+            >
+              Remove Step
+            </button>
+          </div>
+          {/* ))} */}
           <button
             type="button"
-            onClick={handleAddStep}
+            // onClick={handleAddStep}
             className="mt-2 p-2 bg-blue-500 text-white rounded-md"
           >
             Add Step
