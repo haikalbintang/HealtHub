@@ -11,7 +11,7 @@ const CommentsCard = [
     userImage: photo2.src,
     comments: [
       {
-        username: "Amanda satya",
+        username: "Amanda Satya",
         userImage: photo1.src,
         comment:
           "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, distinctio!",
@@ -25,14 +25,14 @@ const CommentsCard = [
         time: "2 hour ago",
       },
       {
-        username: "haikal bintang",
+        username: "Haikal Bintang",
         userImage: photo1.src,
         comment:
           "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, distinctio!",
         time: "3 hour ago",
       },
       {
-        username: "Fachrezi ramadhani",
+        username: "Fachrezi Ramadhani",
         userImage: photo1.src,
         comment:
           "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, distin",
@@ -41,81 +41,84 @@ const CommentsCard = [
     ],
   },
 ];
-const CommentSections = () => {
+
+export default function CommentSection() {
   return (
-    <div>
-      <div>
-        <div className="p-10">
-          <div className=" recipe-gradients rounded-xl">
-            <div>
-              <div className="flex- flex-col">
-                <div className="flex">
-                  <h1 className="p-5 text-xl font-bold">Comments</h1>
-                  <div className="flex justify-center items-center ">
-                    <div className="flex justify-center items-center h-8 w-8 bg-black text-white rounded-full">
-                      {CommentsCard[0].comments.length}
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h1 className="pl-5">
-                    Add comment as {CommentsCard[0].userName} :
-                  </h1>
-                </div>
-                <div className="p-3">
-                  <form action="">
-                    <div className="relative">
-                      <textarea className="w-full h-20 bg-white text-black rounded-xl p-5" />
-                      <div className="absolute -top-5 -right-2">
-                        <img
-                          src={CommentsCard[0].userImage}
-                          alt=""
-                          className="h-12 w-12 rounded-full object-cover shadow-lg shadow-black"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex justify-end items-center">
-                      <Button className="bg-red-600">Submit</Button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              {CommentsCard[0].comments.map((card: any) => (
-                <div className="flex p-5 border-b-2">
-                  <div className="hidden lg:flex justify-center items-center p-2">
-                    <img
-                      src={card.userImage}
-                      alt=""
-                      className=" h-12 w-12 rounded-full object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-col justify-center items-center">
-                    <div className="flex flex-col p-2 bg-white rounded-xl">
-                      <div className="flex gap-3">
-                        <div className="lg:hidden">
-                          <img
-                            src={card.userImage}
-                            alt=""
-                            className=" h-14 w-14 rounded-full object-cover"
-                          />
-                        </div>
-                        <div className="flex justify-between items-center w-full">
-                          <div>{card.username}</div>
-                          <div>{card.time}</div>
-                        </div>
-                      </div>
-                      <div>{card.comment}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+    <div className="px-2 mt-10">
+      <div className="recipe-gradients rounded-xl">
+        <div className="flex flex-col">
+          <div className="flex">
+            <h1 className="text-xl text-slate-800 font-bold">Comments</h1>
+            <div className="flex justify-center items-center h-8 w-8 bg-slate-800 ml-2 text-white rounded-full">
+              {CommentsCard[0].comments.length}
             </div>
           </div>
+          <div className="mt-4">
+            <h1 className="">
+              Add comment as{" "}
+              <span className="font-semibold">{CommentsCard[0].userName}:</span>
+            </h1>
+          </div>
+          <form action="" method="post">
+            <div className="relative mt-1">
+              <textarea className="w-full h-20 bg-white text-slate-800 rounded-xl p-2 text-sm" />
+              <div className="absolute -top-5 -right-2">
+                <picture>
+                  <img
+                    src={CommentsCard[0].userImage}
+                    alt=""
+                    className="h-12 w-12 rounded-full object-cover shadow-md shadow-slate-800"
+                  />
+                </picture>
+              </div>
+            </div>
+            <div className="flex justify-end items-center mt-2">
+              <Button className="bg-red-500 hover:bg-red-600">Submit</Button>
+            </div>
+          </form>
         </div>
-        <div></div>
+        {CommentsCard[0].comments.map((card: any) => (
+          <div key={card.id} className="flex border-b-2">
+            {/* <div className="hidden lg:flex justify-center items-center p-2">
+              <picture>
+                <img
+                  src={card.userImage}
+                  alt=""
+                  className=" h-12 w-12 rounded-full object-cover"
+                />
+              </picture>
+            </div> */}
+            <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col p-2 bg-white rounded-xl">
+                <div className="flex gap-3">
+                  <div className="lg:hidden">
+                    <picture>
+                      <img
+                        src={card.userImage}
+                        alt=""
+                        className="h-12 w-14 rounded-full object-cover"
+                      />
+                    </picture>
+                  </div>
+                  <div className="flex justify-between items-center w-full">
+                    <div>
+                      <h2 className="text-slate-800 font-semibold">
+                        {card.username}
+                      </h2>
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-700">{card.time}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-2">
+                  <p className="text-sm text-slate-800">{card.comment}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
-};
-
-export default CommentSections;
+}

@@ -6,14 +6,18 @@ const Instructions = () => {
   return (
     <div className="">
       {recipeDetailCards[0].instructions.map((card: any, index: number) => (
-        <div className="p-2 gap-3" key={index}>
-          <h1 className="text-2xl">Instructions :</h1>
+        <div className="gap-3" key={index}>
+          <h1 className="flex justify-center items-center text-xl font-bold mb-3 text-amber-700">
+            2. Instructions
+          </h1>
           {Object.keys(card).map((key) => (
-            <div className="flex items-center gap-2 p-2" key={key}>
-              <Button className="rounded-full  flex items-start bg-amber-700">
+            <div className="flex items-start gap-2" key={key}>
+              <Button className="rounded-full  flex items-start bg-amber-900">
                 {key}
               </Button>
-              <h1>{card[key]}</h1>
+              <h2 className=" leading-snug tracking-tight text-base font-medium border-b-2 border-slate-200 mb-3">
+                {card[key]}
+              </h2>
             </div>
           ))}
         </div>
