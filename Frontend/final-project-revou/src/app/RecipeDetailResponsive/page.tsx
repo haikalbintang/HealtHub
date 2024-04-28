@@ -19,6 +19,8 @@ import Food3 from "../../components/images/sliderImagesv2/food3.jpg";
 
 import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
 import RecipeSummary from "@/components/RecipeSummary";
+import RecipeTags from "@/components/RecipeTags";
+import CommentSection from "@/components/CommentSection";
 
 export default function Recipees() {
   const truncate = (str: string) => {
@@ -38,7 +40,7 @@ export default function Recipees() {
       <CatOrNutLoSh />
       <Author />
       <RecipeSummary />
-      {/* Ingredients n Instructions */}
+      {/* Ingredients n instructions */}
       <div className="px-1 lg:flex lg:pl-20">
         <div className="lg:w-1/3">
           <Ingredients className="flex justify-items-center items-center" />
@@ -48,24 +50,14 @@ export default function Recipees() {
         </div>
       </div>
       {/* End of ingredients n instructions */}
-      {/* Kitchen tools */}
-      <div className="lg:flex pt-10 lg:px-20  justify-center items-center gap-3">
-        {recipeDetailCards[0].tags.map((tag: any) => (
-          <div key={tag.id}>
-            <h1 className="bg-slate-200 p-5 gap-2 rounded-xl w-full shadow-lg shadow-slate-500 ">
-              {tag}
-            </h1>
-          </div>
-        ))}
-        {/* <KitchenTools /> */}
-      </div>
-      {/* End of kitchen tools */}
-      {/* Comment section */}
+      <RecipeTags />
       <div className="lg:flex lg:pl-20 lg:pt-5">
         <div className="lg:w-1/3 ">
-          <CommentSections />
+          <CommentSection />
         </div>
-        <div className="lg:w-2/3  lg:flex-col justify-start items-start pt-5 pr-10">
+      </div>
+      <div className="lg:flex lg:pl-20 lg:pt-5">
+        <div className="lg:w-2/3  lg:flex-col justify-start items-start pt-5">
           <SliderImagev2
             foodImages={images}
             title="Recipe Galery:"
@@ -73,7 +65,6 @@ export default function Recipees() {
           />
         </div>
       </div>
-      {/* End of comment section */}
     </div>
   );
 }
