@@ -15,7 +15,7 @@ const Ingredients: React.FC<Props> = () => {
   };
 
   return (
-    <div className="flex flex-col mt-10">
+    <div className="flex flex-col mt-10 md:mt-0 ">
       {recipeDetailCards.map((card: any) => (
         <div key={card.id} className="lg:justify-around lg:w-3/4 mb-3">
           <h1 className="flex justify-center items-center text-xl font-bold text-amber-700">

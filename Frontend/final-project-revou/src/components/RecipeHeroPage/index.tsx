@@ -37,8 +37,8 @@ export default function RecipeHeroPage({ images }: ImageProps) {
         </picture>
         <div className="absolute inset-0 min-w-72 gap-6 flex flex-col justify-center items-center text-center text-white m-5">
           {recipeDetailCards.map((recipe: any) => (
-            <div key={recipe.id} className="mt-6 mb-4">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            <div key={recipe.id} className="mt-6 mb-4 sm:mt-28 sm:mb-0">
+              <h1 className="text-3xl sm:text-4xl sm:tracking-wider lg:text-5xl font-bold">
                 {recipe.title}
               </h1>
             </div>
@@ -46,12 +46,12 @@ export default function RecipeHeroPage({ images }: ImageProps) {
           {recipeDetailCards.map((recipe: any) => (
             <div
               key={recipe.id}
-              className="w-1/4 h-1/4 flex justify-center items-center"
+              className="w-1/4 h-1/4 sm:mt-10 flex justify-center items-center"
             >
               <div className="flex justify-center items-center rounded-xl bg-white lg:h-14 lg:w-full lg:px-64 mx-auto">
                 {/* White box */}
                 <div className="flex items-center justify-center px-2 mx-auto">
-                  <div className="flex items-center my-1 mr-4 text-black">
+                  <div className="flex flex-row items-center my-1 mr-4 text-slate-900">
                     <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -62,13 +62,13 @@ export default function RecipeHeroPage({ images }: ImageProps) {
                         <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
                       </svg>
                     </div>
-                    <div className="">
-                      <h1 className="ml-1 font-medium text-sm">
-                        {recipe.servings} People
+                    <div className="flex flex-row">
+                      <h1 className="flex flex-row ml-1 font-medium text-sm sm:text-base">
+                        {recipe.servings}People
                       </h1>
                     </div>
                   </div>
-                  <div className="flex items-center  my-1 mr-4 text-black">
+                  <div className="flex items-center  my-1 mr-4 text-slate-900">
                     <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -80,12 +80,12 @@ export default function RecipeHeroPage({ images }: ImageProps) {
                       </svg>
                     </div>
                     <div>
-                      <h1 className="ml-1 font-medium text-sm">
+                      <h1 className="ml-1 font-medium text-sm sm:text-base">
                         {recipe.time}
                       </h1>
                     </div>
                   </div>
-                  <div className="flex items-center  my-1 text-black">
+                  <div className="flex items-center  my-1 text-slate-900">
                     <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@ export default function RecipeHeroPage({ images }: ImageProps) {
                       </svg>
                     </div>
                     <div>
-                      <h1 className="ml-1 font-medium text-sm">
+                      <h1 className="ml-1 font-medium text-sm sm:text-base">
                         {recipe.complexity}
                       </h1>
                     </div>

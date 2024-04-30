@@ -54,14 +54,16 @@ export default function CommentSection() {
             </div>
           </div>
           <div className="mt-4">
-            <h1 className="">
+            <h1 className="text-slate-800">
               Add comment as{" "}
-              <span className="font-semibold">{CommentsCard[0].userName}:</span>
+              <span className="font-semibold text-slate-800">
+                {CommentsCard[0].userName}:
+              </span>
             </h1>
           </div>
           <form action="" method="post">
             <div className="relative mt-1">
-              <textarea className="w-full h-20 bg-white text-slate-800 rounded-xl p-2 text-sm" />
+              <textarea className="w-full h-20 border-slate-400 border-2 bg-white text-slate-800 rounded-xl p-2 text-sm" />
               <div className="absolute -top-5 -right-2">
                 <picture>
                   <img
@@ -78,7 +80,7 @@ export default function CommentSection() {
           </form>
         </div>
         {CommentsCard[0].comments.map((card: any) => (
-          <div key={card.id} className="flex border-b-2">
+          <div key={card.id} className="flex border-b-2 w-full">
             {/* <div className="hidden lg:flex justify-center items-center p-2">
               <picture>
                 <img
@@ -88,8 +90,8 @@ export default function CommentSection() {
                 />
               </picture>
             </div> */}
-            <div className="flex flex-col justify-center items-center">
-              <div className="flex flex-col p-2 bg-white rounded-xl">
+            <div className="flex flex-col justify-start items-start w-full">
+              <div className="flex flex-col p-2 bg-white rounded-xl w-full">
                 <div className="flex gap-3">
                   <div className="lg:hidden">
                     <picture>

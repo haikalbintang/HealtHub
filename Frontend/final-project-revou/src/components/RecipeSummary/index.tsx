@@ -2,7 +2,7 @@ import { recipeDetailCards } from "@/data";
 
 export default function RecipeSummary() {
   return (
-    <div className="mt-4">
+    <div className="md:p-1 md:w-1/2 mt-4">
       {recipeDetailCards.map((card: any) => (
         <div
           key={card.id}

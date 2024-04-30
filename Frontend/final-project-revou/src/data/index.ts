@@ -17,7 +17,7 @@ export const recipeDetailCards = [
   {
     title: "Spaghetti Lasagna",
     complexity: "Easy",
-    time: "20 Min",
+    time: "20Min",
     foodImage: food1.src,
     servings: "4",
     foodCategory: "Pasta",

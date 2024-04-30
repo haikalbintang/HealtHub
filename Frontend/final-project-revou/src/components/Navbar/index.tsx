@@ -1,3 +1,4 @@
+import { useState } from "react";
 import svg1 from "../images/svg/whole-foods-1.svg";
 import Link from "next/link";
 
@@ -6,11 +7,17 @@ type SetToggleMenuType = (
 ) => void;
 
 interface Props {
-  setShowLoginModal?: SetToggleMenuType;
-  setShowNavbarHamburgerMenu?: SetToggleMenuType;
+  setShowLoginModal: SetToggleMenuType;
+  setShowNavbarHamburgerMenu: SetToggleMenuType;
 }
 
 const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
+  const [showSearchBar, setShowSearchBar] = useState(false);
+
+  const toggleSearchBar = () => {
+    setShowSearchBar((prev: boolean) => !prev);
+  };
+
   const toggleNavbarHamburgerMenu = () => {
     setShowNavbarHamburgerMenu((prev: boolean) => !prev);
   };
@@ -20,7 +27,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
 
   return (
     <>
-      <div className="hidden items-center justify-around sm:flex sm:gap-6 p-5 bg-orange-200">
+      <div className="hidden items-center justify-around sm:flex sm:gap-6 sm:p-2 sm:px- bg-orange-200">
         <div className="flex gap-2">
           <svg
             width="25px"
@@ -36,16 +43,22 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
               fill="#080341"
             />
           </svg>
-          <h1>have a question? contact us</h1>
+          <h1 className="text-slate-800">
+            have a question?{" "}
+            <span className="sm:hover:font-semibold cursor-pointer">
+              contact us
+            </span>
+          </h1>
         </div>
         <div className="flex justify-between gap-4 md:gap-8">
-          <div className="flex border-b-2 border-black">
+          <div className="flex border-b-2 border-slate-800 sm:max-w-44">
             <input
               type="text"
               placeholder="search here"
-              className="bg-transparent border-transparent border-none"
+              className="sm:max-w-36 sm:px-2 bg-transparent border-transparent border-none"
             />
             <svg
+              className=""
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 30 30"
               width="20px"
@@ -54,7 +67,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
               <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
             </svg>
           </div>
-          <div className="flex justify-center items-center gap-3">
+          <div className="flex justify-center items-center gap-2">
             <h1>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -97,8 +110,11 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
               <a href="#">About us</a>
             </li>
             <li>
-              <a href="#">
-                <img src={svg1.src} alt="" />
+              <a href="">
+                {" "}
+                <picture>
+                  <img src={svg1.src} alt="" />
+                </picture>
               </a>
             </li>
             <li>
@@ -111,12 +127,53 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
             </li>
           </ul>
         </div>
-        {/* Hamburger Menu */}
-        <div className="pt-4 pb-2 sm:hidden">
+      </div>
+      {/* Hamburger Menu */}
+      <div className="px-2 justify-between items-center flex sm:hidden">
+        <div className="flex justify-center items-center">
+          <a href="">
+            {" "}
+            <picture>
+              <img className="w-20 h-20" src={svg1.src} alt="" />
+            </picture>
+          </a>
+        </div>
+        {!showSearchBar && (
+          <div
+            onClick={toggleSearchBar}
+            className="flex justify-center items-center cursor-pointer"
+          >
+            <svg
+              className="w-8 h-8 "
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 30 30"
+            >
+              <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
+            </svg>
+          </div>
+        )}
+        {showSearchBar && (
+          <div className="flex justify-between border-b-2 border-slate-800 w-36 transform duration-1000">
+            <input
+              type="text"
+              placeholder="search here"
+              className="bg-transparent w-28 border-transparent border-none px-1"
+            />
+            <svg
+              onClick={toggleSearchBar}
+              className="w-7 h-7 cursor-pointer"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 30 30"
+            >
+              <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
+            </svg>
+          </div>
+        )}
+        <div className="flex justify-center items-center">
           <button
             onClick={toggleNavbarHamburgerMenu}
             type="button"
-            className="text-gray-700 hover:text-gray-900 focus:outline-none focus:text-gray-950"
+            className="text-black hover:text-gray-900 focus:outline-none focus:text-gray-950"
           >
             <svg
               className="h-8 w-8"
@@ -133,8 +190,8 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
             </svg>
           </button>
         </div>
-        {/* End of Hamburger Menu */}
       </div>
+      {/* End of Hamburger Menu */}
     </>
   );
 };
