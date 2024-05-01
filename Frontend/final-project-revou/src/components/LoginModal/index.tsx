@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import axios from "axios";
 import { Button } from "@/components/ui/button";
 import bg1 from "../../components/images/sliderImagesv2/food3.jpg";
 import googlesvg from "../../components/images/svg/7123025_logo_google_g_icon.svg";
@@ -23,6 +24,12 @@ export default function LoginModal({
 }: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginData, setLoginData] = useState({
+    username: "",
+    password: "",
+    email: "",
+  });
+  const API_BASE_URL = "http://127.0.0.1:5000";
 
   function goToRegisterFromLogin() {
     setShowLoginModal(false);
@@ -31,8 +38,28 @@ export default function LoginModal({
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle login logic here
-    setShowLoginModal(false);
+    try {
+      await handleLogin();
+      setShowLoginModal(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/users/login`, {
+        username_or_email: loginData.username || loginData.email,
+        password: loginData.password,
+      });
+      const access_token = response.data.token.access_token;
+
+      localStorage.setItem("access_token", access_token);
+
+      console.log("Login successful!");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

@@ -11,6 +11,7 @@ import Appetizers from "./Appetizers";
 import Desserts from "./Desserts";
 import Beverages from "./Beverages";
 import SideDishes from "./SideDishes";
+import WeeklyRecipes from "./WeeklyRecipes";
 import { Button } from "../ui/button";
 import Food1 from "../../components/images/sliderImagesv2/food1.jpg";
 import Food2 from "../../components/images/sliderImagesv2/food2.jpg";
@@ -18,6 +19,7 @@ import Food3 from "../../components/images/sliderImagesv2/food3.jpg";
 import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
 import NavbarWrapper from "../NavbarWrapper";
 import DiscoverContent from "../DiscoverContent";
+
 const RecipeFeeds = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -28,6 +30,15 @@ const RecipeFeeds = () => {
     "Desserts",
     "Beverages",
     "Side Dishes",
+  ];
+  const sideBarCategories = [
+    "Home",
+    "My Recipe",
+    "Followed Recipes",
+    "My Favorite Recipes",
+    "Nutrition",
+    "Type",
+    "Origin",
   ];
 
   const toggleMenu = () => {
@@ -48,93 +59,30 @@ const RecipeFeeds = () => {
         <div className="flex flex-col justify-center items-center  p-5">
           <div className="flex flex-col justify-center items-center p-5">
             <div className="flex justify-center items-center p-5">
-              <div className="flex flex-col gap-2 justify-center items-start p-5 bg-slate-50 rounded-lg shadow-lg shadow-slate-400 ">
-                <div className="flex gap-2 justify-start items-center  ">
-                  <div className="p-2 rounded-xl">
+              <div className="flex flex-col justify-center items-start p-5 bg-slate-50 rounded-lg shadow-lg shadow-slate-400 gap-5">
+                {sideBarCategories.map((sideBarCategory) => (
+                  <div
+                    key={sideBarCategory}
+                    className={`sideBarCategories flex gap-3 justify-start items-center p-2 ${
+                      selectedCategory === sideBarCategory
+                        ? "bg-slate-500 w-full rounded-lg shadow-md shadow-black"
+                        : ""
+                    }`}
+                    onClick={() => handleCategoryClick(sideBarCategory)}
+                  >
                     <img src={logo1.src} alt="" className="h-6 w-6" />
+                    <h1>{sideBarCategory}</h1>
                   </div>
-                  <h1>Home</h1>
-                </div>
-                <div className="flex gap-2 justify-start items-center ">
-                  <div className="p-2 rounded-xl">
-                    <img src={logo1.src} alt="" className="h-6 w-6" />
-                  </div>
-                  <h1>Recipees</h1>
-                </div>
-                <div className="flex gap-2 justify-start items-center ">
-                  <div className="p-2 rounded-xl">
-                    <img src={logo1.src} alt="" className="h-6 w-6" />
-                  </div>
-                  <h1>My Recipees</h1>
-                </div>
-                <div className="flex gap-2 justify-start items-center ">
-                  <div className="p-2 rounded-xl">
-                    <img src={logo1.src} alt="" className="h-6 w-6" />
-                  </div>
-                  <h1>Followed Recipees</h1>
-                </div>
-                <div className="flex gap-2 justify-start items-center ">
-                  <div className="p-2 rounded-xl">
-                    <img src={logo1.src} alt="" className="h-6 w-6" />
-                  </div>
-                  <h1>Loved</h1>
-                </div>
-                <div className="flex gap-2 justify-start items-center relative w-full hover:bg-red-200 hover:rounded-xl hover:shadow-xl hover:shadow-slate-200">
-                  <div className="p-2 rounded-xl ">
-                    <img src={logo1.src} alt="" className="h-6 w-6" />
-                  </div>
-                  <h1>Nutrions</h1>
-                  <div className="flex flex-col">
-                    <div className="absolute right-2 bottom-2 text-white justify-center items-center">
-                      <button
-                        className="bg-slate-200 rounded-full  h-6 w-6 p-1 text-black flex justify-center items-center"
-                        onClick={toggleMenu}
-                      >
-                        {">"}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex gap-2 justify-start items-center relative w-full hover:bg-red-200 hover:rounded-xl hover:shadow-xl hover:shadow-slate-200">
-                  <div className="p-2 rounded-xl ">
-                    <img src={logo1.src} alt="" className="h-6 w-6" />
-                  </div>
-                  <h1>Type</h1>
-                  <div className="flex flex-col">
-                    <div className="absolute right-2 bottom-2 text-white justify-center items-center">
-                      <button
-                        className="bg-slate-200 rounded-full  h-6 w-6 p-1 text-black flex justify-center items-center"
-                        onClick={toggleMenu}
-                      >
-                        {">"}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex gap-2 justify-start items-center relative w-full hover:bg-red-200 hover:rounded-xl hover:shadow-xl hover:shadow-slate-200">
-                  <div className="p-2 rounded-xl ">
-                    <img src={logo1.src} alt="" className="h-6 w-6" />
-                  </div>
-                  <h1>Origin</h1>
-                  <div className="flex flex-col">
-                    <div className="absolute right-2 bottom-2 text-white justify-center items-center">
-                      <button
-                        className="bg-slate-200 rounded-full  h-6 w-6 p-1 text-black flex justify-center items-center"
-                        onClick={toggleMenu}
-                      >
-                        {">"}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                {isMenuOpen && (
+                ))}
+
+                {/* {isMenuOpen && (
                   <div className=" transform translate-x-10 ease-out duration-400 p-4">
                     <ul>
                       <li>Menu item 1</li>
                       <li>Menu item 2</li>
                     </ul>
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           </div>
@@ -149,7 +97,11 @@ const RecipeFeeds = () => {
                 {categories.map((category) => (
                   <Button
                     key={category}
-                    className="category p-2 bg-slate-400 "
+                    className={`category p-2 bg-slate-400 ${
+                      selectedCategory === category
+                        ? "bg-black rounded-lg shadow-sm shadow-black"
+                        : ""
+                    }`}
                     onClick={() => handleCategoryClick(category)}
                   >
                     <h1>{category}</h1>
@@ -157,8 +109,8 @@ const RecipeFeeds = () => {
                 ))}
               </div>
               <div className="pt-5">
-                <h1>Recomended Recipes</h1>
-                <HealtyRecipes recipeCategoryName="" />
+                <h1>Weekly Recipes</h1>
+                <WeeklyRecipes recipeCategoryName="" />
               </div>
             </div>
           </div>
@@ -170,6 +122,7 @@ const RecipeFeeds = () => {
           {selectedCategory === "Desserts" && <Desserts />}
           {selectedCategory === "Beverages" && <Beverages />}
           {selectedCategory === "Side Dishes" && <SideDishes />}
+          {selectedCategory === "Home" && <HealtyRecipes />}
         </div>
       </div>
     </div>
