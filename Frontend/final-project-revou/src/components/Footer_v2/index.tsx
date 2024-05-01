@@ -4,7 +4,7 @@ export default function Footer_v2() {
       <div className="px-6 py-10 bg-orange-200 text-slate-800 rounded-t-xl">
         <div className="flex justify-between items-center">
           <h2 className="font-bold">FOLLOW US</h2>
-          <div className="flex justify-center items-center gap-2 pr-2">
+          <div className="flex justify-center items-center gap-2 mx-auto">
             <h1>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@ export default function Footer_v2() {
             <p className="text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit
             </p>
-            <h3 className="mt-4 font-bold">Contact</h3>
+            <h3 className="mt-4 font-bold">Contact:</h3>
             <p className="text-sm">+62 878 1234 5678</p>
             <h3 className="mt-4 font-bold">Email:</h3>
             <p className="text-sm">finalproject@revou.co</p>

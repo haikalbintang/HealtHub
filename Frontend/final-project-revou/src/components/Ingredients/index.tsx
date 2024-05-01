@@ -15,9 +15,9 @@ const Ingredients: React.FC<Props> = () => {
   };
 
   return (
-    <div className="flex flex-col mt-10 md:mt-0 ">
+    <div className="flex flex-col mt-10 sm:px-8 md:mt-0 ">
       {recipeDetailCards.map((card: any) => (
-        <div key={card.id} className="lg:justify-around lg:w-3/4 mb-3">
+        <div key={card.id} className="lg:justify-around mb-3">
           <h1 className="flex justify-center items-center text-xl font-bold text-orange-700">
             1. Ingredients
           </h1>
@@ -51,7 +51,7 @@ const Ingredients: React.FC<Props> = () => {
       {recipeDetailCards[0].ingredients.map((card: any) => (
         <div
           key={card.id}
-          className="flex px-0 w-full justify-between lg:w-3/4 container border-b-2 border-slate-200"
+          className="flex px-0 w-full justify-between sm:mt-2 sm:pb-1 container border-b-2 border-slate-200"
         >
           <div className="flex flex-start justify-start items-center gap-2 py-1">
             <picture>
@@ -61,12 +61,12 @@ const Ingredients: React.FC<Props> = () => {
                 className="w-12 h-12 flex rounded-full"
               />
             </picture>
-            <p className="text-base font-medium text-orange-900 flex justify-start items-center">
+            <p className="text-base sm:pl-2 font-medium text-orange-900 flex justify-start items-center">
               {card.name}
             </p>
           </div>
           <div className="flex justify-end items-center">
-            <h1 className="flex text-base font-semibold justify-end items-center">
+            <h1 className="flex text-base font-semibold justify-end items-center text-slate-800">
               {card.quantity}
             </h1>
           </div>

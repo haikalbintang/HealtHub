@@ -91,9 +91,9 @@ export default function CommentSection() {
               </picture>
             </div> */}
             <div className="flex flex-col justify-start items-start w-full">
-              <div className="flex flex-col p-2 bg-white rounded-xl w-full">
+              <div className="flex flex-col p-2 lg:px-0 bg-white rounded-xl w-full">
                 <div className="flex gap-3">
-                  <div className="lg:hidden">
+                  <div className="">
                     <picture>
                       <img
                         src={card.userImage}

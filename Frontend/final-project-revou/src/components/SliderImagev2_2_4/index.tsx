@@ -12,8 +12,8 @@ interface Props {
   className?: string;
 }
 
-export default function SliderImagev2_2_3({ className }: Props) {
-  const [endIndex, setEndIndex] = useState(6);
+export default function SliderImagev2_2_({ className }: Props) {
+  const [endIndex, setEndIndex] = useState(8);
 
   const cards = [
     {
@@ -271,8 +271,8 @@ export default function SliderImagev2_2_3({ className }: Props) {
   const displayCards = cards.slice(0, endIndex);
 
   const handleNext = () => {
-    if (endIndex < cards.length - 3) {
-      setEndIndex((prev) => prev + 3);
+    if (endIndex < cards.length - 4) {
+      setEndIndex((prev) => prev + 4);
     }
   };
 
@@ -290,7 +290,7 @@ export default function SliderImagev2_2_3({ className }: Props) {
           Our Recipes
         </h1>
         <div className="group justify-center items-center mt-4">
-          <div className="flex justify-center items-center flex-wrap gap-5 gap-y-7 lg:flex xl:flex">
+          <div className="flex justify-center items-center flex-wrap gap-5 gap-y-7 2xl:gap-10 2xl:gap-y-14 lg:flex xl:flex">
             {displayCards.map((card, index) => (
               <div key={index} className="w-40 flex cursor-pointer">
                 <CardSmall

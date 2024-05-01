@@ -12,7 +12,7 @@ interface Props {
   className?: string;
 }
 
-export default function SliderImagev2_1({ className }: Props) {
+export default function SliderImagev2_2_2({ className }: Props) {
   const [endIndex, setEndIndex] = useState(4);
 
   const cards = [
@@ -305,7 +305,7 @@ export default function SliderImagev2_1({ className }: Props) {
           ))}
         </div>
       </div>
-      <div className="flex justify-center items-center p-5 my-4 lg:hidden">
+      <div className="flex justify-center items-center p-5 my-4">
         <Button onClick={handleNext}>Show More</Button>
       </div>
     </div>

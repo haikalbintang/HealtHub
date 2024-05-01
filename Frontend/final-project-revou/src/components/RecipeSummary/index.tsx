@@ -6,9 +6,9 @@ export default function RecipeSummary() {
       {recipeDetailCards.map((card: any) => (
         <div
           key={card.id}
-          className="flex flex-col justify-center items-center px-1"
+          className="flex flex-col justify-center items-center px-1 md:p-1 md:pt-2"
         >
-          <h1 className="text-sm justify-center items-center text-slate-800 px-1">
+          <h1 className="text-sm sm:text-base md:text-sm justify-center items-center text-slate-800 px-1">
             <span className="text-lg font-bold text-slate-800">
               Recipe Summary:{" "}
             </span>

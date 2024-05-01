@@ -6,9 +6,9 @@ import sharesvg from "../../components/images/svg/share.svg";
 export default function CatOrNutLoSh() {
   return (
     <>
-      <div className="lg:flex justify-around items-center mx-auto mt-4 px-1 md:mt-8">
+      <div className="justify-around items-center mx-auto mt-4 px-1 sm:mt-6 md:mt-8">
         {/* First line */}
-        <div className="flex justify-between lg:flex-row items-center lg:justify-around lg:gap-12 lg:pl-20 gap-5 lg:pt-0">
+        <div className="flex justify-between lg:flex-row items-center lg:justify-around lg:gap-12 lg:px-20 gap-5 lg:pt-0">
           <div>
             <Button className="bg-transparent text-orange-800 font-bold text-lg p-0 m-0">
               Nutri Score:{" "}

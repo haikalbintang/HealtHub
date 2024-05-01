@@ -27,7 +27,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
 
   return (
     <>
-      <div className="hidden items-center justify-around sm:flex sm:gap-6 sm:p-2 sm:px- bg-orange-200">
+      <div className="hidden items-center justify-around sm:flex sm:gap-6 sm:rounded-b-xl sm:p-2 sm:px- bg-orange-200">
         <div className="flex gap-2">
           <svg
             width="25px"
