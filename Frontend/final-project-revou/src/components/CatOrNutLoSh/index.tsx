@@ -10,9 +10,9 @@ export default function CatOrNutLoSh() {
         {/* First line */}
         <div className="flex justify-between lg:flex-row items-center lg:justify-around lg:gap-12 lg:pl-20 gap-5 lg:pt-0">
           <div>
-            <Button className="bg-transparent text-amber-800 font-bold text-lg p-0 m-0">
+            <Button className="bg-transparent text-orange-800 font-bold text-lg p-0 m-0">
               Nutri Score:{" "}
-              <span className="text-gradients ml-1 font-bold text-amber-300 bg-amber-800 p-2 rounded-xl">
+              <span className="text-gradients ml-1 font-bold text-orange-300 bg-orange-800 p-2 rounded-xl">
                 8.0
               </span>
             </Button>
@@ -32,12 +32,12 @@ export default function CatOrNutLoSh() {
             ))}
           </div>
           <div className="flex gap-2">
-            <Button className="bg-transparent text-amber-800 font-bold text-lg p-0 m-0">
+            <Button className="bg-transparent text-orange-800 font-bold text-lg p-0 m-0">
               <picture>
                 <img className="w-8 h-8" src={heartsvg.src} alt="" />
               </picture>
             </Button>
-            <Button className="bg-transparent text-amber-800 font-bold text-lg justify-center items-center p-0 m-0">
+            <Button className="bg-transparent text-orange-800 font-bold text-lg justify-center items-center p-0 m-0">
               <picture>
                 <img className="w-11 h-11" src={sharesvg.src} alt="" />
               </picture>

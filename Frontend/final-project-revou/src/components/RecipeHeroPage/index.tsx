@@ -8,7 +8,7 @@ interface ImageProps {
 
 export default function RecipeHeroPage({ images }: ImageProps) {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="mt-1 flex flex-col justify-center items-center">
       {/* <div
         className="flex justify-center items-center gap-2 bg-orange-800 w-full h-16 text-white  lg:rounded-t-3xl"
         style={{ maxWidth: "150vh" }}

@@ -22,6 +22,7 @@ import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
 import SliderImagev2_2_2 from "@/components/SliderImagev2_2_2";
 import Footer from "@/components/Footer";
 import SliderImagev2_2_3 from "@/components/SliderImagev2_2_3";
+import Footer_v2 from "@/components/Footer_v2";
 
 export default function Recipees() {
   const truncate = (str: string) => {
@@ -71,7 +72,7 @@ export default function Recipees() {
       </div> */}
       <SliderImagev2_2_2 className="sm:hidden" />
       <SliderImagev2_2_3 className="hidden sm:block" />
-      <Footer />
+      <Footer_v2 />
     </div>
   );
 }

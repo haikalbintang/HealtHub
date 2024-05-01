@@ -128,9 +128,10 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
           </ul>
         </div>
       </div>
-      {/* Hamburger Menu */}
-      <div className="px-2 justify-between items-center flex sm:hidden">
-        <div className="flex justify-center items-center">
+      {/* Mobile menu */}
+      <div className="px-2 relative justify-between items-center flex sm:hidden">
+        <div className="bg-orange-200 w-full h-16 top-2 left-0 absolute rounded-xl"></div>
+        <div className="flex justify-center items-center z-10">
           <a href="">
             {" "}
             <picture>
@@ -141,7 +142,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
         {!showSearchBar && (
           <div
             onClick={toggleSearchBar}
-            className="flex justify-center items-center cursor-pointer"
+            className="flex justify-center items-center cursor-pointer z-10"
           >
             <svg
               className="w-8 h-8 "
@@ -153,7 +154,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
           </div>
         )}
         {showSearchBar && (
-          <div className="flex justify-between border-b-2 border-slate-800 w-36 transform duration-1000">
+          <div className="flex justify-between border-b-2 border-slate-800 w-36 transform duration-1000 z-10">
             <input
               type="text"
               placeholder="search here"
@@ -169,7 +170,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
             </svg>
           </div>
         )}
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center z-10">
           <button
             onClick={toggleNavbarHamburgerMenu}
             type="button"
@@ -191,7 +192,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
           </button>
         </div>
       </div>
-      {/* End of Hamburger Menu */}
+      {/* End of mobile menu */}
     </>
   );
 };

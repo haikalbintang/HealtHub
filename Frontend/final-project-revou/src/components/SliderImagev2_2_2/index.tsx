@@ -9,7 +9,7 @@ import { Button } from "../ui/button";
 import CardSmall from "../CardSmall";
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export default function SliderImagev2_1({ className }: Props) {
@@ -289,7 +289,7 @@ export default function SliderImagev2_1({ className }: Props) {
         Our Recipes
       </h1>
       <div className="group justify-center items-center mt-4">
-        <div className="flex flex-wrap gap-3 gap-y-5 lg:flex xl:flex">
+        <div className="flex flex-wrap justify-center items-center gap-3 gap-y-5 lg:flex xl:flex">
           {displayCards.map((card, index) => (
             <div key={index} className="w-40 flex cursor-pointer">
               <CardSmall
@@ -305,7 +305,7 @@ export default function SliderImagev2_1({ className }: Props) {
           ))}
         </div>
       </div>
-      <div className="flex justify-center items-center p-5 mt-4 lg:hidden">
+      <div className="flex justify-center items-center p-5 my-4 lg:hidden">
         <Button onClick={handleNext}>Show More</Button>
       </div>
     </div>

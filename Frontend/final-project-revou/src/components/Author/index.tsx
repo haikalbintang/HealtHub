@@ -24,7 +24,7 @@ export default function Author() {
               </picture>
               <div className="flex flex-col gap-2">
                 <div className="flex justify-between gap-4 md:gap-3">
-                  <h1 className="text-xl font-bold text-amber-900">
+                  <h1 className="text-xl font-bold text-orange-900">
                     {card.name}
                   </h1>
                   <Button className="hidden sm:flex bg-slate-800 px-2 hover:bg-slate-900">
