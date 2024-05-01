@@ -8,9 +8,13 @@ const RecipeForm: React.FC = () => {
     complexity: "",
     servings: "",
     budget: "",
-    instructions: "",
+    instruction: "",
     nutriscore: "",
-    // category: "",
+    category: "",
+    type: "",
+    origin: "",
+    tag: [""],
+
     // image: "",
   });
 
@@ -33,6 +37,11 @@ const RecipeForm: React.FC = () => {
             servings: recipeData.servings,
             budget: recipeData.budget,
             nutriscore: recipeData.nutriscore,
+            instruction: recipeData.instruction,
+            type: recipeData.type,
+            origin: recipeData.origin,
+            tag: recipeData.tag,
+
             // image: recipeData.image,
             // category: recipeData.category,
           },
@@ -217,6 +226,48 @@ const RecipeForm: React.FC = () => {
             htmlFor="budget"
             className="block text-sm font-medium text-gray-700"
           >
+            Choose Type Of Food:
+          </label>
+          <select
+            name="type"
+            value={recipeData.type}
+            className="w-full flex p-2 border-2 rounded-md"
+          >
+            <option value="" disabled>
+              --Please choose an option--
+            </option>
+            <option value="mainDish">Main Dishes</option>
+            <option value="sideDish">Side Dishes</option>
+            <option value="Appetizer">Appetizers</option>
+            <option value="Beverage">Beverages</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Healty Recipes">Healty Recipes</option>
+          </select>
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="budget"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Category
+          </label>
+          <input
+            type="text"
+            id="budget"
+            name="budget"
+            value={recipeData.category}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, category: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter category ex sugar-free, low-sodium"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="budget"
+            className="block text-sm font-medium text-gray-700"
+          >
             budget
           </label>
           <input
@@ -247,7 +298,48 @@ const RecipeForm: React.FC = () => {
               setRecipeData({ ...recipeData, nutriscore: e.target.value })
             }
             className="mt-1 p-2 border rounded-md w-full"
-            placeholder="Enter nutriscore"
+            placeholder="Enter nutriscore max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="tag"
+            className="block text-sm font-medium text-gray-700"
+          >
+            tag
+          </label>
+          <input
+            type="text"
+            id="tag"
+            name="tag"
+            value={recipeData.tag ? recipeData.tag.join(", ") : ""}
+            onChange={(e) =>
+              setRecipeData({
+                ...recipeData,
+                tag: e.target.value.split(", "),
+              })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter tag for your recipe"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="budget"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Instructions
+          </label>
+          <textarea
+            id="instructions"
+            name="instruction"
+            value={recipeData.instruction}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, instruction: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter intsructions"
           />
         </div>
         {/* <div className="mb-4">
