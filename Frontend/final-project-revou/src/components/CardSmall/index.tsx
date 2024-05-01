@@ -26,7 +26,7 @@ export default function Card({
   maxHeight,
 }: Props) {
   return (
-    <div className="flex flex-wrap relative text-center sm:hover:transform sm:hover:scale-110 sm:duration-300 rounded-xl">
+    <div className="z-0 flex flex-wrap relative text-center sm:hover:transform sm:hover:scale-110 sm:duration-300 rounded-xl">
       <picture>
         <img
           src={foodImage}
@@ -68,7 +68,7 @@ export default function Card({
             className="hidden w-2 h-2 sm:w-8 sm:h-8"
           />
         </picture>
-        <button className="text-white text-xs sm:text-sm py-1 px-2 rounded-xl bg-slate-800">
+        <button className="text-white text-xs sm:text-sm py-1 px-2 z-0 rounded-xl bg-slate-800">
           <h2 className="flex justify-center items-center text-xs sm:text-sm">
             {time}
           </h2>
@@ -79,7 +79,7 @@ export default function Card({
       ></div> */}
       <div className="">
         <div
-          className={`absolute bottom-0 left-0 w-full h-full shadow-lg shadow-slate-800  ring-1 overflow-hidden ${
+          className={`absolute bottom-0 left-0 w-full h-full shadow-lg shadow-slate-800 rounded-xl ring-1 overflow-hidden ${
             role === "chef" ? " border-gradient " : ""
           }`}
           style={{ borderColor: role === "chef" ? "border-red-500" : "" }}
@@ -87,9 +87,9 @@ export default function Card({
       </div>
       {role === "chef" ? (
         <>
-          <div className="w-16 h-16 z-30 -top-3 -right-2 absolute sm:-top-12 sm:-right-2 sm:w-24 sm:h-24 ">
+          <div className="w-16 h-16 z-50 -top-3 -right-2 absolute sm:-top-12 sm:-right-2 sm:w-24 sm:h-24 ">
             <picture>
-              <img src={gif1.src} alt="Chef icon." />
+              <img className="z-50" src={gif1.src} alt="Chef icon." />
             </picture>
             {/* <img src={chefsvg.src} alt="Chef icon." /> */}
           </div>
