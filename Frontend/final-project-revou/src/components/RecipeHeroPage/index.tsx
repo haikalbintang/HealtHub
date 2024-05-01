@@ -8,7 +8,7 @@ interface ImageProps {
 
 export default function RecipeHeroPage({ images }: ImageProps) {
   return (
-    <div className=" pt-5 flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center">
       {/* <div
         className="flex justify-center items-center gap-2 bg-orange-800 w-full h-16 text-white  lg:rounded-t-3xl"
         style={{ maxWidth: "150vh" }}
@@ -21,68 +21,89 @@ export default function RecipeHeroPage({ images }: ImageProps) {
           </div>
         ))}
       </div> */}
-      <div className="relative w-full flex justify-center items-center px-6 overflow-hidden">
-        <img
-          src={recipeDetailCards[0].foodImage}
-          alt=""
-          className="w-full h-full object-cover lg:rounded-3xl"
-          style={{
-            maxHeight: "50vh",
-            maxWidth: "150vh",
-            display: "block",
-            objectPosition: "top",
-          }}
-        />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white m-5">
+      <div className="relative w-full flex justify-center items-center lg:px-6 overflow-hidden">
+        <picture>
+          <img
+            src={recipeDetailCards[0].foodImage}
+            alt=""
+            className="w-full h-full object-cover rounded-3xl"
+            style={{
+              maxHeight: "50vh",
+              maxWidth: "150vh",
+              display: "block",
+              objectPosition: "top",
+            }}
+          />
+        </picture>
+        <div className="absolute inset-0 min-w-72 gap-6 flex flex-col justify-center items-center text-center text-white m-5">
           {recipeDetailCards.map((recipe: any) => (
-            <div className="mb-4">
+            <div key={recipe.id} className="mt-6 mb-4">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
                 {recipe.title}
               </h1>
             </div>
           ))}
           {recipeDetailCards.map((recipe: any) => (
-            <div className=" w-1/4 h-1/4 flex justify-center items-center">
-              <div className="flex justify-center items-center rounded-xl bg-white lg:h-14 lg:w-full lg:px-64 m-2">
-                <div className="flex items-center my-1 mr-4 text-black">
-                  <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="14"
-                      viewBox="0 -960 960 960"
-                      width="24"
-                    >
-                      <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
-                    </svg>
+            <div
+              key={recipe.id}
+              className="w-1/4 h-1/4 flex justify-center items-center"
+            >
+              <div className="flex justify-center items-center rounded-xl bg-white lg:h-14 lg:w-full lg:px-64 mx-auto">
+                {/* White box */}
+                <div className="flex items-center justify-center px-2 mx-auto">
+                  <div className="flex items-center my-1 mr-4 text-black">
+                    <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="14"
+                        viewBox="0 -960 960 960"
+                        width="24"
+                      >
+                        <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                      </svg>
+                    </div>
+                    <div className="">
+                      <h1 className="ml-1 font-medium text-sm">
+                        {recipe.servings} People
+                      </h1>
+                    </div>
                   </div>
-                  <h1 className="ml-2">{recipe.servings}People</h1>
-                </div>
-                <div className="flex items-center  my-1 mr-4 text-black">
-                  <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="14"
-                      viewBox="0 -960 960 960"
-                      width="24"
-                    >
-                      <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
-                    </svg>
+                  <div className="flex items-center  my-1 mr-4 text-black">
+                    <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="14"
+                        viewBox="0 -960 960 960"
+                        width="24"
+                      >
+                        <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h1 className="ml-1 font-medium text-sm">
+                        {recipe.time}
+                      </h1>
+                    </div>
                   </div>
-                  <h1 className="ml-2">{recipe.time}</h1>
-                </div>
-                <div className="flex items-center  my-1 text-black">
-                  <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="14"
-                      viewBox="0 -960 960 960"
-                      width="24"
-                    >
-                      <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
-                    </svg>
+                  <div className="flex items-center  my-1 text-black">
+                    <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="14"
+                        viewBox="0 -960 960 960"
+                        width="24"
+                      >
+                        <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h1 className="ml-1 font-medium text-sm">
+                        {recipe.complexity}
+                      </h1>
+                    </div>
                   </div>
-                  <h1 className="ml-2">{recipe.difficulty}</h1>
                 </div>
+                {/* End of white box */}
               </div>
             </div>
           ))}
