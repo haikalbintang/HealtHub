@@ -41,7 +41,7 @@ export default function Recipees() {
       <NavbarWrapper />
       <RecipeHeroPage images={images} />
       <CatOrNutLoSh />
-      <div className="md:flex md:my-3 lg:mb-10 lg:mt-0 lg:px-12 lg:gap-3">
+      <div className="md:flex md:my-3 lg:mb-10 lg:mt-0 lg:px-12 lg:gap-3 2xl:gap-10">
         <Author />
         <RecipeSummary />
       </div>
