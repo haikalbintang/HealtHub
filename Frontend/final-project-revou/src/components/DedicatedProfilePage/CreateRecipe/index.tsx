@@ -9,6 +9,7 @@ const RecipeForm: React.FC = () => {
     servings: "",
     budget: "",
     instructions: "",
+    nutriscore: "",
     // category: "",
     // image: "",
   });
@@ -31,7 +32,7 @@ const RecipeForm: React.FC = () => {
             complexity: recipeData.complexity,
             servings: recipeData.servings,
             budget: recipeData.budget,
-            instructions: recipeData.instructions,
+            nutriscore: recipeData.nutriscore,
             // image: recipeData.image,
             // category: recipeData.category,
           },
@@ -164,7 +165,7 @@ const RecipeForm: React.FC = () => {
             Cook Time
           </label>
           <input
-            type="text"
+            type="number"
             id="cookTime"
             name="cookTime"
             value={recipeData.cooktime}
@@ -200,7 +201,7 @@ const RecipeForm: React.FC = () => {
             Servings
           </label>
           <input
-            type="text"
+            type="number"
             id="servings"
             name="servings"
             value={recipeData.servings}
@@ -232,39 +233,58 @@ const RecipeForm: React.FC = () => {
         </div>
         <div className="mb-4">
           <label
+            htmlFor="budget"
+            className="block text-sm font-medium text-gray-700"
+          >
+            nutriscore
+          </label>
+          <input
+            type="number"
+            id="nutriscore"
+            name="nutriscore"
+            value={recipeData.nutriscore}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, nutriscore: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter nutriscore"
+          />
+        </div>
+        {/* <div className="mb-4">
+          <label
             htmlFor="instructions"
             className="block text-sm font-medium text-gray-700"
           >
             Instructions
           </label>
-          {/* {formData.instructions.map((instruction, index) => ( */}
+          {formData.instructions.map((instruction, index) => (
           <div className="flex items-center mt-1">
             <textarea
               value={recipeData.instructions}
               onChange={(e) =>
                 setRecipeData({ ...recipeData, instructions: e.target.value })
               }
-              // onChange={(e) => handleChange(e, index)}
+              onChange={(e) => handleChange(e, index)}
               className="p-4 border rounded-md flex-grow"
-              // placeholder={`Step ${index + 1}`}
+              placeholder={`Step ${index + 1}`}
             />
             <button
               type="button"
-              // onClick={() => handleRemoveStep(index)}
+              onClick={() => handleRemoveStep(index)}
               className="ml-2 p-2 bg-red-500 text-white rounded-md"
             >
               Remove Step
             </button>
           </div>
-          {/* ))} */}
+           ))} 
           <button
             type="button"
-            // onClick={handleAddStep}
+            onClick={handleAddStep}
             className="mt-2 p-2 bg-blue-500 text-white rounded-md"
           >
             Add Step
           </button>
-        </div>
+        </div> */}
         <button
           type="submit"
           className="bg-green-500 text-white py-2 px-4 rounded-md"

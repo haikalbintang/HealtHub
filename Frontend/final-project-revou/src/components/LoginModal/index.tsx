@@ -22,6 +22,7 @@ export default function LoginModal({ setShowLoginModal }: Props) {
   const [loginData, setLoginData] = useState({
     username: "",
     password: "",
+    email: "",
   });
   const API_BASE_URL = "http://127.0.0.1:5000";
 
@@ -38,7 +39,7 @@ export default function LoginModal({ setShowLoginModal }: Props) {
   const handleLogin = async () => {
     try {
       const response = await axios.post(`${API_BASE_URL}/users/login`, {
-        username: loginData.username,
+        username_or_email: loginData.username || loginData.email,
         password: loginData.password,
       });
       const access_token = response.data.token.access_token;

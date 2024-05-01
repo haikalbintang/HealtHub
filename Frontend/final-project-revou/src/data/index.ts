@@ -262,9 +262,171 @@ export const chefMainCard2 = [
       },
     ],
     address: "Jakarta, Indonesia",
+    sideList: {
+      category: {
+        MyRecipe: [
+          {
+            recipeName: "Pizza Margharita",
+            image: food1.src,
+            recipeDescription:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+            tags: ["#Easy", "#Spicy", "#Vegan"],
+            difficulty: "easy",
+            servings: "2Person",
+            nutriScore: "9.0",
+          },
+          {
+            recipeName: "Pizza Margharita",
+            image: food1.src,
+            recipeDescription:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+            tags: ["#Easy", "#Spicy", "#Vegan"],
+            difficulty: "easy",
+            servings: "2Person",
+            nutriScore: "9.0",
+          },
+          {
+            recipeName: "Pizza Margharita",
+            image: food1.src,
+            recipeDescription:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+            tags: ["#Easy", "#Spicy", "#Vegan"],
+            difficulty: "easy",
+            servings: "2Person",
+            nutriScore: "9.0",
+          },
+          {
+            recipeName: "Pizza Margharita",
+            image: food1.src,
+            recipeDescription:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+            tags: ["#Easy", "#Spicy", "#Vegan"],
+            difficulty: "easy",
+            servings: "2Person",
+            nutriScore: "9.0",
+          },
+        ],
+        FollowedRecipes: [
+          {
+            recipeName: "Pizza Margharita",
+            image: food1.src,
+            recipeDescription:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+            tags: ["#Easy", "#Spicy", "#Vegan"],
+            difficulty: "easy",
+            servings: "2Person",
+            nutriScore: "9.0",
+          },
+          {
+            recipeName: "Pizza Margharita",
+            image: food1.src,
+            recipeDescription:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+            tags: ["#Easy", "#Spicy", "#Vegan"],
+            difficulty: "easy",
+            servings: "2Person",
+            nutriScore: "9.0",
+          },
+          {
+            recipeName: "Pizza Margharita",
+            image: food1.src,
+            recipeDescription:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+            tags: ["#Easy", "#Spicy", "#Vegan"],
+            difficulty: "easy",
+            servings: "2Person",
+            nutriScore: "9.0",
+          },
+        ],
+        MyFavoriteRecipes: [
+          {
+            recipeName: "Pizza Margharita",
+            image: food1.src,
+            recipeDescription:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+            tags: ["#Easy", "#Spicy", "#Vegan"],
+            difficulty: "easy",
+            servings: "2Person",
+            nutriScore: "9.0",
+          },
+          {
+            recipeName: "Pizza Margharita",
+            image: food1.src,
+            recipeDescription:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+            tags: ["#Easy", "#Spicy", "#Vegan"],
+            difficulty: "easy",
+            servings: "2Person",
+            nutriScore: "9.0",
+          },
+        ],
+      },
+    },
     recipe: [
       {
         category: {
+          WeeklyRecipes: [
+            {
+              recipeName: "Pizza Margharita",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+            {
+              recipeName: "Pizza Margharita",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+            {
+              recipeName: "Pizza Margharita",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+            {
+              recipeName: "Pizza Margharita",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+            {
+              recipeName: "Pizza Margharita",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+            {
+              recipeName: "Pizza Margharita",
+              image: food1.src,
+              recipeDescription:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, est?",
+              tags: ["#Easy", "#Spicy", "#Vegan"],
+              difficulty: "easy",
+              servings: "2Person",
+              nutriScore: "9.0",
+            },
+          ],
           HealtyRecipes: [
             {
               recipeName: "Pizza Margharita",

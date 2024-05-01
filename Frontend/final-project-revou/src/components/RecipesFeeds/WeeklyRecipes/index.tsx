@@ -6,7 +6,7 @@ interface Props {
   recipeCategoryName?: string;
   //   recipeCategoryType: string;
 }
-const HealtyRecipes: React.FC<Props> = ({
+const WeeklyRecipes: React.FC<Props> = ({
   //   recipeCategoryType,
   recipeCategoryName,
 }) => {
@@ -25,7 +25,7 @@ const HealtyRecipes: React.FC<Props> = ({
       <div className=" pr-16 ">
         {chefMainCard2[0].recipe.map((recipeCategory, index) => (
           <div className="grid grid-cols-4 gap-4 px-10  pt-4 " key={index}>
-            {recipeCategory.category.HealtyRecipes.slice(0, showCount).map(
+            {recipeCategory.category.WeeklyRecipes.slice(0, showCount).map(
               (recipe, recipeIndex) => (
                 <div
                   key={recipeIndex}
@@ -47,14 +47,14 @@ const HealtyRecipes: React.FC<Props> = ({
             )}
           </div>
         ))}
-        <div className="px-10 pt-4 flex justify-end items-center gap-2 p-5">
+        <div className="px-10 pt-4 flex justify-end items-center gap-2">
           {showCount > 4 && (
             <Button onClick={toggleShowLess} className="text-white">
               Show Less
             </Button>
           )}
           {showCount <
-            chefMainCard2[0].recipe[0].category.HealtyRecipes.length && (
+            chefMainCard2[0].recipe[0].category.WeeklyRecipes.length && (
             <Button onClick={toggleShowMore} className="text-white">
               Show More
             </Button>
@@ -65,4 +65,4 @@ const HealtyRecipes: React.FC<Props> = ({
   );
 };
 
-export default HealtyRecipes;
+export default WeeklyRecipes;

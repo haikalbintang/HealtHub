@@ -43,7 +43,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
             <input
               type="text"
               placeholder="search here"
-              className="bg-transparent border-transparent border-none"
+              className="bg-transparent border-none outline-none"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
