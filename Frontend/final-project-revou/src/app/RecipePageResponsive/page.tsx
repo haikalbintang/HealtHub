@@ -1,20 +1,15 @@
 "use client";
 import React from "react";
-import RecipeFeeds from "@/components/RecipesFeeds";
-import Footer from "@/components/Footer";
-import food1 from "../../components/images/sliderImagesv2/food1.jpg";
-import food2 from "../../components/images/sliderImagesv2/food2.jpg";
-import food3 from "../../components/images/sliderImagesv2/food3.jpg";
-import food4 from "../../components/images/sliderImagesv2/food4.jpg";
+import Footer_vmhb from "@/components/Footer_vmhb";
+import NavbarWrapper from "@/components/NavbarWrapper";
+import RecipeFeeds_vmhb from "@/components/RecipesFeeds copy";
 
 const RecipePage: React.FC = () => {
-  const images = [food1, food2, food3, food4];
   return (
-    <div>
-      {/* <SliderImagev2 foodImages={images} title="test" /> */}
-      <RecipeFeeds />
-      <Footer />
-      {/* <h1>tes</h1> */}
+    <div className="px-3 sm:px-5 justify-center items-center">
+      <NavbarWrapper />
+      <RecipeFeeds_vmhb />
+      <Footer_vmhb />
     </div>
   );
 };

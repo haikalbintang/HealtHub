@@ -8,7 +8,7 @@ interface SidebarProps {
   onClose: () => void;
 }
 
-const Sidebarv2: React.FC = () => {
+const Sidebar_vmhb: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -56,4 +56,4 @@ const Sidebarv2: React.FC = () => {
   );
 };
 
-export default Sidebar;
+export default Sidebar_vmhb;

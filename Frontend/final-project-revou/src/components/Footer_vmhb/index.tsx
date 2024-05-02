@@ -1,4 +1,4 @@
-export default function Footer_v2() {
+export default function Footer_vmhb() {
   return (
     <>
       <div className="px-6 py-10 bg-orange-200 text-slate-800 rounded-t-xl">

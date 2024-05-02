@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import SideBarv2 from "@/components/SideBarv2";
+import Sidebar_vmhb from "@/components/Sidebar_vmhb";
 
 const App: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <SideBarv2 />
+      <Sidebar_vmhb />
     </div>
   );
 };

@@ -22,7 +22,7 @@ import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
 import SliderImagev2_2_2 from "@/components/SliderImagev2_2_2";
 import Footer from "@/components/Footer";
 import SliderImagev2_2_3 from "@/components/SliderImagev2_2_3";
-import Footer_v2 from "@/components/Footer_v2";
+import Footer_v2 from "@/components/Footer_vmhb";
 import SliderImagev2_2_4 from "@/components/SliderImagev2_2_4";
 
 export default function Recipees() {
