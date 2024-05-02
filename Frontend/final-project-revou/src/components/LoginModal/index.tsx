@@ -36,7 +36,7 @@ export default function LoginModal({
     setShowRegisterModal(true);
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       await handleLogin();
@@ -105,22 +105,24 @@ export default function LoginModal({
               </h2>
               <h2 className="text-base">&mdash;&mdash;&mdash;</h2>
             </div>
-            <form action="{{}}" method="post">
+            <form onSubmit={handleSubmit}>
               <div className="py-2">
                 <label
                   htmlFor="email"
                   className="text-sm cursor-pointer text-slate-600 font-semibold"
                 >
-                  Email
+                  Email / User Name
                 </label>
                 <div className="relative ">
                   <input
-                    type="email"
+                    type="text"
                     name="email"
                     id="email"
-                    value={email}
+                    value={loginData.email || loginData.username}
                     className="border border-gray-300 rounded-xl w-72 p-2 text-sm pl-9"
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) =>
+                      setLoginData({ ...loginData, email: e.target.value })
+                    }
                     placeholder="Enter your email"
                     required
                   />
@@ -141,9 +143,11 @@ export default function LoginModal({
                     type="password"
                     name="password"
                     id="password"
-                    value={password}
+                    value={loginData.password}
                     className="border border-gray-300 rounded-xl w-72 p-2 text-sm pl-9"
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) =>
+                      setLoginData({ ...loginData, password: e.target.value })
+                    }
                     placeholder="Enter your password"
                     required
                   />
