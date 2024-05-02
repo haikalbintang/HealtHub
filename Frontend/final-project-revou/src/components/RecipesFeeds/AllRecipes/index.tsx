@@ -1,0 +1,69 @@
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { chefMainCard2 } from "@/data";
+import useFetchRecipe from "@/hooks/UseFetchRecipe";
+
+interface Props {
+  recipeCategoryName: string;
+}
+
+interface RecipeData {
+  id: string;
+  title: string;
+  complexity: string;
+  servings: string;
+  nutriScore: number;
+  image: string;
+}
+
+const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
+  const { recipes, error, refetchRecipes } = useFetchRecipe();
+  const [showCount, setShowCount] = useState(4);
+
+  const toggleShowMore = () => {
+    setShowCount((prevCount) => prevCount + 4);
+  };
+
+  const toggleShowLess = () => {
+    setShowCount((prevCount) => Math.max(4, prevCount - 4));
+  };
+
+  return (
+    <div className="item-list container">
+      <h2>{recipeCategoryName}</h2>
+      <div className="pr-16">
+        <div className="grid grid-cols-4 gap-4 px-10 pt-4">
+          {recipes.slice(0, showCount).map((recipe, index: number) => (
+            <div className="rounded-xl shadow-md shadow-black" key={index}>
+              <img src={recipe.image} alt="" className="rounded-t-xl" />
+              <div className="flex flex-col gap-2 pt-2 bg-slate-50 rounded-b-xl p-5">
+                <div className="flex justify-center items-center">
+                  {recipe.title}
+                </div>
+                <div className="flex justify-around items-center">
+                  <div>{recipe.complexity}</div>
+                  <div>{recipe.servings}</div>
+                  <div>{recipe.nutriscore}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="px-10 pt-4 flex justify-end items-center gap-2">
+        {showCount > 4 && (
+          <Button onClick={toggleShowLess} className="text-white">
+            Show Less
+          </Button>
+        )}
+        {showCount < recipes.length && (
+          <Button onClick={toggleShowMore} className="text-white">
+            Show More
+          </Button>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default AllRecipes;

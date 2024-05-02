@@ -12,6 +12,7 @@ import Desserts from "./Desserts";
 import Beverages from "./Beverages";
 import SideDishes from "./SideDishes";
 import WeeklyRecipes from "./WeeklyRecipes";
+import AllRecipes from "./AllRecipes";
 import { Button } from "../ui/button";
 import Food1 from "../../components/images/sliderImagesv2/food1.jpg";
 import Food2 from "../../components/images/sliderImagesv2/food2.jpg";
@@ -36,9 +37,9 @@ const RecipeFeeds = () => {
     "My Recipe",
     "Followed Recipes",
     "My Favorite Recipes",
-    "Nutrition",
-    "Type",
-    "Origin",
+    "Nutritions",
+    "Categories",
+    "Origins",
   ];
 
   const toggleMenu = () => {
@@ -111,6 +112,10 @@ const RecipeFeeds = () => {
               <div className="pt-5">
                 <h1>Weekly Recipes</h1>
                 <WeeklyRecipes recipeCategoryName="" />
+              </div>
+              <div className="pt-5">
+                <h1>All Recipes</h1>
+                <AllRecipes recipeCategoryName="" />
               </div>
             </div>
           </div>
