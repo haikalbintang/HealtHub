@@ -10,6 +10,8 @@ interface SidebarProps {
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
   const categories = [
     "Home",
     "My Profile",
@@ -18,27 +20,29 @@ const Sidebar: React.FC = () => {
     "Security",
   ];
 
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
   };
 
   return (
     <div className="flex">
-      <div className="fixed top-0 left-0 h-full bg-gray-800 text-white w-64 ">
-        <div className="py-4 px-6">
-          <div className="p-2 ">
-            {categories.map((category) => (
-              <h1
-                className="hover:bg-red-200 hover:rounded-xl p-2 py-4 cursor-pointer"
-                key={category}
-                onClick={() => handleCategoryClick(category)}
-              >
-                {category}
-              </h1>
-            ))}
-          </div>
+      <div className="fixed top-0 left-0 h-full bg-slate-800 text-white w-44 ">
+        <div className="p-6 px-4">
+          {categories.map((category) => (
+            <h1
+              className={`py-2 px-4 my-4 cursor-pointer ${
+                selectedCategory === category
+                  ? "text-slate-100"
+                  : "text-slate-300"
+              } hover:text-slate-100 ${
+                selectedCategory === category ? "bg-slate-700 rounded-xl" : ""
+              }`}
+              key={category}
+              onClick={() => handleCategoryClick(category)}
+            >
+              {category}
+            </h1>
+          ))}
         </div>
       </div>
       <div className="w-1/5"></div>

@@ -17,7 +17,7 @@ interface Props {
   maxHeight?: string;
 }
 
-export default function Card({
+export default function CardSmall({
   title,
   complexity,
   time,
