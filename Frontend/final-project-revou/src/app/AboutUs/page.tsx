@@ -1,9 +1,10 @@
 import React from 'react';
+import '.\Frontend\final-project-revou\src\app\AboutUs\style.css';
 
 // Company component
 const Company: React.FC = () => {
   return (
-    <div>
+    <div className="section">
       <h2>Our Company</h2>
       <p>RevoU Foods is a company that is establish in 2024 to promoting healthy food around the world</p>
       {/* Add more details about your company */}
@@ -14,7 +15,7 @@ const Company: React.FC = () => {
 // Team component
 const Team: React.FC = () => {
   return (
-    <div>
+    <div className="section">
       <h2>Our Team</h2>
       <p>Meet the people who drive our company forward:</p>
       <p>Amanda Satya</p>
@@ -28,7 +29,7 @@ const Team: React.FC = () => {
 // Mission component
 const Mission: React.FC = () => {
   return (
-    <div>
+    <div className="section">
       <h2>Our Mission</h2>
       <p>It is not just to promote food as a culture, but to measure the nutrients and to change the perspective of healthy foods from boring to be super fun!</p>
     </div>
