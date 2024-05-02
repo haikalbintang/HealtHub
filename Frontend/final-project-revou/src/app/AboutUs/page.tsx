@@ -1,5 +1,5 @@
 import React from 'react';
-import '.\Frontend\final-project-revou\src\app\AboutUs\style.css';
+import '../AboutUs/style.css';
 
 // Company component
 const Company: React.FC = () => {
