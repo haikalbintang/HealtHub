@@ -36,7 +36,7 @@ export default function LoginModal({
     setShowRegisterModal(true);
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       await handleLogin();
