@@ -114,8 +114,8 @@ export default function Recipees() {
         <div className="lg:w-1/3">
           <Ingredients className="flex justify-items-center items-center" />
         </div>
-        <div className="lg:w-2/3 pt-8 px-5">
-          <Instructions />
+        <div className="lg:w-2/3 pt-10 px-5">
+          <Instructions className="" />
         </div>
       </div>
       <div className="lg:flex pt-10 lg:px-20  justify-center items-center gap-3">

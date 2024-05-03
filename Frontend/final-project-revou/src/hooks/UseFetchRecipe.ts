@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-interface Recipe {
+export interface Recipe {
   title: string;
   description: string;
   cooktime: string;
@@ -16,6 +16,7 @@ interface Recipe {
   image: string;
   category: string;
   _id: string;
+  author_id: number;
 }
 
 export default function useFetchRecipe() {

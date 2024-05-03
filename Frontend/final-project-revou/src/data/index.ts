@@ -24,6 +24,7 @@ export const recipeDetailCards = [
     foodOrigin: "Italy",
     summary:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero nesciunt doloribus eveniet amet a distinctio quidem earum pariatur repellat id dolorum molestiae perspiciatis nobis ullam cumque, tenetur impedit assumenda rerum!",
+
     ingredients: [
       {
         name: "Pasta",

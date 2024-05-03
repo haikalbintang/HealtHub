@@ -22,19 +22,21 @@ export default function RecipeHeroPage({ images }: ImageProps) {
         ))}
       </div> */}
       <div className="relative w-full flex justify-center items-center lg:px-6 overflow-hidden">
-        <picture>
+        <div className="w-full lg:h-80  ">
           <img
             src={recipeDetailCards[0].foodImage}
             alt=""
-            className="w-full h-full object-cover rounded-3xl"
+            className="rounded-3xl"
             style={{
-              maxHeight: "50vh",
-              maxWidth: "150vh",
-              display: "block",
-              objectPosition: "top",
+              // maxHeight: "50vh",
+              // display: "block",
+              objectPosition: "center",
+              objectFit: "cover",
+              width: "100%",
+              height: "100%",
             }}
           />
-        </picture>
+        </div>
         <div className="absolute inset-0 min-w-72 gap-6 flex flex-col justify-center items-center text-center text-white m-5">
           {recipeDetailCards.map((recipe: any) => (
             <div key={recipe.id} className="mt-6 mb-4">
@@ -46,12 +48,12 @@ export default function RecipeHeroPage({ images }: ImageProps) {
           {recipeDetailCards.map((recipe: any) => (
             <div
               key={recipe.id}
-              className="w-1/4 h-1/4 flex justify-center items-center"
+              className="w-1/4 h-1/4 flex justify-around items-center"
             >
-              <div className="flex justify-center items-center rounded-xl bg-white lg:h-14 lg:w-full lg:px-64 mx-auto">
+              <div className="flex justify-center items-center rounded-xl bg-white lg:h-14 lg:w-full  mx-auto">
                 {/* White box */}
-                <div className="flex items-center justify-center px-2 mx-auto">
-                  <div className="flex items-center my-1 mr-4 text-black">
+                <div className="flex items-center justify-around px-2 ">
+                  <div className="flex  items-center my-1 mr-4 text-black">
                     <div className="rounded-full bg-slate-200  h-8 w-8 flex items-center justify-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

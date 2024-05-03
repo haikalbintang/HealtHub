@@ -61,7 +61,7 @@ export default function CommentSection() {
           </div>
           <form action="" method="post">
             <div className="relative mt-1">
-              <textarea className="w-full h-20 bg-white text-slate-800 rounded-xl p-2 text-sm" />
+              <textarea className="w-full h-20 bg-white text-slate-800 rounded-xl p-2 text-sm border-2 border-slate-400" />
               <div className="absolute -top-5 -right-2">
                 <picture>
                   <img
