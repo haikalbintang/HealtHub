@@ -473,7 +473,7 @@ const RecipeForm: React.FC = () => {
         </div>
         <div className="mb-4">
           <label
-            htmlFor="total_fat"
+            htmlFor="total_fats"
             className="block text-sm font-medium text-gray-700"
           >
             total fat :
