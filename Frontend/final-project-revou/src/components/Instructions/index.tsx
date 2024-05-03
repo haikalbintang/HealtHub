@@ -7,18 +7,18 @@ interface Props {
 
 const Instructions: React.FC<Props> = () => {
   return (
-    <div className="">
+    <div className="xl:px-8">
       {recipeDetailCards[0].instructions.map((card: any, index: number) => (
-        <div className="flex flex-col gap-5" key={index}>
-          <h1 className="flex justify-center items-center text-xl font-bold mb-3 text-amber-700">
+        <div className="gap-3" key={index}>
+          <h1 className="flex justify-center items-center text-xl font-bold mb-3 lg:mb-6 text-orange-700">
             2. Instructions
           </h1>
           {Object.keys(card).map((key) => (
-            <div className="flex items-start gap-2" key={key}>
-              <Button className="rounded-full flex items-center justify-center bg-amber-900">
+            <div className="flex items-start gap-2 lg:mt-2" key={key}>
+              <Button className="rounded-full  flex items-start bg-orange-900">
                 {key}
               </Button>
-              <h2 className=" leading-snug tracking-tight text-base font-medium border-b-2 border-slate-200 mb-3 flex justify-center items-center">
+              <h2 className="sm:pl-2 text-slate-800 lg:leading-normal sm:tracking-normal leading-snug tracking-tight text-base font-medium border-b-2 sm:pb-1 border-slate-200 mb-3">
                 {card[key]}
               </h2>
             </div>

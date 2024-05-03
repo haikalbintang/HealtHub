@@ -14,7 +14,7 @@ export default function NavbarWrapper() {
 
   return (
     <>
-      <div>
+      <div className="">
         <Navbar
           setShowLoginModal={setShowLoginModal}
           setShowNavbarHamburgerMenu={setShowNavbarHamburgerMenu}
