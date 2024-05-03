@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { chefMainCard2 } from "@/data";
 import { Button } from "@/components/ui/button";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import useFetchProfile from "@/hooks/useFetchProfile";
@@ -9,7 +10,7 @@ const MyRecipe: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const { recipes, error, refetchRecipes } = useFetchRecipe();
   const { profile } = useFetchProfile();
-  const [userRecipes, setUserRecipes] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     if (profile) {
@@ -24,13 +25,10 @@ const MyRecipe: React.FC = () => {
         Authorization: `Bearer ${authToken}`,
       };
       const response = await axios.get(
-        `http://127.0.0.1:5000/feeds/recipes/all`,
+        `http://127.0.0.1:5000/feeds/recipes/${profile?.id}`,
         { headers }
       );
-      const filteredRecipes = response.data.filter(
-        (recipe: any) => recipe.author_id === profile?.id
-      );
-      setUserRecipes(filteredRecipes);
+      setData(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -62,7 +60,7 @@ const MyRecipe: React.FC = () => {
       </div>
       <div className="pt-10">
         <div className="grid grid-cols-4 gap-4 px-10 pt-4">
-          {userRecipes.map((recipe: any, index: number) => (
+          {data.map((recipe: any, index: number) => (
             <div key={index} className="rounded-xl shadow-md shadow-black">
               <img src={recipe.image} alt="" className="rounded-t-xl" />
               <div className="flex flex-col gap-2 pt-2 bg-slate-50 rounded-b-xl p-5">
@@ -84,7 +82,7 @@ const MyRecipe: React.FC = () => {
               Show Less
             </Button>
           )}
-          {showCount < userRecipes.length && (
+          {showCount < recipes?.length && (
             <Button onClick={toggleShowMore} className="text-white">
               Show More
             </Button>

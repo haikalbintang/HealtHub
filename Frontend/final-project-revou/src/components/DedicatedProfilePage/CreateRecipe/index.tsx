@@ -230,7 +230,11 @@ const RecipeForm: React.FC = () => {
           </label>
           <select
             name="type"
+            id="type"
             value={recipeData.type}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, type: e.target.value })
+            }
             className="w-full flex p-2 border-2 rounded-md"
           >
             <option value="" disabled>
@@ -280,6 +284,26 @@ const RecipeForm: React.FC = () => {
             }
             className="mt-1 p-2 border rounded-md w-full"
             placeholder="Enter budget"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="origin"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Origin
+          </label>
+          <input
+            type="text"
+            id="origin"
+            name="origin"
+            value={recipeData.origin}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, origin: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter recipe origin ex : indonesia or brazil"
+            max={10}
           />
         </div>
         <div className="mb-4">

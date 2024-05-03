@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 interface Profile {
+  id: number;
   email: string;
   username: string;
   first_name: string;
@@ -28,6 +29,7 @@ export default function useFetchProfile() {
           "http://127.0.0.1:5000/users/profile",
           { headers }
         );
+        console.log("response", response);
         setProfile(response.data);
       } catch (error) {
         console.error("Error fetching profile:", error);

@@ -1,8 +1,11 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { recipeDetailCards } from "@/data";
+interface Props {
+  className?: string;
+}
 
-const Instructions = () => {
+const Instructions: React.FC<Props> = () => {
   return (
     <div className="xl:px-8">
       {recipeDetailCards[0].instructions.map((card: any, index: number) => (

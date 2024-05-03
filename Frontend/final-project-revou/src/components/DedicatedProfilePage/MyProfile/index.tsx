@@ -32,19 +32,18 @@ const MyProfile: React.FC = () => {
     location: "",
     phone: "",
     bio: "",
-    image: "",
   });
   const handleSave = async () => {
     try {
-      if (Object.values(data).some((value) => value === "")) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Please fill out all fields.",
-        });
-        console.error("Please fill out all fields.");
-        return;
-      }
+      // if (Object.values(data).some((value) => value === "")) {
+      //   Swal.fire({
+      //     icon: "error",
+      //     title: "Oops...",
+      //     text: "Please fill out all fields.",
+      //   });
+      //   console.error("Please fill out all fields.");
+      //   return;
+      // }
 
       await editProfile(data);
       setEditing(false);
@@ -68,7 +67,6 @@ const MyProfile: React.FC = () => {
         location: profile.location || "",
         phone: profile.phone || "",
         bio: profile.bio || "",
-        image: profile.image || "",
       });
     }
   }, [refresh, profile, editing]);
