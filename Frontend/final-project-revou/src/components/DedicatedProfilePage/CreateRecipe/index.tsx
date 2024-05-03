@@ -10,10 +10,27 @@ const RecipeForm: React.FC = () => {
     budget: "",
     instruction: "",
     nutriscore: "",
-    category: "",
+    categories: [""],
     type: "",
     origin: "",
-    tag: [""],
+    tags: [""],
+    // attachment: "",
+
+    serving_per_container: "",
+    serving_size: "",
+
+    calories: "",
+    total_fat: "",
+    total_carbohydrate: "",
+    total_sugar: "",
+    cholesterol: "",
+    protein: "",
+    vitamin_d: "",
+
+    sodium: "",
+    calcium: "",
+    potassium: "",
+    iron: "",
 
     // image: "",
   });
@@ -40,7 +57,24 @@ const RecipeForm: React.FC = () => {
             instruction: recipeData.instruction,
             type: recipeData.type,
             origin: recipeData.origin,
-            tag: recipeData.tag,
+            tags: recipeData.tags,
+            categories: recipeData.categories,
+            // attachement:
+
+            serving_per_container: recipeData.serving_per_container,
+            serving_size: recipeData.serving_size,
+
+            calories: recipeData.calories,
+            total_fat: recipeData.total_fat,
+            total_carbohydrate: recipeData.total_carbohydrate,
+            total_sugar: recipeData.total_sugar,
+            cholesterol: recipeData.cholesterol,
+            protein: recipeData.protein,
+            vitamin_d: recipeData.vitamin_d,
+            sodium: recipeData.sodium,
+            calcium: recipeData.calcium,
+            potassium: recipeData.potassium,
+            iron: recipeData.iron,
 
             // image: recipeData.image,
             // category: recipeData.category,
@@ -259,9 +293,14 @@ const RecipeForm: React.FC = () => {
             type="text"
             id="budget"
             name="budget"
-            value={recipeData.category}
+            value={
+              recipeData.categories ? recipeData.categories.join(", ") : ""
+            }
             onChange={(e) =>
-              setRecipeData({ ...recipeData, category: e.target.value })
+              setRecipeData({
+                ...recipeData,
+                categories: e.target.value.split(", "),
+              })
             }
             className="mt-1 p-2 border rounded-md w-full"
             placeholder="Enter category ex sugar-free, low-sodium"
@@ -328,26 +367,314 @@ const RecipeForm: React.FC = () => {
         </div>
         <div className="mb-4">
           <label
-            htmlFor="tag"
+            htmlFor="tags"
             className="block text-sm font-medium text-gray-700"
           >
-            tag
+            tags
           </label>
           <input
             type="text"
-            id="tag"
-            name="tag"
-            value={recipeData.tag ? recipeData.tag.join(", ") : ""}
+            id="tags"
+            name="tags"
+            value={recipeData.tags ? recipeData.tags.join(", ") : ""}
             onChange={(e) =>
               setRecipeData({
                 ...recipeData,
-                tag: e.target.value.split(", "),
+                tags: e.target.value.split(", "),
               })
             }
             className="mt-1 p-2 border rounded-md w-full"
             placeholder="Enter tag for your recipe"
           />
         </div>
+
+        {/* <div className="mb-4">
+          <label
+            htmlFor="attachment"
+            className="block text-sm font-medium text-gray-700"
+          >
+            attachment
+          </label>
+          <input
+            type="number"
+            id="attachment"
+            name="attachment"
+            value={recipeData.attachment}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, attachment: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter nutriscore max 10"
+            max={10}
+          />
+        </div> */}
+        <div className="mb-4">
+          <label
+            htmlFor="serving_per_container"
+            className="block text-sm font-medium text-gray-700"
+          >
+            serving per container :
+          </label>
+          <input
+            type="number"
+            id="serving_per_container"
+            name="serving_per_container"
+            value={recipeData.serving_per_container}
+            onChange={(e) =>
+              setRecipeData({
+                ...recipeData,
+                serving_per_container: e.target.value,
+              })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter nutriscore max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="serving_size"
+            className="block text-sm font-medium text-gray-700"
+          >
+            serving size :
+          </label>
+          <input
+            type="number"
+            id="serving_size"
+            name="serving_size"
+            value={recipeData.serving_size}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, serving_size: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter nutriscore max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="calories"
+            className="block text-sm font-medium text-gray-700"
+          >
+            calories :
+          </label>
+          <input
+            type="number"
+            id="calories"
+            name="calories"
+            value={recipeData.calories}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, calories: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter nutriscore max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="total_fat"
+            className="block text-sm font-medium text-gray-700"
+          >
+            total fat :
+          </label>
+          <input
+            type="number"
+            id="total_fat"
+            name="total_fat"
+            value={recipeData.total_fat}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, total_fat: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter total_fat max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="total_carbohydrate"
+            className="block text-sm font-medium text-gray-700"
+          >
+            total carbohydrate :
+          </label>
+          <input
+            type="number"
+            id="total_carbohydrate"
+            name="total_carbohydrate"
+            value={recipeData.total_carbohydrate}
+            onChange={(e) =>
+              setRecipeData({
+                ...recipeData,
+                total_carbohydrate: e.target.value,
+              })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter total_carbohydrate max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="total_sugar"
+            className="block text-sm font-medium text-gray-700"
+          >
+            total sugar :
+          </label>
+          <input
+            type="number"
+            id="total_sugar"
+            name="total_sugar"
+            value={recipeData.total_sugar}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, total_sugar: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter total sugar max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="cholesterol"
+            className="block text-sm font-medium text-gray-700"
+          >
+            cholesterol :
+          </label>
+          <input
+            type="number"
+            id="cholesterol"
+            name="cholesterol"
+            value={recipeData.cholesterol}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, cholesterol: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter cholesterol max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="protein"
+            className="block text-sm font-medium text-gray-700"
+          >
+            protein :
+          </label>
+          <input
+            type="number"
+            id="protein"
+            name="protein"
+            value={recipeData.protein}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, protein: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter protein max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="vitamin_d"
+            className="block text-sm font-medium text-gray-700"
+          >
+            vitamin D :
+          </label>
+          <input
+            type="number"
+            id="vitamin_d"
+            name="vitamin_d"
+            value={recipeData.vitamin_d}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, vitamin_d: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter vitamin D max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="sodium"
+            className="block text-sm font-medium text-gray-700"
+          >
+            sodium :
+          </label>
+          <input
+            type="number"
+            id="sodium"
+            name="sodium"
+            value={recipeData.sodium}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, sodium: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter vitamin D max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="calcium"
+            className="block text-sm font-medium text-gray-700"
+          >
+            calcium :
+          </label>
+          <input
+            type="number"
+            id="calcium"
+            name="calcium"
+            value={recipeData.calcium}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, calcium: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter calcium  max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="potassium"
+            className="block text-sm font-medium text-gray-700"
+          >
+            potassium :
+          </label>
+          <input
+            type="number"
+            id="potassium"
+            name="potassium"
+            value={recipeData.potassium}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, potassium: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter potassium  max 10"
+            max={10}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="iron"
+            className="block text-sm font-medium text-gray-700"
+          >
+            iron :
+          </label>
+          <input
+            type="number"
+            id="iron"
+            name="iron"
+            value={recipeData.iron}
+            onChange={(e) =>
+              setRecipeData({ ...recipeData, iron: e.target.value })
+            }
+            className="mt-1 p-2 border rounded-md w-full"
+            placeholder="Enter iron  max 10"
+            max={10}
+          />
+        </div>
+
         <div className="mb-4">
           <label
             htmlFor="budget"
