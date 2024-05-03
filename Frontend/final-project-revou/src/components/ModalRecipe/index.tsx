@@ -65,7 +65,7 @@ const ModalRecipe = ({ recipe, setShowModal }) => {
             <div className="flex flex-col gap-4 w-6/12 h-3/6">
               <div className="flex w-full">
                 <div className="flex flex-col justify-start ">
-                  <div className="flex p-3 ">
+                  <div className="flex justify-center items-center p-3 ">
                     <div className="p-5 bg-orange-700 flex justify-center items-center rounded-xl shadow-md shadow-black">
                       <h1 className="text-3xl font-extrabold bg-clip-text text-white uppercase text-center flex justify-center items-center">
                         {recipe.title}
