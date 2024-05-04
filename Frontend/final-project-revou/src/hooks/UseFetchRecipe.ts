@@ -13,7 +13,7 @@ export interface Recipe {
   type: string;
   origin: string;
   tag: string[];
-  image: string;
+  attachment: string;
   category: string;
   _id: string;
   author_id: number;

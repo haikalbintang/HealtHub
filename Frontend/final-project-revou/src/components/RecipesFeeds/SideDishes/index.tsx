@@ -31,7 +31,7 @@ const SideDishes: React.FC = () => {
                       {recipe.recipeName}
                     </div>
                     <div className="flex justify-around items-center">
-                      <div>{recipe.difficulty}</div>
+                      <div>{recipe.complexity}</div>
                       <div>{recipe.servings}</div>
                       <div>{recipe.nutriScore}</div>
                     </div>
