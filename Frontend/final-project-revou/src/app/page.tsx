@@ -18,7 +18,7 @@ import foodImage3 from "../components/images/slidersv3/3.png";
 import foodImage4 from "../components/images/slidersv3/4.png";
 import foodImage5 from "../components/images/slidersv3/5.png";
 import foodImage6 from "../components/images/slidersv3/6.png";
-import SliderImagev2_1 from "../components/SliderImagev2_1";
+import SliderImagev2_1 from "../components/SliderImage_vmhb/SliderImagev2_1";
 
 import NavbarWrapper from "@/components/NavbarWrapper";
 import DiscoverContent from "@/components/DiscoverContent";
