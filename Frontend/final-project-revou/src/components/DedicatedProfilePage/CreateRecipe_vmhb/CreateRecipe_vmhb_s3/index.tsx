@@ -63,7 +63,8 @@ export default function CreateRecipe_vmhb_s3({
                 Cook Time <span className="text-red-600">*</span>
               </FormLabel>
               <FormControl>
-                <Input placeholder="Cook Time" {...field} />
+                <Input placeholder="Cook Time" {...field} type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))} />
               </FormControl>
               <FormDescription>in minutes</FormDescription>
               <FormMessage />

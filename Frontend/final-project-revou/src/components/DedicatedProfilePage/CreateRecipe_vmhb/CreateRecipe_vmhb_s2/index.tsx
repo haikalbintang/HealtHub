@@ -117,7 +117,12 @@ export default function CreateRecipe_vmhb_s2({
                 Servings
               </FormLabel>
               <FormControl>
-                <Input placeholder="Servings" {...field} />
+                <Input
+                  placeholder="Servings"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
               <FormDescription>number of people</FormDescription>
               <FormMessage />
@@ -134,10 +139,15 @@ export default function CreateRecipe_vmhb_s2({
               <FormLabel className="text-base font-semibold">Budget</FormLabel>
               <FormControl>
                 <Input
-                  type="number"
                   placeholder="Budget"
                   {...field}
-                  onChange={(e) => field.onChange(parseFloat(e.target.value))}
+                  type="text"
+                  onChange={(e) => {
+                    const value = parseFloat(e.target.value);
+                    if (!isNaN(value)) {
+                      field.onChange(value);
+                    }
+                  }}
                 />
               </FormControl>
               <FormDescription>in USD$</FormDescription>

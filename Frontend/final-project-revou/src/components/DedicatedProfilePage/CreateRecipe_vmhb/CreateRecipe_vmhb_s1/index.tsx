@@ -43,7 +43,7 @@ export default function CreateRecipe_vmhb_s1({
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-lg font-semibold">
-                Description <span className="text-red-600">*</span>
+                Description
               </FormLabel>
               <FormControl>
                 <Textarea placeholder="Your Recipe's Description" {...field} />
