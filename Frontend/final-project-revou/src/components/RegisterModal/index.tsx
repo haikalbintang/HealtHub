@@ -7,16 +7,16 @@ import { Form } from "@/components/ui/form";
 
 import Modal from "../Modal";
 import useMultistepForm from "@/hooks/useMultistepForm";
-import RegisterModalS1 from "../RegisterModalS1";
-import RegisterModalS2 from "../RegisterModalS2";
-import RegisterModalS3 from "../RegisterModalS3";
+import RegisterModalS1 from "./RegisterModalS1";
+import RegisterModalS2 from "./RegisterModalS2";
+import RegisterModalS3 from "./RegisterModalS3";
 
 const formSchema = z
   .object({
     email: z.string().email(),
     password: z.string().min(8),
     passwordConfirm: z.string(),
-    username: z.string().toLowerCase().min(2).max(50),
+    username: z.string().min(2).max(50),
     firstName: z.string(),
     lastName: z.string(),
     resetPasswordQuestion: z.string(),

@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import Card from "../Card";
-import food1 from "../images/sliderImagesv2/food1.jpg";
-import food2 from "../images/sliderImagesv2/food2.jpg";
-import food3 from "../images/sliderImagesv2/food3.jpg";
-import food4 from "../images/sliderImagesv2/food4.jpg";
-import { Button } from "../ui/button";
+import Card from "../../Card";
+import food1 from "@/components/images/sliderImagesv2/food1.jpg";
+import food2 from "@/components/images/sliderImagesv2/food2.jpg";
+import food3 from "@/components/images/sliderImagesv2/food3.jpg";
+import food4 from "@/components/images/sliderImagesv2/food4.jpg";
+import { Button } from "../../ui/button";
 
 export default function SliderImagev2_1() {
   const [startIndex, setStartIndex] = useState(0);
@@ -13,51 +13,51 @@ export default function SliderImagev2_1() {
   const cards = [
     {
       title: "Spaghetti Lasagna",
-      difficulty: "Easy",
+      complexity: "Easy",
       time: "20Min",
       foodImage: food1.src,
     },
     {
       title: "Spaghetti Lasagna",
-      difficulty: "Medium",
+      complexity: "Medium",
       time: "5Min",
       foodImage: food2.src,
     },
     {
       title: "Spaghetti Lasagna",
-      difficulty: "Hard",
+      complexity: "Hard",
       time: "1Hour",
       foodImage: food3.src,
       role: "chef",
     },
     {
       title: "Spaghetti Lasagna",
-      difficulty: "Easy",
+      complexity: "Easy",
       time: "25Min",
       foodImage: food4.src,
     },
     {
       title: "Spaghetti Lasagna",
-      difficulty: "Easy",
+      complexity: "Easy",
       time: "20Min",
       foodImage: food1.src,
     },
     {
       title: "Spaghetti Lasagna",
-      difficulty: "Medium",
+      complexity: "Medium",
       time: "5Min",
       foodImage: food2.src,
       role: "chef",
     },
     {
       title: "Spaghetti Lasagna",
-      difficulty: "Hard",
+      complexity: "Hard",
       time: "1Hour",
       foodImage: food3.src,
     },
     {
       title: "Spaghetti Lasagna",
-      difficulty: "Easy",
+      complexity: "Easy",
       time: "25Min",
       foodImage: food4.src,
     },
@@ -95,7 +95,7 @@ export default function SliderImagev2_1() {
             <Card
               key={startIndex + index}
               title={card.title}
-              difficulty={card.difficulty}
+              complexity={card.complexity}
               time={card.time}
               foodImage={card.foodImage}
               role={card.role}

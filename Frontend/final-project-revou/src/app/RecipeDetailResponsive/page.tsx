@@ -11,7 +11,7 @@ import Ingredients from "@/components/Ingredients";
 import Instructions from "@/components/Instructions";
 import RecipeTags from "@/components/RecipeTags";
 import CommentSection from "@/components/CommentSection";
-import SliderImagev2_2 from "@/components/SliderImagev2_2_2";
+import SliderImagev2_2 from "@/components/SliderImage_vmhb/SliderImagev2_2_2";
 
 import { recipeDetailCards } from "@/data";
 
@@ -19,11 +19,11 @@ import Food1 from "../../components/images/sliderImagesv2/food1.jpg";
 import Food2 from "../../components/images/sliderImagesv2/food2.jpg";
 import Food3 from "../../components/images/sliderImagesv2/food3.jpg";
 import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
-import SliderImagev2_2_2 from "@/components/SliderImagev2_2_2";
+import SliderImagev2_2_2 from "@/components/SliderImage_vmhb/SliderImagev2_2_2";
 import Footer from "@/components/Footer";
-import SliderImagev2_2_3 from "@/components/SliderImagev2_2_3";
+import SliderImagev2_2_3 from "@/components/SliderImage_vmhb/SliderImagev2_2_3";
 import Footer_v2 from "@/components/Footer_vmhb";
-import SliderImagev2_2_4 from "@/components/SliderImagev2_2_4";
+import SliderImagev2_2_4 from "@/components/SliderImage_vmhb/SliderImagev2_2_4";
 
 export default function Recipees() {
   const truncate = (str: string) => {
