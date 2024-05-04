@@ -8,17 +8,19 @@ import { get } from "http";
 import { Button } from "../ui/button";
 
 interface RecipeProps {
+  author_id: number;
   image: string;
   title: string;
   description: string;
   ingredients: string[];
   tags: string[];
   instructions: string;
+  cooktime: number;
   complexity: string;
   servings: string;
   time: string;
   category: string;
-  nutriScore: number;
+  nutriscore: number;
 }
 interface ProfileData {
   username: string;
@@ -32,7 +34,13 @@ interface ProfileData {
   bio: string;
 }
 
-const ModalRecipe = ({ recipe, setShowModal }) => {
+const ModalRecipe = ({
+  recipe,
+  setShowModal,
+}: {
+  recipe: RecipeProps;
+  setShowModal: any;
+}) => {
   const [profileData, setProfileData] = useState({} as ProfileData);
   useEffect(() => {
     fetchAuthorName(recipe.author_id);
@@ -59,70 +67,69 @@ const ModalRecipe = ({ recipe, setShowModal }) => {
 
   return (
     <div>
-      <Modal showModal={true} setShowModal={closeModal} title="Recipe Details">
+      <Modal setShowModal={closeModal}>
         {recipe && (
-          <div className="flex">
-            <div className="flex flex-col gap-4 w-6/12 h-3/6">
-              <div className="flex w-full">
-                <div className="flex flex-col justify-start ">
-                  <div className="flex justify-center items-center p-3 ">
-                    <div className="p-5 bg-orange-700 flex justify-center items-center rounded-xl shadow-md shadow-black">
-                      <h1 className="text-3xl font-extrabold bg-clip-text text-white uppercase text-center flex justify-center items-center">
-                        {recipe.title}
-                      </h1>
-                    </div>
-                  </div>
-                  <div className="flex justify-center items-center">
-                    <div className="flex flex-col">
-                      <div className="flex gap-2 text-md">
-                        <div>
-                          <h1>Recipe By:</h1>
-                        </div>
-                        <div className="flex gap-1 uppercase">
-                          <h1 className="">{profileData.first_name}</h1>
-                          <h1>{profileData.last_name}</h1>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="pt-10 flex justify-center items-center gap-14">
-                    <div className="flex flex-col gap-2 ">
-                      <div className="flex gap-2 justify-start items-center">
-                        <img src={time.src} alt="" className="h-10 w-10" />
-                        <h1>: {recipe.complexity}</h1>
-                      </div>
-                      <div className="flex gap-2 justify-start items-center">
-                        <img src={time.src} alt="" className="h-10 w-10" />
-                        <h1>: {recipe.cooktime}Minutes</h1>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-2 ">
-                      <div className="flex gap-2 justify-start items-center">
-                        <img src={time.src} alt="" className="h-10 w-10" />
-                        <h1>: {recipe.nutriscore}</h1>
-                      </div>
-                      <div className="flex gap-2 justify-start items-center">
-                        <img src={time.src} alt="" className="h-10 w-10" />
-                        <h1>: {recipe.servings} People</h1>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="pt-10 flex flex-col p-5">
-                    <h1 className="text-xl flex justify-center items-center">
-                      Description:
+          <div className="flex h-full w-full">
+            <div className="flex flex-col justify-start  w-3/6 h-3/6">
+              <div className="flex flex-col h-1/5">
+                <div className="flex justify-center items-center p-3 ">
+                  <div className="p-5 bg-orange-700 flex justify-center items-center rounded-xl shadow-md shadow-black">
+                    <h1 className="text-3xl font-extrabold bg-clip-text text-white uppercase text-center flex justify-center items-center">
+                      {recipe.title}
                     </h1>
-                    <h1>{recipe.description}</h1>
                   </div>
-                  <div className="flex justify-end items-end p-5">
-                    <Button>Read More</Button>
+                </div>
+                <div className="flex justify-center items-center">
+                  <div className="flex flex-col">
+                    <div className="flex gap-2 text-md">
+                      <div>
+                        <h1>Recipe By:</h1>
+                      </div>
+                      <div className="flex gap-1 uppercase">
+                        <h1 className="">{profileData.first_name}</h1>
+                        <h1>{profileData.last_name}</h1>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div className="h-1/4 p-5">
+                <div className="pt-10 flex justify-center items-center gap-14">
+                  <div className="flex flex-col gap-2 ">
+                    <div className="flex gap-2 justify-start items-center">
+                      <img src={time.src} alt="" className="h-10 w-10" />
+                      <h1>: {recipe.complexity}</h1>
+                    </div>
+                    <div className="flex gap-2 justify-start items-center">
+                      <img src={time.src} alt="" className="h-10 w-10" />
+                      <h1>: {recipe.cooktime}Minutes</h1>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2 ">
+                    <div className="flex gap-2 justify-start items-center">
+                      <img src={time.src} alt="" className="h-10 w-10" />
+                      <h1>: {recipe.nutriscore}</h1>
+                    </div>
+                    <div className="flex gap-2 justify-start items-center">
+                      <img src={time.src} alt="" className="h-10 w-10" />
+                      <h1>: {recipe.servings} People</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-center items-center h-2/5 p-5">
+                <div className="pt-10 flex flex-col p-5">
+                  <h1 className="text-xl flex justify-center items-center">
+                    Description:
+                  </h1>
+                  <h1>{recipe.description}</h1>
+                </div>
+              </div>
+              <div className="flex justify-center items-end h-1/5 ">
+                <Button>Read More</Button>
+              </div>
             </div>
-            <div
-              className="flex justify-center items-center  overflow-auto"
-              style={{ height: "600px", width: "500px" }}
-            >
+            <div className="w-3/6 h-3/6 flex justify-center items-center  overflow-auto ">
               <img
                 src={food1.src}
                 alt=""

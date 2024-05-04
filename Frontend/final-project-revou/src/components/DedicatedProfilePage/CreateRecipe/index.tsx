@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import useUploadRecipeImage from "@/hooks/useUploadRecipe";
 import axios from "axios";
 const RecipeForm: React.FC = () => {
+  const { file, imageUrl, handleFileChange, handleUploadImage } =
+    useUploadRecipeImage();
   const [recipeData, setRecipeData] = useState({
     title: "",
     description: "",
@@ -14,7 +17,7 @@ const RecipeForm: React.FC = () => {
     type: "",
     origin: "",
     tags: [""],
-    // attachment: "",
+    attachment: "",
 
     serving_per_container: "",
     serving_size: "",
@@ -44,41 +47,12 @@ const RecipeForm: React.FC = () => {
         const headers = {
           Authorization: `Bearer ${authToken}`,
         };
+        if (imageUrl) {
+          setRecipeData({ ...recipeData, attachment: imageUrl });
+        }
         const response = await axios.post(
           "http://127.0.0.1:5000/recipes/create",
-          {
-            title: recipeData.title,
-            description: recipeData.description,
-            cooktime: recipeData.cooktime,
-            complexity: recipeData.complexity,
-            servings: recipeData.servings,
-            budget: recipeData.budget,
-            nutriscore: recipeData.nutriscore,
-            instruction: recipeData.instruction,
-            type: recipeData.type,
-            origin: recipeData.origin,
-            tags: recipeData.tags,
-            categories: recipeData.categories,
-            // attachement:
-
-            serving_per_container: recipeData.serving_per_container,
-            serving_size: recipeData.serving_size,
-
-            calories: recipeData.calories,
-            total_fat: recipeData.total_fat,
-            total_carbohydrate: recipeData.total_carbohydrate,
-            total_sugar: recipeData.total_sugar,
-            cholesterol: recipeData.cholesterol,
-            protein: recipeData.protein,
-            vitamin_d: recipeData.vitamin_d,
-            sodium: recipeData.sodium,
-            calcium: recipeData.calcium,
-            potassium: recipeData.potassium,
-            iron: recipeData.iron,
-
-            // image: recipeData.image,
-            // category: recipeData.category,
-          },
+          recipeData,
           {
             headers,
           }
@@ -94,6 +68,8 @@ const RecipeForm: React.FC = () => {
     event.preventDefault();
     try {
       await handleCreate();
+
+      handleUploadImage();
     } catch (error) {
       console.error(error);
     }
@@ -141,6 +117,13 @@ const RecipeForm: React.FC = () => {
       // You can handle the file upload here, for example, using FileReader API to read the file contents
       // and then save it to the state or upload it to a server
       console.log("File uploaded:", file);
+    }
+  };
+  const handleSave = async () => {
+    try {
+      await handleCreate();
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -388,26 +371,27 @@ const RecipeForm: React.FC = () => {
           />
         </div>
 
-        {/* <div className="mb-4">
+        <div className="mb-4">
           <label
             htmlFor="attachment"
             className="block text-sm font-medium text-gray-700"
           >
-            attachment
+            Recipe Image
           </label>
-          <input
-            type="number"
-            id="attachment"
-            name="attachment"
-            value={recipeData.attachment}
-            onChange={(e) =>
-              setRecipeData({ ...recipeData, attachment: e.target.value })
-            }
-            className="mt-1 p-2 border rounded-md w-full"
-            placeholder="Enter nutriscore max 10"
-            max={10}
-          />
-        </div> */}
+          <div>
+            {imageUrl && (
+              <img src={imageUrl} alt="Uploaded File" className="h-20 w-20" />
+            )}
+            <input
+              type="file"
+              onChange={handleFileChange}
+              name="image"
+              className="mt-1 p-2 border rounded-md w-full"
+            />
+            {/* <Button onClick={handleUpload}>Upload</Button>
+                    {changeImage && <p>Image updated successfully!</p>} */}
+          </div>
+        </div>
         <div className="mb-4">
           <label
             htmlFor="serving_per_container"
@@ -731,6 +715,7 @@ const RecipeForm: React.FC = () => {
         <button
           type="submit"
           className="bg-green-500 text-white py-2 px-4 rounded-md"
+          onClick={handleSave}
         >
           Submit
         </button>

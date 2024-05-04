@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { chefMainCard2 } from "@/data";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import ModalRecipe from "@/components/ModalRecipe";
+import useUploadComponent from "@/hooks/useUploadComponent";
 
 interface Props {
   recipeCategoryName: string;
@@ -14,7 +15,7 @@ interface RecipeData {
   complexity: string;
   servings: string;
   nutriScore: number;
-  image: string;
+  attachment: string;
   author_id: number;
   type: string;
 }
@@ -25,6 +26,9 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
   const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
 
+  const { file, imageUrl, handleFileChange, handleUpload, changeImage } =
+    useUploadComponent();
+
   const toggleShowMore = () => {
     setShowCount((prevCount) => prevCount + 4);
   };
@@ -32,13 +36,13 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
   const toggleShowLess = () => {
     setShowCount((prevCount) => Math.max(4, prevCount - 4));
   };
-
   // Function to handle recipe click
   const handleRecipeClick = (recipe: RecipeData) => {
     setSelectedRecipe(recipe);
     setShowModal(true);
+    console.log(setSelectedRecipe);
   };
-
+  console.log("123", selectedRecipe);
   return (
     <div className="item-list container">
       <h2>{recipeCategoryName}</h2>
@@ -48,9 +52,9 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
             <div
               className="rounded-xl shadow-md shadow-black cursor-pointer"
               key={index}
-              onClick={() => handleRecipeClick(recipe)}
+              onClick={() => handleRecipeClick(recipe as unknown as RecipeData)}
             >
-              <img src={recipe.image} alt="" className="rounded-t-xl" />
+              <img src={recipe.attachment} alt="" className="rounded-t-xl" />
               <div className="flex flex-col gap-2 pt-2 bg-slate-50 rounded-b-xl p-5">
                 <div className="flex justify-center items-center">
                   {recipe.title}
