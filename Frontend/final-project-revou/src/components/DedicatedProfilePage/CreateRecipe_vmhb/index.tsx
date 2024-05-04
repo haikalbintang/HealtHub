@@ -11,6 +11,7 @@ import CreateRecipe_vmhb_s2 from "./CreateRecipe_vmhb_s2";
 import CreateRecipe_vmhb_s3 from "./CreateRecipe_vmhb_s3";
 import CreateRecipe_vmhb_s4 from "./CreateRecipe_vmhb_s4";
 import CreateRecipe_vmhb_s5 from "./CreateRecipe_vmhb_s5";
+import axios from "axios";
 
 const createRecipeFormSchema = z
   .object({
@@ -90,11 +91,50 @@ export default function CreateRecipe_vmhb() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof createRecipeFormSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+  async function postRecipe() {
+    const authToken = localStorage.getItem("access_token");
+    try {
+      if (authToken) {
+        const headers = {
+          Authorization: `Bearer ${authToken}`,
+        };
+        const recipeData = createRecipeForm.getValues();
+        const response = await axios.post(
+          "http://127.0.0.1:5000/recipes/create",
+          {
+            title: recipeData.title,
+            description: recipeData.description,
+            nutriscore: recipeData.nutriScore,
+            cooktime: recipeData.cookTime,
+            complexity: recipeData.complexity,
+            servings: recipeData.servings,
+            budget: recipeData.budget,
+            instruction: recipeData.instructions,
+            view_count: 0,
+            categoriy: recipeData.category,
+            type: recipeData.type,
+            origin: recipeData.origin,
+            tag: [recipeData.tag],
+          },
+          { headers }
+        );
+        console.log("123", response);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function onSubmit(values: z.infer<typeof createRecipeFormSchema>) {
     console.log("Form submitted!");
     console.log(values);
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    try {
+      await postRecipe();
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   const { currentStepIndex, steps, isFirstStep, isLastStep, back, next, step } =
