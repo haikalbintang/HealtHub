@@ -12,8 +12,22 @@ import SideDishes_vmhb from "./SideDishes_vmhb";
 import WeeklyRecipes_vmhb from "./WeeklyRecipes_vmhb";
 import HealthyRecipes_vmhb from "./HealthyRecipes_vmhb";
 
+import HomeLogo from "../../components/images/sidebarlogo/home-svgrepo-com.svg";
+import MyRecipeLogo from "../../components/images/sidebarlogo/notes-svgrepo-com.svg";
+import FollowedRecipesLogo from "../../components/images/sidebarlogo/follower-svgrepo-com.svg";
+import MyFavoriteRecipesLogo from "../../components/images/sidebarlogo/love-letter-note-svgrepo-com.svg";
+import NutritionsLogo from "../../components/images/sidebarlogo/nutrition-svgrepo-com.svg";
+import CategoriesLogo from "../../components/images/sidebarlogo/category-svgrepo-com.svg";
+import OriginsLogo from "../../components/images/sidebarlogo/country-direction-location-map-navigation-pin-svgrepo-com.svg";
+
+import Magnifier from "../../components/images/svg/icons8-magnifier.svg";
+import WeeklyRecipes from "../RecipesFeeds/WeeklyRecipes";
+import AllRecipes from "../RecipesFeeds/AllRecipes";
+
 const RecipeFeeds_vmhb = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const categories = [
     "Healthy Recipes",
@@ -23,44 +37,69 @@ const RecipeFeeds_vmhb = () => {
     "Beverages",
     "Side Dishes",
   ];
+
   const sideBarCategories = [
-    "Home",
-    "My Recipe",
-    "Followed Recipes",
-    "My Favorite Recipes",
-    "Nutrition",
-    "Type",
-    "Origin",
+    { name: "Home", image: HomeLogo.src },
+    { name: "My Recipe", image: MyRecipeLogo.src },
+    { name: "Followed Recipes", image: FollowedRecipesLogo.src },
+    { name: "My Favorite Recipes", image: MyFavoriteRecipesLogo.src },
+    { name: "Nutritions", image: NutritionsLogo.src },
+    { name: "Categories", image: CategoriesLogo.src },
+    { name: "Origins", image: OriginsLogo.src },
   ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
   };
 
   return (
-    <div className="flex w-full sm:justify-around">
+    <div className="flex relative w-full sm:justify-around">
       {/* Sidebar */}
-      <div className="sm:flex flex-col items-center p-5 pl-0 pt-0 hidden">
-        <div className="flex flex-col justify-center items-start p-4 bg-slate-50 rounded-lg shadow-sm shadow-slate-500 gap-2 lg:gap-5">
+      {isSidebarOpen && (
+        <div className="z-20 absolute top-0 left-0 sm:hidden sm:static flex-col items-center p-5 pl-0 pt-0">
+          <div className="flex flex-col justify-center items-start p-4 bg-slate-50 rounded-lg shadow-sm shadow-slate-500 gap-2 lg:gap-5">
+            {sideBarCategories.map((sideBarCategory) => (
+              <div
+                key={sideBarCategory.name}
+                className={`sideBarCategories flex w-full rounded-lg gap-3 justify-start items-center p-2 xl:p-3 cursor-pointer hover:bg-slate-200 ${
+                  selectedCategory === sideBarCategory.name
+                    ? "bg-slate-200 shadow-sm shadow-slate-500 font-medium text-slate-800"
+                    : ""
+                }`}
+                onClick={() => handleCategoryClick(sideBarCategory.name)}
+              >
+                <img src={sideBarCategory.image} alt="" className="h-6 w-6" />
+                <h2 className="text-slate-700 text-sm xl:text-base">
+                  {sideBarCategory.name}
+                </h2>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      <div className="hidden z-20 absolute top-0 left-0 sm:static sm:flex flex-col items-center p-5 pl-0 pt-0">
+        <div className="flex flex-col justify-center items-start p-4 sm:pr-8 bg-slate-50 rounded-lg shadow-sm shadow-slate-500 gap-2 lg:gap-5">
           {sideBarCategories.map((sideBarCategory) => (
             <div
-              key={sideBarCategory}
+              key={sideBarCategory.name}
               className={`sideBarCategories flex w-full rounded-lg gap-3 justify-start items-center p-2 xl:p-3 cursor-pointer hover:bg-slate-200 ${
-                selectedCategory === sideBarCategory
+                selectedCategory === sideBarCategory.name
                   ? "bg-slate-200 shadow-sm shadow-slate-500 font-medium text-slate-800"
                   : ""
               }`}
-              onClick={() => handleCategoryClick(sideBarCategory)}
+              onClick={() => handleCategoryClick(sideBarCategory.name)}
             >
-              <img src={logo1.src} alt="" className="h-6 w-6" />
-              <h2 className="text-slate-700 text-sm xl:text-base">
-                {sideBarCategory}
+              <img src={sideBarCategory.image} alt="" className="h-6 w-6" />
+              <h2 className="text-slate-700 text-sm xl:text-base sm:pr-5">
+                {sideBarCategory.name}
               </h2>
             </div>
           ))}
@@ -73,7 +112,12 @@ const RecipeFeeds_vmhb = () => {
           <h1 className="text-xl xl:text-2xl font-semibold text-slate-800">
             Discover Recipes
           </h1>
-          <Button className="bg-slate-800 hover:bg-slate-900">...</Button>
+          <Button
+            onClick={toggleSidebar}
+            className="bg-slate-800 hover:bg-slate-900 sm:hidden"
+          >
+            ...
+          </Button>
         </div>
         {/* Category tags */}
         <div className="flex flex-wrap gap-1 lg:gap-3 xl:gap-4 pl-1 mt-3 lg:pl-3 xl:pl-5">
@@ -92,6 +136,28 @@ const RecipeFeeds_vmhb = () => {
               </h2>
             </Button>
           ))}
+          <div className="pr-24 z-0">
+            <div className="relative flex">
+              <input
+                type="search"
+                className="border-slate-500 border-2 rounded-md p-2"
+                placeholder="Search Recipe Here"
+              />
+              <img
+                src={Magnifier.src}
+                alt=""
+                className="h-6 w-6  absolute right-2 top-2 "
+              />
+            </div>
+          </div>
+        </div>
+        <div className="pt-5">
+          <h1>Weekly Recipes</h1>
+          <WeeklyRecipes recipeCategoryName="" />
+        </div>
+        <div className="pt-5">
+          <h1>All Recipes</h1>
+          <AllRecipes recipeCategoryName="All Recipes" />
         </div>
         <div className="pt-5">
           {selectedCategory === "Home" && (

@@ -10,10 +10,10 @@ interface Props {
 }
 
 interface RecipeData {
-  id: string;
+  id: number;
   title: string;
   complexity: string;
-  servings: string;
+  servings: number;
   nutriScore: number;
   attachment: string;
   author_id: number;
@@ -25,7 +25,6 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
   const [showCount, setShowCount] = useState(4);
   const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
-
   const { file, imageUrl, handleFileChange, handleUpload, changeImage } =
     useUploadComponent();
 
@@ -36,6 +35,7 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
   const toggleShowLess = () => {
     setShowCount((prevCount) => Math.max(4, prevCount - 4));
   };
+
   // Function to handle recipe click
   const handleRecipeClick = (recipe: RecipeData) => {
     setSelectedRecipe(recipe);
@@ -43,6 +43,7 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
     console.log(setSelectedRecipe);
   };
   console.log("123", selectedRecipe);
+
   return (
     <div className="item-list container">
       <h2>{recipeCategoryName}</h2>
