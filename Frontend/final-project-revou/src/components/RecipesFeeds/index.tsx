@@ -64,7 +64,7 @@ const RecipeFeeds = () => {
   const images: string[] = [Food1.src, Food2.src, Food3.src, Food4.src];
   return (
     <div className="">
-      <SliderImage images={images} maxHeight="300" className="hidden" />
+      {/* <SliderImage images={images} maxHeight="300" className="hidden" /> */}
       <div className="flex ">
         <div className="flex flex-col justify-center items-center  p-5">
           <div className="flex flex-col justify-center items-center p-5">
