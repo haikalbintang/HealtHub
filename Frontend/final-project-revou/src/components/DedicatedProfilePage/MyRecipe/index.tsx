@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import useFetchProfile from "@/hooks/useFetchProfile";
 import axios from "axios";
+import ComplexityLogo from "../../../components/images/svg/levels-svgrepo-com.svg";
+import NutriLogo from "../../../components/images/svg/cardlogo/scoreboard-svgrepo-com.svg";
+import ServingLoo from "../../../components/images/svg/cardlogo/cover-dish-svgrepo-com.svg";
 
 const MyRecipe: React.FC = () => {
   const [showCount, setShowCount] = useState(4);
@@ -64,15 +67,24 @@ const MyRecipe: React.FC = () => {
         <div className="grid grid-cols-4 gap-4 px-10 pt-4">
           {userRecipes.map((recipe: any, index: number) => (
             <div key={index} className="rounded-xl shadow-md shadow-black">
-              <img src={recipe.image} alt="" className="rounded-t-xl" />
-              <div className="flex flex-col gap-2 pt-2 bg-slate-50 rounded-b-xl p-5">
+              <img src={recipe.attachment} alt="" className="rounded-t-xl" />
+              <div className="flex flex-col gap-2 pt-2 bg-white rounded-b-xl p-5 text-center">
                 <div className="flex justify-center items-center">
                   {recipe.title}
                 </div>
-                <div className="flex justify-around items-center">
-                  <div>{recipe.complexity}</div>
-                  <div>{recipe.servings}</div>
-                  <div>{recipe.nutriscore}</div>
+                <div className="flex justify-around items-center gap-7">
+                  <div className="flex gap-1 justify-center items-center">
+                    <img src={ComplexityLogo.src} alt="" className="h-6 w-6" />
+                    <div>{recipe.complexity}</div>
+                  </div>
+                  <div className="flex gap-2 justify-center items-center">
+                    <img src={ServingLoo.src} alt="" className="h-6 w-6" />
+                    <div>{recipe.servings}</div>
+                  </div>
+                  <div className="flex gap-2 justify-center items-center">
+                    <img src={NutriLogo.src} alt="" className="h-6 w-6" />
+                    <div>{recipe.nutriscore}</div>
+                  </div>
                 </div>
               </div>
             </div>

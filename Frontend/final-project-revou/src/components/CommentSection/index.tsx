@@ -45,7 +45,7 @@ const CommentsCard = [
 export default function CommentSection() {
   return (
     <div className="px-2 mt-10">
-      <div className="recipe-gradients rounded-xl">
+      <div className="border-2 border-slate-700 bg-slate-100 rounded-xl p-4">
         <div className="flex flex-col">
           <div className="flex">
             <h1 className="text-xl text-slate-800 font-bold">Comments</h1>
@@ -63,7 +63,7 @@ export default function CommentSection() {
           </div>
           <form action="" method="post">
             <div className="relative mt-1">
-              <textarea className="w-full h-20 border-slate-400 border-2 bg-white text-slate-800 rounded-xl p-2 text-sm" />
+              <textarea className="w-full h-20 border-slate-400 border-2 bg-white text-slate-800 rounded-xl text-sm" />
               <div className="absolute -top-5 -right-2">
                 <picture>
                   <img
@@ -90,9 +90,9 @@ export default function CommentSection() {
                 />
               </picture>
             </div> */}
-            <div className="flex flex-col justify-start items-start w-full">
-              <div className="flex flex-col p-2 lg:px-0 bg-white rounded-xl w-full">
-                <div className="flex gap-3">
+            <div className="flex flex-col justify-start items-start w-full p-2">
+              <div className="flex flex-col lg:px-0 bg-white rounded-xl w-full ">
+                <div className="flex gap-3 p-3">
                   <div className="">
                     <picture>
                       <img

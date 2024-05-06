@@ -15,7 +15,7 @@ export interface Recipe {
   tag: string[];
   attachment: string;
   category: string;
-  _id: string;
+  id: number;
   author_id: number;
 }
 
