@@ -28,9 +28,14 @@ export default function CreateRecipe_vmhb_s4({
                 Nutrition Score <span className="text-red-600">*</span>
               </FormLabel>
               <FormControl>
-                <Input placeholder="Nutrition Score" {...field} />
+                <Input
+                  placeholder="Nutrition Score"
+                  {...field}
+                  type="text"
+                  onChange={(e) => field.onChange(parseFloat(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>scale 0-10</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -47,9 +52,14 @@ export default function CreateRecipe_vmhb_s4({
                 Calories
               </FormLabel>
               <FormControl>
-                <Input placeholder="Calories" {...field} />
+                <Input
+                  placeholder="Calories"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in kilocalories (kcal)</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -65,9 +75,14 @@ export default function CreateRecipe_vmhb_s4({
                 Total Fat
               </FormLabel>
               <FormControl>
-                <Input placeholder="Total Fat" {...field} />
+                <Input
+                  placeholder="Total Fat"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in grams (g)</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -83,9 +98,14 @@ export default function CreateRecipe_vmhb_s4({
                 Total Carbohydrate
               </FormLabel>
               <FormControl>
-                <Input placeholder="Total Carbohydrate" {...field} />
+                <Input
+                  placeholder="Total Carbohydrate"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in grams (g)</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -101,9 +121,14 @@ export default function CreateRecipe_vmhb_s4({
                 Total Sugar
               </FormLabel>
               <FormControl>
-                <Input placeholder="Total Sugar" {...field} />
+                <Input
+                  placeholder="Total Sugar"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in grams (g)</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -119,9 +144,14 @@ export default function CreateRecipe_vmhb_s4({
                 Cholesterol
               </FormLabel>
               <FormControl>
-                <Input placeholder="Cholesterol" {...field} />
+                <Input
+                  placeholder="Cholesterol"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in milligrams (mg)</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -135,9 +165,14 @@ export default function CreateRecipe_vmhb_s4({
             <FormItem>
               <FormLabel className="text-base font-semibold">Protein</FormLabel>
               <FormControl>
-                <Input placeholder="Protein" {...field} />
+                <Input
+                  placeholder="Protein"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in grams (g)</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -153,9 +188,14 @@ export default function CreateRecipe_vmhb_s4({
                 Vitamin D
               </FormLabel>
               <FormControl>
-                <Input placeholder="Vitamin D" {...field} />
+                <Input
+                  placeholder="Vitamin D"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in micrograms (mcg)</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -170,9 +210,14 @@ export default function CreateRecipe_vmhb_s4({
             <FormItem>
               <FormLabel className="text-base font-semibold">Sodium</FormLabel>
               <FormControl>
-                <Input placeholder="Sodium" {...field} />
+                <Input
+                  placeholder="Sodium"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in milligrams (mg)</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -186,9 +231,14 @@ export default function CreateRecipe_vmhb_s4({
             <FormItem>
               <FormLabel className="text-base font-semibold">Calcium</FormLabel>
               <FormControl>
-                <Input placeholder="Calcium" {...field} />
+                <Input
+                  placeholder="Calcium"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in milligrams (mg)</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -204,9 +254,14 @@ export default function CreateRecipe_vmhb_s4({
                 Potassium
               </FormLabel>
               <FormControl>
-                <Input placeholder="Potassium" {...field} />
+                <Input
+                  placeholder="Potassium"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in milligrams (mg)</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -220,9 +275,14 @@ export default function CreateRecipe_vmhb_s4({
             <FormItem>
               <FormLabel className="text-base font-semibold">Iron</FormLabel>
               <FormControl>
-                <Input placeholder="Iron" {...field} />
+                <Input
+                  placeholder="Iron"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
-              <FormDescription></FormDescription>
+              <FormDescription>in milligrams (mg)</FormDescription>
               <FormMessage />
             </FormItem>
           )}

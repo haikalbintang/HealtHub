@@ -13,6 +13,8 @@ interface Props {
 }
 
 export interface RecipeData {
+interface RecipeData {
+  id: number;
   title: string;
   description: string;
   cooktime: string;
@@ -24,6 +26,8 @@ export interface RecipeData {
   type: string;
   origin: string;
   tag: string[];
+  servings: number;
+  nutriScore: number;
   attachment: string;
   category: string;
   id: string;
@@ -34,10 +38,15 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
   const { recipes, error, refetchRecipes } = useFetchRecipe();
   const [showCount, setShowCount] = useState(4);
   const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
+
   const [showModal, setShowModal] = useState(false);
 
   // const { file, imageUrl, handleFileChange, handleUpload, changeImage } =
   //   useUploadComponent();
+
+  const { file, imageUrl, handleFileChange, handleUpload, changeImage } =
+    useUploadComponent();
+
 
   const toggleShowMore = () => {
     setShowCount((prevCount) => prevCount + 4);
@@ -52,7 +61,6 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
     setShowModal(true);
     console.log(setSelectedRecipe);
   };
-  // console.log("123", selectedRecipe);
   return (
     <div className="item-list">
       <h2>{recipeCategoryName}</h2>
