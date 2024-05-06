@@ -3,9 +3,10 @@ import Modal from "../Modal";
 import food1 from "../../components/images/sliderImagesv2/food1.jpg";
 import time from "../../components/images/svg/clock-lines-svgrepo-com.svg";
 import food2 from "../../components/images/slidersv3/1.png";
-import Author from "../Author";
-import { get } from "http";
 import { Button } from "../ui/button";
+import { RecipeData } from "../RecipesFeeds/AllRecipes";
+import Link from "next/link";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 interface RecipeProps {
   author_id: number;
@@ -22,7 +23,7 @@ interface RecipeProps {
   category: string;
   nutriscore: number;
 }
-interface ProfileData {
+export interface ProfileData {
   username: string;
   email: string;
   first_name: string;
@@ -34,14 +35,11 @@ interface ProfileData {
   bio: string;
 }
 
-const ModalRecipe = ({
-  recipe,
-  setShowModal,
-}: {
-  recipe: RecipeProps;
-  setShowModal: any;
-}) => {
+const ModalRecipe = ({ recipe, showModal, setShowModal }: any) => {
+  const router = useRouter();
+  console.log("ini route", router);
   const [profileData, setProfileData] = useState({} as ProfileData);
+  const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
   useEffect(() => {
     fetchAuthorName(recipe.author_id);
   }, [recipe]);
@@ -52,7 +50,7 @@ const ModalRecipe = ({
       if (response.ok) {
         const authorData = await response.json();
         setProfileData(authorData);
-        console.log("123", authorData);
+        // console.log("123", authorData);
       } else {
         throw new Error("Failed to fetch author's username");
       }
@@ -60,7 +58,29 @@ const ModalRecipe = ({
       console.error(error);
     }
   };
+  useEffect(() => {
+    const fetchRecipeDetail = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:5000/recipes/details/${recipe.id}`
+        );
+        if (response.ok) {
+          const recipe_data = await response.json();
+          setSelectedRecipe(recipe_data);
+          console.log("test id", recipe_data);
+        } else {
+          throw new Error("Failed to fetch author's username");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+      fetchRecipeDetail();
+    };
+  });
 
+  const handleRedirectToRecipees = (id: number) => {
+    // setSearchParamsData({ id: id.toString() });
+  };
   const closeModal = () => {
     setShowModal(false);
   };
@@ -125,8 +145,17 @@ const ModalRecipe = ({
                   <h1>{recipe.description}</h1>
                 </div>
               </div>
-              <div className="flex justify-center items-end h-1/5 ">
-                <Button>Read More</Button>
+              <div
+                className="flex justify-center items-end h-1/5 "
+                // onClick={handleRecipeReadMore}
+              >
+                <Button
+                  onClick={() =>
+                    router.push("/RecipeDetailResponsive/" + recipe.id)
+                  }
+                >
+                  Read More
+                </Button>
               </div>
             </div>
             <div className="w-3/6 h-3/6 flex justify-center items-center  overflow-auto ">

@@ -57,7 +57,8 @@ const RecipeForm: React.FC = () => {
             headers,
           }
         );
-        console.log("123", response);
+        // console.log("123", response);
+        handleUploadImage();
       }
     } catch (error) {
       // console.log("errorboy", error);
@@ -67,13 +68,15 @@ const RecipeForm: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
+      if (!imageUrl) {
+        await handleUploadImage();
+      }
       await handleCreate();
-
-      handleUploadImage();
     } catch (error) {
       console.error(error);
     }
   };
+
   // const [formData, setFormData] = useState({
   //   title: "",
   //   image: "",
@@ -111,14 +114,12 @@ const RecipeForm: React.FC = () => {
   //   setFormData({ ...formData, instructions: newInstructions });
   // };
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      // You can handle the file upload here, for example, using FileReader API to read the file contents
-      // and then save it to the state or upload it to a server
-      console.log("File uploaded:", file);
-    }
-  };
+  // const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = e.target.files?.[0];
+  //   if (file) {
+  //     console.log("File uploaded:", file);
+  //   }
+  // };
   const handleSave = async () => {
     try {
       await handleCreate();
