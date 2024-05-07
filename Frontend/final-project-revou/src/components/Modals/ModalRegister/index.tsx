@@ -41,7 +41,7 @@ interface Props {
   setShowRegisterModal: SetToggleMenuType;
 }
 
-export default function RegisterModal({ setShowRegisterModal }: Props) {
+export default function ModalRegister({ setShowRegisterModal }: Props) {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

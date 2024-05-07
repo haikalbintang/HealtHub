@@ -1,4 +1,4 @@
-import ImageCropper from "../ImageCropper";
+import ImageCropper from "../../Functions/ImageCropper";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faStar } from "@fortawesome/free-solid-svg-icons";

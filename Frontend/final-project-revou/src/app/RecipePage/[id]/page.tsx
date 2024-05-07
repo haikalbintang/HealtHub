@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import NavbarWrapper from "@/components/NavbarWrapper";
+import NavbarWrapper from "@/components/Navbars/NavbarWrapper";
 import RecipeHeroPage from "@/components/RecipeHeroPage";
 import CatOrNutLoSh from "@/components/CatOrNutLoSh";
 import Author from "@/components/Author";

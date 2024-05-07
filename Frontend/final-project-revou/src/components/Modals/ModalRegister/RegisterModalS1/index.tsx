@@ -6,7 +6,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "../../ui/input";
+import { Input } from "../../../ui/input";
 
 interface Props {
   form: any;
@@ -17,12 +17,12 @@ export default function RegisterModalS1({ form }: Props): JSX.Element {
     <>
       <FormField
         control={form.control}
-        name="username"
+        name="email"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Username</FormLabel>
+            <FormLabel>Email</FormLabel>
             <FormControl>
-              <Input placeholder="Username" {...field} />
+              <Input placeholder="Email" {...field} />
             </FormControl>
             <FormDescription></FormDescription>
             <FormMessage />
@@ -31,26 +31,30 @@ export default function RegisterModalS1({ form }: Props): JSX.Element {
       />
       <FormField
         control={form.control}
-        name="firstName"
+        name="password"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>First name</FormLabel>
+            <FormLabel>Password</FormLabel>
             <FormControl>
-              <Input placeholder="First name" {...field} />
+              <Input placeholder="Password" type="password" {...field} />
             </FormControl>
-            <FormDescription></FormDescription>
+            <FormDescription>Minimum 8 characters</FormDescription>
             <FormMessage />
           </FormItem>
         )}
       />
       <FormField
         control={form.control}
-        name="lastName"
+        name="passwordConfirm"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Last name</FormLabel>
+            <FormLabel>Password confirm</FormLabel>
             <FormControl>
-              <Input placeholder="Last name" {...field} />
+              <Input
+                placeholder="Password confirm"
+                type="password"
+                {...field}
+              />
             </FormControl>
             <FormDescription></FormDescription>
             <FormMessage />

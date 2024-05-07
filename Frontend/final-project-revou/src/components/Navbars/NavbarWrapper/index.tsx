@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import LoginModal from "../LoginModal";
+import LoginModal from "../../Modals/ModalLogin";
 import Navbar from "../Navbar";
 import NavbarDropdown from "../NavbarDropdown";
-import RegisterModal from "../RegisterModal";
+import RegisterModal from "../../Modals/ModalRegister";
 
 export default function NavbarWrapper() {
   const [showNavbarHamburgerMenu, setShowNavbarHamburgerMenu] =

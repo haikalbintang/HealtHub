@@ -2,7 +2,7 @@
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-import NavbarWrapper from "@/components/NavbarWrapper";
+import NavbarWrapper from "@/components/Navbars/NavbarWrapper";
 import RecipeHeroPage from "@/components/RecipeHeroPage";
 import CatOrNutLoSh from "@/components/CatOrNutLoSh";
 import Author from "@/components/Author";
@@ -20,9 +20,9 @@ import Food2 from "../../../components/images/sliderImagesv2/food2.jpg";
 import Food3 from "../../../components/images/sliderImagesv2/food3.jpg";
 import Food4 from "../../../components/images/sliderImagesv2/food4.jpg";
 import SliderImagev2_2_2 from "@/components/SliderImage_vmhb/SliderImagev2_2_2";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Legacies/Footer";
 import SliderImagev2_2_3 from "@/components/SliderImage_vmhb/SliderImagev2_2_3";
-import Footer_v2 from "@/components/Footer_vmhb";
+import Footer_v2 from "@/components/Footers/Footer_vmhb";
 import SliderImagev2_2_4 from "@/components/SliderImage_vmhb/SliderImagev2_2_4";
 import useFetchRecipe, { Recipe } from "@/hooks/UseFetchRecipe";
 import { RecipeData } from "@/components/RecipesFeeds/AllRecipes";

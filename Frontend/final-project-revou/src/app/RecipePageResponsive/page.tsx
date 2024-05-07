@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Footer_vmhb from "@/components/Footer_vmhb";
-import NavbarWrapper from "@/components/NavbarWrapper";
+import Footer_vmhb from "@/components/Footers/Footer_vmhb";
+import NavbarWrapper from "@/components/Navbars/NavbarWrapper";
 import RecipeFeeds_vmhb from "@/components/RecipesFeeds copy";
 
 const RecipePage: React.FC = () => {

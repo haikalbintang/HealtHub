@@ -1,8 +1,10 @@
+import NavbarWrapper from "@/components/Navbars/NavbarWrapper";
 import SliderImage from "@/components/SliderImage";
-import SliderImagev2 from "@/components/SliderImagev2";
+import DiscoverContent from "@/components/DiscoverContent";
+// import SliderImagev2 from "@/components/SliderImagev2";
 import SliderV3 from "@/components/SliderImagev3";
 import HeroPage from "@/components/HeroPage";
-import Footer from "@/components/Footer";
+import Footer_vmhb from "@/components/Footers/Footer_vmhb";
 
 import image1 from "../components/images/1.jpg";
 import image2 from "../components/images/2.png";
@@ -19,9 +21,6 @@ import foodImage4 from "../components/images/slidersv3/4.png";
 import foodImage5 from "../components/images/slidersv3/5.png";
 import foodImage6 from "../components/images/slidersv3/6.png";
 import SliderImagev2_1 from "../components/SliderImage_vmhb/SliderImagev2_1";
-
-import NavbarWrapper from "@/components/NavbarWrapper";
-import DiscoverContent from "@/components/DiscoverContent";
 
 export default function Home() {
   const images: string[] = [image1.src, image2.src];
@@ -44,7 +43,7 @@ export default function Home() {
       <SliderImagev2_1 />
       <SliderV3 images={foodImagesv2} />
       <HeroPage />
-      <Footer />
+      <Footer_vmhb />
     </main>
   );
 }

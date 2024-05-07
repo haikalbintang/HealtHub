@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbars/Navbar";
 import RecipeHeroPage from "@/components/RecipeHeroPage";
 import Ingredients from "@/components/Ingredients";
 import Instructions from "@/components/Instructions";

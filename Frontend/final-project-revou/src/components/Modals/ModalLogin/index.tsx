@@ -18,7 +18,7 @@ interface Props {
   setShowRegisterModal: SetToggleMenuType;
 }
 
-export default function LoginModal({
+export default function ModalLogin({
   setShowLoginModal,
   setShowRegisterModal,
 }: Props) {

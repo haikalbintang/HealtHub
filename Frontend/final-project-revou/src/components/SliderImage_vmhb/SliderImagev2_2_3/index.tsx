@@ -1,12 +1,12 @@
 "use client";
 import { useState } from "react";
-import Card from "../../Card";
+import Card from "../../Cards/Card";
 import food1 from "@/components/images/sliderImagesv2/food1.jpg";
 import food2 from "@/components/images/sliderImagesv2/food2.jpg";
 import food3 from "@/components/images/sliderImagesv2/food3.jpg";
 import food4 from "@/components/images/sliderImagesv2/food4.jpg";
 import { Button } from "../../ui/button";
-import CardSmall from "../../CardSmall";
+import CardSmall from "../../Cards/CardSmall";
 
 interface Props {
   className?: string;

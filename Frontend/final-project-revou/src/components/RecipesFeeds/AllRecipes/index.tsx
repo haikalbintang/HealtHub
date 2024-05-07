@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { chefMainCard2 } from "@/data";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
-import ModalRecipe from "@/components/ModalRecipe";
+import ModalRecipe from "@/components/Modals/ModalRecipe";
 import useUploadComponent from "@/hooks/useUploadComponent";
 import ComplexityLogo from "../../../components/images/svg/levels-svgrepo-com.svg";
 import NutriLogo from "../../../components/images/svg/cardlogo/scoreboard-svgrepo-com.svg";
