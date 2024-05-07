@@ -9,9 +9,38 @@ import food2 from "@/components/images/sliderImagesv2/food2.jpg";
 import food3 from "@/components/images/sliderImagesv2/food3.jpg";
 import food4 from "@/components/images/sliderImagesv2/food4.jpg";
 import axios, { AxiosResponse } from "axios";
+import Card_new_v2 from "@/components/Cards/Card_new_v2";
+import useFetchRecipe from "@/hooks/UseFetchRecipe";
 
-export default function Feeds_withCardNew() {
+export interface RecipeData {
+  id: number;
+  title: string;
+  description: string;
+  cooktime: string;
+  complexity: string;
+  budget: string;
+  nutriscore: string;
+  instruction: string;
+  type: string;
+  origin: string;
+  tag: string[];
+  servings: number;
+  nutriScore: number;
+  attachment: string;
+  author_id: number;
+}
+export default function Feeds_withCardNew_v2() {
   // const [recipeData, setRecipeData] = useState<any[]>([]);
+  const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
+  const [showRecipeModal, setShowRecipeModal] = useState(false);
+
+  const { recipes, error, refetchRecipes } = useFetchRecipe();
+
+  const handleCardClick = (recipe: RecipeData) => {
+    setSelectedRecipe(recipe);
+    setShowRecipeModal(true);
+    console.log(setSelectedRecipe);
+  };
 
   const recipeData = [
     {
@@ -24,8 +53,8 @@ export default function Feeds_withCardNew() {
       attachment: food1.src,
     },
     {
-      title: "Sate Maranggi",
-      nutriscore: 9.0,
+      title: "Sate Maranggi Special Deluxe Edition New Variant",
+      nutriscore: 9.1,
       rating: 4.7,
       like_count: 123,
       complexity: "medium",
@@ -67,9 +96,9 @@ export default function Feeds_withCardNew() {
 
   return (
     <div>
-      <div className="flex flex-wrap justify-center items-center mx-auto gap-2 mt-5">
+      <div className="flex flex-wrap justify-center items-center mx-auto gap-2 my-4">
         {recipeData.map((data, index) => (
-          <Card_new
+          <Card_new_v2
             key={index}
             title={data.title}
             nutriScore={data.nutriscore}
@@ -78,9 +107,16 @@ export default function Feeds_withCardNew() {
             complexity={data.complexity}
             description={data.description}
             attachment={data.attachment}
-          />
+            setShowRecipeModal={() => handleCardClick(recipe as unknown as RecipeData)}          />
         ))}
       </div>
+      {showRecipeModal && selectedRecipe && (
+        <ModalRecipe
+          recipe={selectedRecipe}
+          showModal={showRecipeModal}
+          setShowModal={setShowRecipeModal}
+        />
+      )}
     </div>
   );
 }

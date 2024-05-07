@@ -36,47 +36,49 @@ export interface ProfileData {
 }
 
 const ModalRecipe = ({ recipe, showModal, setShowModal }: any) => {
-  const router = useRouter();
-  console.log("ini route", router);
+  // const router = useRouter();
+  // console.log("ini route", router);
   const [profileData, setProfileData] = useState({} as ProfileData);
-  const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
-  useEffect(() => {
-    fetchAuthorName(recipe.author_id);
-  }, [recipe]);
+  // const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
 
-  const fetchAuthorName = async (authorId: number) => {
-    try {
-      const response = await fetch(`http://127.0.0.1:5000/users/${authorId}`);
-      if (response.ok) {
-        const authorData = await response.json();
-        setProfileData(authorData);
-        // console.log("123", authorData);
-      } else {
-        throw new Error("Failed to fetch author's username");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  useEffect(() => {
-    const fetchRecipeDetail = async () => {
-      try {
-        const response = await fetch(
-          `http://127.0.0.1:5000/recipes/details/${recipe.id}`
-        );
-        if (response.ok) {
-          const recipe_data = await response.json();
-          setSelectedRecipe(recipe_data);
-          console.log("test id", recipe_data);
-        } else {
-          throw new Error("Failed to fetch author's username");
-        }
-      } catch (error) {
-        console.error(error);
-      }
-      fetchRecipeDetail();
-    };
-  });
+  // useEffect(() => {
+  //   fetchAuthorName(recipe.author_id);
+  // }, [recipe]);
+
+  // const fetchAuthorName = async (authorId: number) => {
+  //   try {
+  //     const response = await fetch(`http://127.0.0.1:5000/users/${authorId}`);
+  //     if (response.ok) {
+  //       const authorData = await response.json();
+  //       setProfileData(authorData);
+  //       // console.log("123", authorData);
+  //     } else {
+  //       throw new Error("Failed to fetch author's username");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const fetchRecipeDetail = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `http://127.0.0.1:5000/recipes/details/${recipe.id}`
+  //       );
+  //       if (response.ok) {
+  //         const recipe_data = await response.json();
+  //         setSelectedRecipe(recipe_data);
+  //         console.log("test id", recipe_data);
+  //       } else {
+  //         throw new Error("Failed to fetch author's username");
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //     fetchRecipeDetail();
+  //   };
+  // });
 
   const handleRedirectToRecipees = (id: number) => {
     // setSearchParamsData({ id: id.toString() });

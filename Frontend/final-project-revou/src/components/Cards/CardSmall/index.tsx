@@ -1,8 +1,8 @@
-import chefsvg from "../images/svg/3.png";
-import clocksvg from "../images/svg/clock-lines-svgrepo-com.svg";
+import chefsvg from "@/components/images/svg/3.png";
+import clocksvg from "@/components/images/svg/clock-lines-svgrepo-com.svg";
 
-import gif1 from "../images/svg/gif/tapas2go-thumbs-up.gif";
-import gif2 from "../images/svg/gif/community.gif";
+import gif1 from "@/components/images/svg/gif/tapas2go-thumbs-up.gif";
+import gif2 from "@/components/images/svg/gif/community.gif";
 
 interface Props {
   title: string;
