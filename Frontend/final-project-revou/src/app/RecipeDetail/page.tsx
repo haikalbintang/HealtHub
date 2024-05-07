@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect } from "react";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbars/Navbar";
 import RecipeHeroPage from "@/components/RecipeHeroPage";
 import Ingredients from "@/components/Ingredients";
 import Instructions from "@/components/Instructions";
 import CommentSections from "@/components/CommentSection";
 import KitchenTools from "@/components/KitchenTools";
-import SliderImagev2 from "@/components/SliderImagev2";
-import HeroPage from "@/components/HeroPage";
+import SliderImagev2 from "@/components/SliderImageS/SliderImagev2";
+import HeroPage from "@/components/For_HeroSection/HeroPage";
 import { chefMainCard } from "@/data";
 import { recipeDetailCards } from "@/data";
 import Food1 from "../../components/images/sliderImagesv2/food1.jpg";

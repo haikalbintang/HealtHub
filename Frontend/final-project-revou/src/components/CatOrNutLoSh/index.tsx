@@ -5,7 +5,7 @@ import sharesvg from "../../components/images/svg/share.svg";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import useFetchProfile from "@/hooks/useFetchProfile";
 import { useEffect, useState } from "react";
-import { ProfileData } from "../ModalRecipe";
+import { ProfileData } from "../Modals/ModalRecipe";
 const CatOrNutLoSh = ({ recipeData, setRecipeData }: any) => {
   console.log("hasildata ini", recipeData);
   const { profile } = useFetchProfile();

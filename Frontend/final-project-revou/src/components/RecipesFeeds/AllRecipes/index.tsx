@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { chefMainCard2 } from "@/data";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
-import ModalRecipe from "@/components/ModalRecipe";
+import ModalRecipe from "@/components/Modals/ModalRecipe";
 import useUploadComponent from "@/hooks/useUploadComponent";
 import ComplexityLogo from "../../../components/images/svg/levels-svgrepo-com.svg";
 import NutriLogo from "../../../components/images/svg/cardlogo/scoreboard-svgrepo-com.svg";
@@ -13,13 +13,11 @@ interface Props {
 }
 
 export interface RecipeData {
-interface RecipeData {
   id: number;
   title: string;
   description: string;
   cooktime: string;
   complexity: string;
-  servings: string;
   budget: string;
   nutriscore: string;
   instruction: string;
@@ -29,8 +27,6 @@ interface RecipeData {
   servings: number;
   nutriScore: number;
   attachment: string;
-  category: string;
-  id: string;
   author_id: number;
 }
 
@@ -46,7 +42,6 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
 
   const { file, imageUrl, handleFileChange, handleUpload, changeImage } =
     useUploadComponent();
-
 
   const toggleShowMore = () => {
     setShowCount((prevCount) => prevCount + 4);

@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import logo1 from "../../components/images/cookingtools/spatula-svgrepo-com.svg";
-import SliderImage from "../SliderImage";
-import Card from "../../components/Card";
+import SliderImage from "../SliderImageS/SliderImage";
+import Card from "../Cards/Card";
 
 import { chefMainCard, chefMainCard2 } from "@/data";
 import HealtyRecipes from "./HealtyRecipes";
@@ -19,7 +19,7 @@ import Food2 from "../../components/images/sliderImagesv2/food2.jpg";
 import Food3 from "../../components/images/sliderImagesv2/food3.jpg";
 import Food4 from "../../components/images/sliderImagesv2/food4.jpg";
 import Magnifier from "../../components/images/svg/icons8-magnifier.svg";
-import NavbarWrapper from "../NavbarWrapper";
+import NavbarWrapper from "../Navbars/NavbarWrapper";
 import DiscoverContent from "../DiscoverContent";
 
 import HomeLogo from "../../components/images/sidebarlogo/home-svgrepo-com.svg";
