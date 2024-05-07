@@ -3,9 +3,6 @@ import clocksvg from "../images/svg/clock-lines-svgrepo-com.svg";
 
 import gif1 from "../images/svg/gif/tapas2go-thumbs-up.gif";
 import gif2 from "../images/svg/gif/community.gif";
-import cookgreensvg from "../images/svg/cook-svgrepo-com (green).svg";
-import cookyellowsvg from "../images/svg/cook-svgrepo-com (yellow).svg";
-import cookredsvg from "../images/svg/cook-svgrepo-com (red).svg";
 
 interface Props {
   title: string;
@@ -91,11 +88,7 @@ export default function CardSmall({
             <picture>
               <img className="z-50" src={gif1.src} alt="Chef icon." />
             </picture>
-            {/* <img src={chefsvg.src} alt="Chef icon." /> */}
           </div>
-          {/* <h2 className="text-black font-extrabold absolute top-6 -right-32 text-base font-serif z-20 m-0 p-0 w-full rotate-12 ">
-            CHEF
-          </h2> */}
         </>
       ) : null}
     </div>

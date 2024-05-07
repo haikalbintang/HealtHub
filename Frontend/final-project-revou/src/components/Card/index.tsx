@@ -91,11 +91,7 @@ export default function Card({
             <picture>
               <img src={gif1.src} alt="Chef icon." />
             </picture>
-            {/* <img src={chefsvg.src} alt="Chef icon." /> */}
           </div>
-          {/* <h2 className="text-black font-extrabold absolute top-6 -right-32 text-base font-serif z-20 m-0 p-0 w-full rotate-12 ">
-            CHEF
-          </h2> */}
         </>
       ) : null}
     </div>
