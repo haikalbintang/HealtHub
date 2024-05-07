@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import About1 from "../images/about1.png";
 
 const HeroPage = () => {
@@ -11,7 +11,7 @@ const HeroPage = () => {
             {" "}
             {/* Centered and added margin bottom */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800">
-              What's New
+              What&apos;s New
             </h1>
           </div>
           <div className="text-center mb-8">

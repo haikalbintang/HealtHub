@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 
 interface ImageSliderProps {
   images: string[];

@@ -13,13 +13,11 @@ interface Props {
 }
 
 export interface RecipeData {
-interface RecipeData {
   id: number;
   title: string;
   description: string;
   cooktime: string;
   complexity: string;
-  servings: string;
   budget: string;
   nutriscore: string;
   instruction: string;
@@ -29,8 +27,6 @@ interface RecipeData {
   servings: number;
   nutriScore: number;
   attachment: string;
-  category: string;
-  id: string;
   author_id: number;
 }
 
@@ -46,7 +42,6 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
 
   const { file, imageUrl, handleFileChange, handleUpload, changeImage } =
     useUploadComponent();
-
 
   const toggleShowMore = () => {
     setShowCount((prevCount) => prevCount + 4);

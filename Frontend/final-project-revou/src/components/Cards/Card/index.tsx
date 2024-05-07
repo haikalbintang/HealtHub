@@ -1,7 +1,7 @@
 import chefsvg from "../images/svg/3.png";
-import clocksvg from "../images/svg/clock-lines-svgrepo-com.svg";
+import clocksvg from "../../images/svg/clock-lines-svgrepo-com.svg";
 
-import gif1 from "../images/svg/gif/tapas2go-thumbs-up.gif";
+import gif1 from "../../images/svg/gif/tapas2go-thumbs-up.gif";
 import gif2 from "../images/svg/gif/community.gif";
 import cookgreensvg from "../images/svg/cook-svgrepo-com (green).svg";
 import cookyellowsvg from "../images/svg/cook-svgrepo-com (yellow).svg";

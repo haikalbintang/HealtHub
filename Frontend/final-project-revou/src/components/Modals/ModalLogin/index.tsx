@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
-import bg1 from "../../components/images/sliderImagesv2/food3.jpg";
-import googlesvg from "../../components/images/svg/7123025_logo_google_g_icon.svg";
-import facebooksvg from "../../components/images/svg/317727_facebook_social media_social_icon.svg";
-import inboxsvg from "../../components/images/svg/email-1-svgrepo-com.svg";
-import locksvg from "../../components/images/svg/4213432_closed_lock_password_protect_secure_icon.svg";
+import bg1 from "../../images/sliderImagesv2/food3.jpg";
+import googlesvg from "../../images/svg/7123025_logo_google_g_icon.svg";
+import facebooksvg from "../../images/svg/317727_facebook_social media_social_icon.svg";
+import inboxsvg from "../../images/svg/email-1-svgrepo-com.svg";
+import locksvg from "../../images/svg/4213432_closed_lock_password_protect_secure_icon.svg";
 import Modal from "../Modal";
 
 type SetToggleMenuType = (

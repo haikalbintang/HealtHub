@@ -1,9 +1,9 @@
 import NavbarWrapper from "@/components/Navbars/NavbarWrapper";
-import SliderImage from "@/components/SliderImage";
+import SliderImage from "@/components/SliderImageS/SliderImage";
 import DiscoverContent from "@/components/DiscoverContent";
 // import SliderImagev2 from "@/components/SliderImagev2";
-import SliderV3 from "@/components/SliderImagev3";
-import HeroPage from "@/components/HeroPage";
+import SliderV3 from "@/components/SliderImageS/SliderImagev3";
+import HeroPage from "@/components/For_HeroSection/HeroPage";
 import Footer_vmhb from "@/components/Footers/Footer_vmhb";
 
 import image1 from "../components/images/1.jpg";
@@ -36,14 +36,12 @@ export default function Home() {
 
   return (
     <main>
-      <NavbarWrapper />
       <SliderImage images={images} maxHeight="500" />
       <DiscoverContent />
       {/* <SliderImagev2 foodImages={foodImages} /> */}
       <SliderImagev2_1 />
       <SliderV3 images={foodImagesv2} />
       <HeroPage />
-      <Footer_vmhb />
     </main>
   );
 }

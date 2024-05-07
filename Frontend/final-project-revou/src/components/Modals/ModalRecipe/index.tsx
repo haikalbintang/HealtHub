@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../Modal";
-import food1 from "../../components/images/sliderImagesv2/food1.jpg";
-import time from "../../components/images/svg/clock-lines-svgrepo-com.svg";
-import food2 from "../../components/images/slidersv3/1.png";
+import food1 from "@/components/images/sliderImagesv2/food1.jpg";
+import time from "@/components/images/svg/clock-lines-svgrepo-com.svg";
+import food2 from "@/components/images/slidersv3/1.png";
 import { Button } from "../../ui/button";
 import { RecipeData } from "../../RecipesFeeds/AllRecipes";
 import Link from "next/link";

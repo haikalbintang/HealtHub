@@ -1,5 +1,5 @@
 import { useState } from "react";
-import svg1 from "../images/svg/whole-foods-1.svg";
+import svg1 from "../../images/svg/whole-foods-1.svg";
 import Link from "next/link";
 
 type SetToggleMenuType = (

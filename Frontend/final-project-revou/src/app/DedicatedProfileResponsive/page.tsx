@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Sidebar_vmhb from "@/components/Sidebar_vmhb";
+import Sidebar_vmhb from "@/components/Sidebars/Sidebar_vmhb";
 
 const App: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

@@ -9,7 +9,7 @@ import Author from "@/components/Author";
 import Ingredients from "@/components/Ingredients";
 import Instructions from "@/components/Instructions";
 import CommentSections from "@/components/CommentSection";
-import SliderImagev2 from "@/components/SliderImagev2";
+import SliderImagev2 from "@/components/SliderImageS/SliderImagev2";
 
 import { recipeDetailCards } from "@/data";
 

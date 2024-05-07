@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import logo1 from "../../components/images/cookingtools/spatula-svgrepo-com.svg";
-import SliderImage from "../SliderImage";
+import SliderImage from "../SliderImageS/SliderImage";
 import Card from "../Cards/Card";
 
 import { chefMainCard, chefMainCard2 } from "@/data";
