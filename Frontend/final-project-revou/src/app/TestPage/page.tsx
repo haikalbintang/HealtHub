@@ -9,7 +9,6 @@ const TestPage = () => {
   return (
     <div>
       <Feeds_withCardNew_v2 />
-      <ModalRecipe />
     </div>
   );
 };

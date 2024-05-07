@@ -107,7 +107,10 @@ export default function Feeds_withCardNew_v2() {
             complexity={data.complexity}
             description={data.description}
             attachment={data.attachment}
-            setShowRecipeModal={() => handleCardClick(recipe as unknown as RecipeData)}          />
+            setShowRecipeModal={() =>
+              handleCardClick(data as unknown as RecipeData)
+            }
+          />
         ))}
       </div>
       {showRecipeModal && selectedRecipe && (
