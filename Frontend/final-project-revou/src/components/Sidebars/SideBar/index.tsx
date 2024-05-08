@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import MyProfile from "../../DedicatedProfilePage/MyProfile";
-import MyRecipe from "../../DedicatedProfilePage/MyRecipe";
-import CreateRecipe from "../../DedicatedProfilePage/CreateRecipe";
-import Security from "../../DedicatedProfilePage/Security";
+import MyProfile from "../../Profiles/MyProfile";
+import MyRecipe from "../../MyRecipe";
+import CreateRecipe from "../../CreateRecipeS/CreateRecipe";
+import Security from "../../Security";
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;

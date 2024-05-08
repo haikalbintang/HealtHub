@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import MyProfile from "../../DedicatedProfilePage/MyProfile";
-import MyRecipe from "../../DedicatedProfilePage/MyRecipe";
-import CreateRecipe from "../../DedicatedProfilePage/CreateRecipe";
-import Security from "../../DedicatedProfilePage/Security";
-import CreateRecipe_vmhb from "../../DedicatedProfilePage/CreateRecipe_vmhb";
+import MyProfile from "../../Profiles/MyProfile";
+import MyRecipe from "../../MyRecipe";
+import CreateRecipe from "../../CreateRecipeS/CreateRecipe";
+import Security from "../../Security";
+import CreateRecipe_vmhb from "@/components/CreateRecipeS/CreateRecipe_vmhb";
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
@@ -26,16 +26,16 @@ const Sidebar_vmhb: React.FC = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="fixed top-0 left-0 h-full bg-slate-800 text-white w-44 ">
+    <div className="flex items-center px-2 py-5 my-auto">
+      <div className="rounded-xl h-full bg-slate-800 text-white w-44 ">
         <div className="p-6 px-4">
           {categories.map((category) => (
             <h1
               className={`py-2 px-4 my-4 cursor-pointer ${
                 selectedCategory === category
-                  ? "text-slate-100"
-                  : "text-slate-300"
-              } hover:text-slate-100 ${
+                  ? "text-orange-200"
+                  : "text-orange-50"
+              } hover:text-orange-200 ${
                 selectedCategory === category ? "bg-slate-700 rounded-xl" : ""
               }`}
               key={category}
@@ -46,8 +46,7 @@ const Sidebar_vmhb: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="w-1/5"></div>
-      <div className="w-3/5 p-5">
+      <div className="w-3/5 p-5 mx-auto">
         {selectedCategory === "My Profile" && <MyProfile />}
         {selectedCategory === "My Recipe" && <MyRecipe />}
         {selectedCategory === "Create Recipe" && <CreateRecipe_vmhb />}

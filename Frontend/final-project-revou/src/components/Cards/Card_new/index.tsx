@@ -65,7 +65,7 @@ export default function Card_new({
             </div>
             <div className="absolute bottom-0 right-0 -translate-x-9 flex justify-center items-center mt-0">
               <button className="text-sm rounded-xl px-2 py-1 bg-orange-600 hover:bg-orange-700 text-white">
-                More Info
+                Show More
               </button>
             </div>
           </div>

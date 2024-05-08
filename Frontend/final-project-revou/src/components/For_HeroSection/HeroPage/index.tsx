@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../../ui/button";
-import About1 from "../images/about1.png";
+import About1 from "@/components/images/about1.png";
 
 const HeroPage = () => {
   return (
