@@ -28,7 +28,7 @@ export default function CreateRecipe_vmhb_s2({
       <div className="mt-4">
         <FormField
           control={createRecipeForm.control}
-          name="category"
+          name="categories"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-base font-semibold">
@@ -138,17 +138,7 @@ export default function CreateRecipe_vmhb_s2({
             <FormItem>
               <FormLabel className="text-base font-semibold">Budget</FormLabel>
               <FormControl>
-                <Input
-                  placeholder="Budget"
-                  {...field}
-                  type="text"
-                  onChange={(e) => {
-                    const value = parseFloat(e.target.value);
-                    if (!isNaN(value)) {
-                      field.onChange(value);
-                    }
-                  }}
-                />
+                <Input placeholder="Budget" {...field} />
               </FormControl>
               <FormDescription>in USD$</FormDescription>
               <FormMessage />

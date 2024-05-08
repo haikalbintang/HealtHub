@@ -69,7 +69,7 @@ export default function Recipees() {
     <div className="px-3 sm:px-5 justify-center items-center">
       <h1>tes</h1>
       <NavbarWrapper />
-      <RecipeHeroPage images={images} />
+      <RecipeHeroPage images={images} recipeData={recipeData} />
       <CatOrNutLoSh recipeData={recipeData} />
       <div className="md:flex md:my-3 lg:mb-10 lg:mt-0 lg:px-12 lg:gap-3 2xl:gap-10">
         <Author />
@@ -78,7 +78,10 @@ export default function Recipees() {
       {/* Ingredients n instructions */}
       <div className="px-1 md:flex md:gap-6 md:mt-6 lg:flex lg:pl-6">
         <div className="md:w-2/5 lg:w-1/3">
-          <Ingredients className="flex justify-items-center items-center" />
+          <Ingredients
+            className="flex justify-items-center items-center"
+            recipeData={recipeData}
+          />
         </div>
         <div className="md:w-0.5 md:bg-slate-400 md:h-96 md:my-auto"></div>
         <div className="md:w-3/5 lg:w-2/3 pt-8 md:pt-0 md:mt-0 lg:pr-6">

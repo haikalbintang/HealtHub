@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { string, z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
@@ -17,18 +17,18 @@ const createRecipeFormSchema = z
   .object({
     title: z.string(),
     description: z.string().max(300),
-    nutriScore: z.number(),
+    nutriscore: z.number(),
     cookTime: z.number(),
     complexity: z.string(),
     servings: z.number(),
-    budget: z.number(),
+    budget: z.string(),
     instructions: z.string(),
     ingredients: z.string(),
 
-    category: z.string(),
+    categories: z.string(),
     type: z.string(),
     origin: z.string(),
-    tag: z.string(),
+    tags: z.string(),
 
     attachment: z.string(),
 
@@ -50,28 +50,37 @@ const createRecipeFormSchema = z
   })
   .required();
 
+const schema = z.object({
+  ingredients: z.array(
+    z.object({
+      name: z.string().nonempty(),
+      amount: z.string().nonempty(),
+    })
+  ),
+});
+
 export default function CreateRecipe_vmhb() {
   const createRecipeForm = useForm<z.infer<typeof createRecipeFormSchema>>({
     resolver: zodResolver(createRecipeFormSchema),
     defaultValues: {
-      title: undefined,
+      title: "",
       description: "",
 
-      category: undefined,
-      type: undefined,
-      origin: undefined,
+      categories: "",
+      type: "",
+      origin: "",
       servings: 1,
-      budget: 0,
+      budget: "",
 
-      ingredients: undefined,
-      instructions: undefined,
+      ingredients: "",
+      instructions: "",
       cookTime: 0,
-      complexity: undefined,
+      complexity: "",
 
       //   servingPerContainer: undefined,
       //   servingSize: "",
 
-      nutriScore: undefined,
+      nutriscore: 1,
 
       calories: 0,
       totalFat: 0,
@@ -86,8 +95,8 @@ export default function CreateRecipe_vmhb() {
       potassium: 0,
       iron: 0,
 
-      tag: "",
-      attachment: undefined,
+      tags: "",
+      attachment: "",
     },
   });
 
@@ -104,17 +113,19 @@ export default function CreateRecipe_vmhb() {
           {
             title: recipeData.title,
             description: recipeData.description,
-            nutriscore: recipeData.nutriScore,
+            nutriscore: recipeData.nutriscore,
             cooktime: recipeData.cookTime,
             complexity: recipeData.complexity,
             servings: recipeData.servings,
             budget: recipeData.budget,
             instruction: recipeData.instructions,
             view_count: 0,
-            categoriy: recipeData.category,
+            categories: [recipeData.categories],
             type: recipeData.type,
             origin: recipeData.origin,
-            tag: [recipeData.tag],
+            tags: [recipeData.tags],
+            attachment: recipeData.attachment,
+            ingredients: [recipeData.ingredients],
           },
           { headers }
         );

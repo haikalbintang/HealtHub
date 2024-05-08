@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import useUploadRecipeImage from "@/hooks/useUploadRecipe";
 import axios from "axios";
+
+interface Ingredient {
+  name: string;
+  quantity: string;
+}
+
+interface RecipeFormData {
+  ingredients: Ingredient[];
+}
+
 const RecipeForm: React.FC = () => {
   const { file, imageUrl, handleFileChange, handleUploadImage } =
     useUploadRecipeImage();
@@ -18,6 +28,7 @@ const RecipeForm: React.FC = () => {
     origin: "",
     tags: [""],
     attachment: "",
+    ingredients: [["", ""]],
 
     serving_per_container: "",
     serving_size: "",
@@ -38,43 +49,92 @@ const RecipeForm: React.FC = () => {
     // image: "",
   });
 
-  const handleCreate = async () => {
-    const authToken = localStorage.getItem("access_token");
-    // console.log("auth", authToken);
+  const handleCreate = async (uploadedImageUrl: any) => {
     try {
-      // console.log(authToken);
+      const authToken = localStorage.getItem("access_token");
       if (authToken) {
         const headers = {
           Authorization: `Bearer ${authToken}`,
         };
-        if (imageUrl) {
-          setRecipeData({ ...recipeData, attachment: imageUrl });
+
+        const updatedData = uploadedImageUrl;
+        console.log("ini imageurl", uploadedImageUrl);
+        if (updatedData !== null && updatedData !== undefined) {
+          const tempRecipeData = { ...recipeData, attachment: updatedData };
+          console.log("Updated recipe data:", tempRecipeData);
+          setRecipeData(tempRecipeData);
+          console.log("123", recipeData);
+          const response = await axios.post(
+            "http://127.0.0.1:5000/recipes/create",
+            tempRecipeData,
+            {
+              headers,
+            }
+          );
+          // Handle response
+          console.log("Recipe created successfully:", response.data);
         }
-        const response = await axios.post(
-          "http://127.0.0.1:5000/recipes/create",
-          recipeData,
-          {
-            headers,
-          }
-        );
-        // console.log("123", response);
-        handleUploadImage();
       }
     } catch (error) {
-      // console.log("errorboy", error);
-      console.error(error);
+      console.error("Error creating recipe:", error);
     }
   };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      if (!imageUrl) {
-        await handleUploadImage();
+      if (!file) {
+        console.error("No file selected");
+        return;
       }
-      await handleCreate();
+      const uploadedImageUrl = await handleUploadImage();
+      console.log("Uploaded image URL:", uploadedImageUrl);
+
+      if (uploadedImageUrl !== null && uploadedImageUrl !== undefined) {
+        setRecipeData((prevRecipeData) => ({
+          ...prevRecipeData,
+          attachment: uploadedImageUrl,
+        }));
+
+        await handleCreate(uploadedImageUrl);
+      }
     } catch (error) {
       console.error(error);
     }
+  };
+  const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+
+  const handleAddIngredient = () => {
+    setRecipeData({
+      ...recipeData,
+      ingredients: [...recipeData.ingredients, ["", ""]],
+    });
+  };
+
+  const handleIngredientChange = (
+    index: number,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { name, value } = e.target;
+    const updatedIngredients = [...recipeData.ingredients];
+    updatedIngredients[index] = [
+      name === "name" ? value : updatedIngredients[index][0],
+      name === "quantity" ? value : updatedIngredients[index][1],
+    ];
+    setRecipeData({ ...recipeData, ingredients: updatedIngredients });
+  };
+
+  const [instructionSteps, setInstructionSteps] = useState<string[]>(
+    recipeData.instruction.split(/\n/).filter((step) => step.trim() !== "")
+  );
+
+  const handleInstructionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    const { value } = e.target;
+    const steps = value.split(/\n/).filter((step) => step.trim() !== "");
+    setInstructionSteps(steps);
+    setRecipeData({ ...recipeData, instruction: steps.join("\n") });
   };
 
   // const [formData, setFormData] = useState({
@@ -120,13 +180,14 @@ const RecipeForm: React.FC = () => {
   //     console.log("File uploaded:", file);
   //   }
   // };
-  const handleSave = async () => {
-    try {
-      await handleCreate();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleSave = async () => {
+  //   try {
+  //     await handleUploadImage();
+  //     await handleCreate(uploadedImageUrl);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
     <div className="max-w-lg mx-auto">
@@ -151,21 +212,21 @@ const RecipeForm: React.FC = () => {
           />
         </div>
         {/* <div className="mb-4">
-          <label
-            htmlFor="image"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Recipe Image
-          </label>
-          <input
-            type="file"
-            accept="image/*"
-            id="image"
-            name="image"
-            onChange={handleImageChange}
-            className="mt-1 p-2 border rounded-md w-full"
-          />
-        </div> */}
+            <label
+              htmlFor="image"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Recipe Image
+            </label>
+            <input
+              type="file"
+              accept="image/*"
+              id="image"
+              name="image"
+              onChange={handleImageChange}
+              className="mt-1 p-2 border rounded-md w-full"
+            />
+          </div> */}
         <div className="mb-4">
           <label
             htmlFor="description"
@@ -201,6 +262,31 @@ const RecipeForm: React.FC = () => {
             }
             className="mt-1 p-2 border rounded-md w-full"
           />
+        </div>
+        <div>
+          <label>Ingredients:</label>
+          bro
+          {recipeData.ingredients.map((ingredient, index) => (
+            <div key={index}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Ingredient name"
+                value={ingredient[0]}
+                onChange={(e) => handleIngredientChange(index, e)}
+              />
+              <input
+                type="text"
+                name="quantity"
+                placeholder="Quantity"
+                value={ingredient[1]}
+                onChange={(e) => handleIngredientChange(index, e)}
+              />
+            </div>
+          ))}
+          <button type="button" onClick={handleAddIngredient}>
+            Add Ingredient
+          </button>
         </div>
         <div className="mb-4">
           <label
@@ -390,7 +476,7 @@ const RecipeForm: React.FC = () => {
               className="mt-1 p-2 border rounded-md w-full"
             />
             {/* <Button onClick={handleUpload}>Upload</Button>
-                    {changeImage && <p>Image updated successfully!</p>} */}
+                      {changeImage && <p>Image updated successfully!</p>} */}
           </div>
         </div>
         <div className="mb-4">
@@ -671,52 +757,49 @@ const RecipeForm: React.FC = () => {
             id="instructions"
             name="instruction"
             value={recipeData.instruction}
-            onChange={(e) =>
-              setRecipeData({ ...recipeData, instruction: e.target.value })
-            }
+            onChange={handleInstructionChange}
             className="mt-1 p-2 border rounded-md w-full"
             placeholder="Enter intsructions"
           />
         </div>
         {/* <div className="mb-4">
-          <label
-            htmlFor="instructions"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Instructions
-          </label>
-          {formData.instructions.map((instruction, index) => (
-          <div className="flex items-center mt-1">
-            <textarea
-              value={recipeData.instructions}
-              onChange={(e) =>
-                setRecipeData({ ...recipeData, instructions: e.target.value })
-              }
-              onChange={(e) => handleChange(e, index)}
-              className="p-4 border rounded-md flex-grow"
-              placeholder={`Step ${index + 1}`}
-            />
+            <label
+              htmlFor="instructions"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Instructions
+            </label>
+            {formData.instructions.map((instruction, index) => (
+            <div className="flex items-center mt-1">
+              <textarea
+                value={recipeData.instructions}
+                onChange={(e) =>
+                  setRecipeData({ ...recipeData, instructions: e.target.value })
+                }
+                onChange={(e) => handleChange(e, index)}
+                className="p-4 border rounded-md flex-grow"
+                placeholder={`Step ${index + 1}`}
+              />
+              <button
+                type="button"
+                onClick={() => handleRemoveStep(index)}
+                className="ml-2 p-2 bg-red-500 text-white rounded-md"
+              >
+                Remove Step
+              </button>
+            </div>
+            ))} 
             <button
               type="button"
-              onClick={() => handleRemoveStep(index)}
-              className="ml-2 p-2 bg-red-500 text-white rounded-md"
+              onClick={handleAddStep}
+              className="mt-2 p-2 bg-blue-500 text-white rounded-md"
             >
-              Remove Step
+              Add Step
             </button>
-          </div>
-           ))} 
-          <button
-            type="button"
-            onClick={handleAddStep}
-            className="mt-2 p-2 bg-blue-500 text-white rounded-md"
-          >
-            Add Step
-          </button>
-        </div> */}
+          </div> */}
         <button
           type="submit"
           className="bg-green-500 text-white py-2 px-4 rounded-md"
-          onClick={handleSave}
         >
           Submit
         </button>

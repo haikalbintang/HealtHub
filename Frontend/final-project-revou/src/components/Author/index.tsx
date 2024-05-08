@@ -21,9 +21,12 @@ export default function Author() {
               />
             </picture>
             <div className="flex flex-col gap-2 w-full">
-              <div className="flex justify-between gap-4 md:gap-3">
+              <div className="flex justify-start gap-2 md:gap-1">
                 <h1 className="text-xl font-bold text-orange-900">
                   {profile?.first_name}
+                </h1>
+                <h1 className="text-xl font-bold text-orange-900">
+                  {profile?.last_name}
                 </h1>
               </div>
               {chefMainCard[0].socialMedia.map((social: any) => (

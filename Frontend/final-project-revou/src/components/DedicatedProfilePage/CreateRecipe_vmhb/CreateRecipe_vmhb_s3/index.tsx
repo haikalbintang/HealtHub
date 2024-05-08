@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import { z } from "zod";
 import {
   FormControl,
   FormDescription,
@@ -12,9 +14,39 @@ interface Props {
   createRecipeForm: any;
 }
 
+interface Ingredient {
+  name: string;
+  amount: string;
+}
+
+const schema = z.object({
+  ingredients: z.array(z.object({ name: z.string(), amount: z.string() })),
+});
+
 export default function CreateRecipe_vmhb_s3({
   createRecipeForm,
 }: Props): JSX.Element {
+  const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+  const [ingredientInput, setIngredientInput] = useState("");
+
+  const handleAddIngredient = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIngredientInput(e.target.value);
+  };
+
+  const handleIngredientSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (ingredientInput.trim() === "") return;
+    const [name, amount] = ingredientInput.split(/\s+(?=\d)/);
+    const data = { ingredients: [{ name, amount }] };
+    try {
+      schema.parse(data);
+      setIngredients([...ingredients, { name, amount }]);
+      setIngredientInput("");
+    } catch (error) {
+      console.error("Ingredient validation error:", error);
+    }
+  };
+
   return (
     <>
       <div className="mt-4">
@@ -27,13 +59,27 @@ export default function CreateRecipe_vmhb_s3({
                 Ingredients <span className="text-red-600">*</span>
               </FormLabel>
               <FormControl>
-                <Input placeholder="Ingredients" {...field} />
+                <form onSubmit={handleIngredientSubmit}>
+                  <Input
+                    type="text"
+                    placeholder="Enter ingredient and quantity (e.g., garlic 200gr)"
+                    value={ingredientInput}
+                    onChange={handleAddIngredient}
+                  />
+                </form>
               </FormControl>
               <FormDescription>please include the units</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
+        {ingredients.map((ingredient, index) => (
+          <div key={index}>
+            <span>
+              {ingredient.name} - {ingredient.amount}
+            </span>
+          </div>
+        ))}
       </div>
       <div className="mt-4">
         <FormField
@@ -63,8 +109,12 @@ export default function CreateRecipe_vmhb_s3({
                 Cook Time <span className="text-red-600">*</span>
               </FormLabel>
               <FormControl>
-                <Input placeholder="Cook Time" {...field} type="number"
-                  onChange={(e) => field.onChange(parseInt(e.target.value))} />
+                <Input
+                  placeholder="Cook Time"
+                  {...field}
+                  type="number"
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                />
               </FormControl>
               <FormDescription>in minutes</FormDescription>
               <FormMessage />

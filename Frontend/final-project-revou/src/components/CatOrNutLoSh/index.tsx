@@ -80,7 +80,8 @@ const CatOrNutLoSh = ({ recipeData, setRecipeData }: any) => {
           <div className="sm:hidden flex items-center gap-4">
             <div className="flex gap-2">
               <Button className="bg-slate-300 text-slate-900 font-semibold text-base px-2 m-0">
-                #{recipeData.foodCategory}
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aperiam, laborum! #{recipeData.foodCategory}
               </Button>
               <Button className="bg-slate-300 text-slate-900 font-semibold text-base px-2 m-0">
                 #{recipeData.foodOrigin}
