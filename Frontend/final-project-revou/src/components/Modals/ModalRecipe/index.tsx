@@ -91,61 +91,62 @@ const ModalRecipe = ({ recipe, showModal, setShowModal }: any) => {
     <div>
       <Modal setShowModal={closeModal}>
         {recipe && (
-          <div className="flex h-full w-full">
-            <div className="flex flex-col justify-start  w-3/6 h-3/6">
-              <div className="flex flex-col h-1/5">
-                <div className="flex justify-center items-center p-3 ">
-                  <div className="p-5 bg-orange-700 flex justify-center items-center rounded-xl shadow-md shadow-black">
-                    <h1 className="text-3xl font-extrabold bg-clip-text text-white uppercase text-center flex justify-center items-center">
-                      {recipe.title}
-                    </h1>
+          <div className="flex h-full w-full bg-emerald-50 rounded-xl">
+            <div className="flex flex-col justify-center items-center w-96 px-5 py-8 gap-4">
+              <div className="px-6 py-3 bg-orange-700 flex justify-center items-center rounded-3xl">
+                <h1 className="text-3xl font-bold bg-clip-text text-orange-100 text-center flex justify-center items-center">
+                  {recipe.title}
+                </h1>
+              </div>
+              <div className="flex justify-center items-center gap-2 text-md">
+                <div>
+                  <h2 className="text-lg font-semibold text-slate-700">
+                    Recipe by:
+                  </h2>
+                </div>
+                <div className="flex px-3 py-1 rounded-2xl gap-1 bg-orange-400">
+                  <h2 className="text-lg font-semibold text-orange-100">
+                    {profileData.first_name} {profileData.last_name}Iman Satya
+                  </h2>
+                </div>
+              </div>
+              <div className="p-5 flex w-full justify-between items-center">
+                <div className="flex flex-col gap-4">
+                  <div className="flex gap-2 justify-start items-center">
+                    <img src={time.src} alt="" className="h-10 w-10" />
+                    <h3 className="px-2 bg-sky-700 text-slate-100 rounded-xl">
+                      {recipe.complexity}
+                    </h3>
+                  </div>
+                  <div className="flex gap-2 justify-start items-center">
+                    <img src={time.src} alt="" className="h-10 w-10" />
+                    <h3 className="text-slate-800">
+                      {recipe.cooktime}20 minutes
+                    </h3>
                   </div>
                 </div>
-                <div className="flex justify-center items-center">
-                  <div className="flex flex-col">
-                    <div className="flex gap-2 text-md">
-                      <div>
-                        <h1>Recipe By:</h1>
-                      </div>
-                      <div className="flex gap-1 uppercase">
-                        <h1 className="">{profileData.first_name}</h1>
-                        <h1>{profileData.last_name}</h1>
-                      </div>
-                    </div>
+                <div className="flex flex-col gap-4">
+                  <div className="flex gap-2 justify-start items-center">
+                    <img src={time.src} alt="" className="h-10 w-10" />
+                    <h3 className="p-1 bg-slate-800 text-slate-100 font-semibold rounded-md">
+                      {recipe.nutriscore}
+                    </h3>
+                  </div>
+                  <div className="flex gap-2 justify-start items-center">
+                    <img src={time.src} alt="" className="h-10 w-10" />
+                    <h3 className="text-slate-800">
+                      {recipe.servings}4 people
+                    </h3>
                   </div>
                 </div>
               </div>
-              <div className="h-1/4 p-5">
-                <div className="pt-10 flex justify-center items-center gap-14">
-                  <div className="flex flex-col gap-2 ">
-                    <div className="flex gap-2 justify-start items-center">
-                      <img src={time.src} alt="" className="h-10 w-10" />
-                      <h1>: {recipe.complexity}</h1>
-                    </div>
-                    <div className="flex gap-2 justify-start items-center">
-                      <img src={time.src} alt="" className="h-10 w-10" />
-                      <h1>: {recipe.cooktime}Minutes</h1>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-2 ">
-                    <div className="flex gap-2 justify-start items-center">
-                      <img src={time.src} alt="" className="h-10 w-10" />
-                      <h1>: {recipe.nutriscore}</h1>
-                    </div>
-                    <div className="flex gap-2 justify-start items-center">
-                      <img src={time.src} alt="" className="h-10 w-10" />
-                      <h1>: {recipe.servings} People</h1>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-center items-center h-2/5 p-5">
-                <div className="pt-10 flex flex-col p-5">
-                  <h1 className="text-xl flex justify-center items-center">
-                    Description:
-                  </h1>
-                  <h1>{recipe.description}</h1>
-                </div>
+              <div className="flex flex-col justify-center items-center py-5">
+                <h2 className="text-lg font-semibold text-slate-700 flex justify-center items-center">
+                  Description:
+                </h2>
+                <p className="text-base font-medium text-slate-800">
+                  {recipe.description}
+                </p>
               </div>
               <div
                 className="flex justify-center items-end h-1/5 "
@@ -153,16 +154,17 @@ const ModalRecipe = ({ recipe, showModal, setShowModal }: any) => {
               >
                 <Button
                   onClick={() =>
-                    router.push("/RecipeDetailResponsive/" + recipe.id)
+                    router.push("/DedicatedRecipeDetail/" + recipe.id)
                   }
+                  className="px-6 py-6 rounded-3xl text-xl bg-emerald-700 text-emerald-100 hover:bg-emerald-800 hover:text-emerald-50 shadow-md shadow-slate-700"
                 >
-                  Read More
+                  Cook Now
                 </Button>
               </div>
             </div>
-            <div className="w-3/6 h-3/6 flex justify-center items-center  overflow-auto ">
+            <div className="w-96 flex justify-center items-center overflow-auto ">
               <img
-                src={food1.src}
+                src={recipe.attachment}
                 alt=""
                 className="rounded-tr-xl rounded-br-xl object-cover object-center h-full w-full"
               />

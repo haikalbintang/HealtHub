@@ -77,7 +77,7 @@ export default function Card_new_v2({
                 onClick={() => setShowRecipeModal(true)}
                 className="text-sm rounded-xl px-2 py-1 bg-orange-600 hover:bg-orange-700 text-white"
               >
-                Cook Now
+                Show More
               </button>
             </div>
           </div>
