@@ -2,7 +2,7 @@ import ImageCropper from "../../Functions/ImageCropper";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faStar } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
+import { faThumbsUp, faComment } from "@fortawesome/free-regular-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import ImageCropper_v2 from "@/components/Functions/ImageCropper_v2";
 import Modal from "@/components/Modals/Modal";
@@ -48,13 +48,13 @@ export default function Card_new_v2({
           </div>
           <h2 className="text-xs text-slate-800 mb-1">by: Iman Satya</h2>
           <div className="">
-            <div className="flex justify-between items-center pr-14">
-              <h2 className="text-xs flex items-center">
+            <div className="flex w-full justify-between items-center">
+              <h2 className="text-xs items-center">
                 <span className="text-xs">
                   <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B" }} />
                 </span>
 
-                <span className="items-end ml-0.5">{rate}</span>
+                <span className="ml-0.5">{rate}</span>
               </h2>
               <h2 className="text-xs">
                 <span className="text-xs">
@@ -63,7 +63,16 @@ export default function Card_new_v2({
                     style={{ color: "#2adf57" }}
                   />
                 </span>
-                <span className="items-end ml-0.5">{like}</span>
+                <span className="ml-0.5">{like}</span>
+              </h2>
+              <h2 className="text-xs">
+                <span className="text-xs">
+                  <FontAwesomeIcon
+                    icon={faComment}
+                    style={{ color: "#3b82f6" }}
+                  />
+                </span>
+                <span className="ml-0.5">4</span>
               </h2>
             </div>
             <button className="text-xs px-1 bg-sky-700 text-slate-100 rounded-md">

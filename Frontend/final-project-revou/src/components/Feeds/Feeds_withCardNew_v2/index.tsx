@@ -67,7 +67,8 @@ export default function Feeds_withCardNew_v2() {
       rating: 4.8,
       like_count: 124,
       complexity: "easy",
-      description: "Sosisnya dibakar, bukan digoreng ...",
+      description:
+        "Sosisnya dibakar, bukan digoreng ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non necessitatibus expedita dolor deleniti amet sint perspiciatis corporis itaque aperiam modi minima blanditiis qui possimus dolorum, sit eum nostrum repellat. Delectus!",
       attachment: food2.src,
     },
   ];
