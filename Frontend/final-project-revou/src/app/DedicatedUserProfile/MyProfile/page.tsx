@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Sidebar_vmhb from "@/components/Sidebars/Sidebar_vmhb";
 
-const DedicatedUserProfile: React.FC = () => {
+const MyProfile: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleSidebar = () => {
@@ -16,4 +16,4 @@ const DedicatedUserProfile: React.FC = () => {
   );
 };
 
-export default DedicatedUserProfile;
+export default MyProfile;

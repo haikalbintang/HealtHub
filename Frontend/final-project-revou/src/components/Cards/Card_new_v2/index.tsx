@@ -8,8 +8,8 @@ import ImageCropper_v2 from "@/components/Functions/ImageCropper_v2";
 import Modal from "@/components/Modals/Modal";
 
 type SetToggleMenuType = (
-    value: boolean | ((prev: boolean) => boolean)
-  ) => void;
+  value: boolean | ((prev: boolean) => boolean)
+) => void;
 
 interface Props {
   key: number;
@@ -35,7 +35,6 @@ export default function Card_new_v2({
   attachment,
   setShowRecipeModal,
 }: Props) {
-
   return (
     <>
       <div key={key} className="w-44 h-60 relative overflow-y-hidden">
@@ -47,6 +46,7 @@ export default function Card_new_v2({
               <h2 className="text-sm font-semibold">{nutriScore}</h2>
             </div>
           </div>
+          <h2 className="text-xs text-slate-800 mb-1">by: Iman Satya</h2>
           <div className="">
             <div className="flex justify-between items-center pr-14">
               <h2 className="text-xs flex items-center">
@@ -70,7 +70,7 @@ export default function Card_new_v2({
               {complexity}
             </button>
             <div className="mt-1">
-              <p className="text-xs line-clamp-2">{description}</p>
+              <p className="text-xs line-clamp-4">{description}</p>
             </div>
             <div className="absolute bottom-2 right-0 -translate-x-9 flex justify-center items-center mt-0">
               <button

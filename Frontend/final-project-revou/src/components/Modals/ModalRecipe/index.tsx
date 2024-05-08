@@ -36,7 +36,7 @@ export interface ProfileData {
 }
 
 const ModalRecipe = ({ recipe, showModal, setShowModal }: any) => {
-  // const router = useRouter();
+  const router = useRouter();
   // console.log("ini route", router);
   const [profileData, setProfileData] = useState({} as ProfileData);
   // const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
@@ -135,7 +135,7 @@ const ModalRecipe = ({ recipe, showModal, setShowModal }: any) => {
                   <div className="flex gap-2 justify-start items-center">
                     <img src={time.src} alt="" className="h-10 w-10" />
                     <h3 className="text-slate-800">
-                      {recipe.servings}4 people
+                      {recipe.servings}4 servings
                     </h3>
                   </div>
                 </div>
