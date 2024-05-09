@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo1 from "../../components/images/cookingtools/spatula-svgrepo-com.svg";
+import useFetchRecipe from "@/hooks/UseFetchRecipe";
 
 import { Button } from "../ui/button";
 
@@ -28,6 +29,37 @@ const RecipeFeeds_vmhb = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const { recipes } = useFetchRecipe();
+  const [recipesData, setRecipesData] = useState<[]>([]);
+  const [categoriesData, setCategoriesData] = useState<string[]>([]);
+  console.log("ini recipes", recipes);
+
+  useEffect(() => {
+    if (recipes) {
+      const categories: string[] = [];
+      recipes.forEach((recipe) => {
+        if (recipe.type === "mainDishes") {
+          categories.push("Main Dishes");
+        }
+        if (recipe.type === "sideDish") {
+          categories.push("Side Dishes");
+        }
+        if (recipe.type === "appetizers") {
+          categories.push("Appetizers");
+        }
+        if (recipe.type === "beverages") {
+          categories.push("Beverages");
+        }
+        if (recipe.type === "desserts") {
+          categories.push("Desserts");
+        }
+        if (recipe.type === "healtyRecipe") {
+          categories.push("Healty Recipe");
+        }
+      });
+      setCategoriesData(categories);
+    }
+  }, [recipes]);
 
   const categories = [
     "Healthy Recipes",

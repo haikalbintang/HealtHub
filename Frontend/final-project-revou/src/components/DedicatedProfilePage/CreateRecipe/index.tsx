@@ -58,12 +58,12 @@ const RecipeForm: React.FC = () => {
         };
 
         const updatedData = uploadedImageUrl;
-        console.log("ini imageurl", uploadedImageUrl);
+        // console.log("ini imageurl", uploadedImageUrl);
         if (updatedData !== null && updatedData !== undefined) {
           const tempRecipeData = { ...recipeData, attachment: updatedData };
-          console.log("Updated recipe data:", tempRecipeData);
+          // console.log("Updated recipe data:", tempRecipeData);
           setRecipeData(tempRecipeData);
-          console.log("123", recipeData);
+          // console.log("123", recipeData);
           const response = await axios.post(
             "http://127.0.0.1:5000/recipes/create",
             tempRecipeData,
@@ -72,7 +72,7 @@ const RecipeForm: React.FC = () => {
             }
           );
           // Handle response
-          console.log("Recipe created successfully:", response.data);
+          // console.log("Recipe created successfully:", response.data);
         }
       }
     } catch (error) {
@@ -88,7 +88,7 @@ const RecipeForm: React.FC = () => {
         return;
       }
       const uploadedImageUrl = await handleUploadImage();
-      console.log("Uploaded image URL:", uploadedImageUrl);
+      // console.log("Uploaded image URL:", uploadedImageUrl);
 
       if (uploadedImageUrl !== null && uploadedImageUrl !== undefined) {
         setRecipeData((prevRecipeData) => ({
@@ -344,12 +344,12 @@ const RecipeForm: React.FC = () => {
             <option value="" disabled>
               --Please choose an option--
             </option>
-            <option value="mainDish">Main Dishes</option>
-            <option value="sideDish">Side Dishes</option>
-            <option value="Appetizer">Appetizers</option>
-            <option value="Beverage">Beverages</option>
+            <option value="mainDishes">Main Dishes</option>
+            <option value="sideDishes">Side Dishes</option>
+            <option value="Appetizers">Appetizers</option>
+            <option value="Beverages">Beverages</option>
             <option value="Desserts">Desserts</option>
-            <option value="Healty Recipes">Healty Recipes</option>
+            <option value="HealtyRecipes">Healty Recipes</option>
           </select>
         </div>
         <div className="mb-4">

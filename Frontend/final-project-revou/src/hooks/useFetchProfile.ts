@@ -29,7 +29,7 @@ export default function useFetchProfile() {
           "http://127.0.0.1:5000/users/profile",
           { headers }
         );
-        console.log("response", response);
+        // console.log("response", response);
         setProfile(response.data);
       } catch (error) {
         console.error("Error fetching profile:", error);

@@ -129,7 +129,7 @@ export default function CreateRecipe_vmhb() {
           },
           { headers }
         );
-        console.log("123", response);
+        // console.log("123", response);
       }
     } catch (error) {
       console.error(error);
@@ -137,8 +137,8 @@ export default function CreateRecipe_vmhb() {
   }
 
   async function onSubmit(values: z.infer<typeof createRecipeFormSchema>) {
-    console.log("Form submitted!");
-    console.log(values);
+    // console.log("Form submitted!");
+    // console.log(values);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     try {

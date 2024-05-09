@@ -26,11 +26,9 @@ import Footer_v2 from "@/components/Footer_vmhb";
 import SliderImagev2_2_4 from "@/components/SliderImage_vmhb/SliderImagev2_2_4";
 import useFetchRecipe, { Recipe } from "@/hooks/UseFetchRecipe";
 import { RecipeData } from "@/components/RecipesFeeds/AllRecipes";
+import { Redirect } from "next";
 
-export default function Recipees() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+export default function Recipees({ params }: { params: { id: string } }) {
   const truncate = (str: string) => {
     if (str.length > 100) {
       return str.substring(0, 150) + "...";
@@ -41,13 +39,14 @@ export default function Recipees() {
   const images: string[] = [Food1.src, Food2.src, Food3.src, Food4.src];
   const { recipes, error } = useFetchRecipe();
   const [recipeData, setRecipeData] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
       if (recipes && recipes.length > 0) {
-        const recipeId = recipes[0].id;
-        console.log("ini id", recipeId);
+        const recipeId = params.id;
         const apiUrl = `http://127.0.0.1:5000/recipes/details/${recipeId}`;
+        console.log("ini id", apiUrl);
         try {
           const response = await fetch(apiUrl);
           if (!response.ok) {
@@ -92,7 +91,7 @@ export default function Recipees() {
       <RecipeTags />
       <div className="lg:flex lg:pl-6 lg:pt-2">
         <div className="lg:w-1/3 ">
-          <CommentSection />
+          <CommentSection recipeData={recipeData} />
         </div>
         <div className="lg:w-2/3 xl:hidden">
           <SliderImagev2_2_3 className="hidden lg:block xl:hidden" />

@@ -17,6 +17,7 @@ export interface Recipe {
   category: string;
   id: number;
   author_id: number;
+  comment: string;
 }
 
 export default function useFetchRecipe() {
@@ -28,7 +29,7 @@ export default function useFetchRecipe() {
       const response = await axios.get(
         "http://127.0.0.1:5000/feeds/recipes/all"
       );
-      console.log("tes", response);
+      // console.log("tes", response);
       setRecipes(response.data);
     } catch (error) {
       console.error("Error fetching recipes:", error);

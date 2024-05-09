@@ -1,8 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo1 from "../../components/images/cookingtools/spatula-svgrepo-com.svg";
 import SliderImage from "../SliderImage";
 import Card from "../../components/Card";
+import useFetchRecipe from "@/hooks/UseFetchRecipe";
+import { Recipe } from "@/hooks/UseFetchRecipe";
 
 import { chefMainCard, chefMainCard2 } from "@/data";
 import HealtyRecipes from "./HealtyRecipes";
@@ -32,6 +34,22 @@ import OriginsLogo from "../../components/images/sidebarlogo/country-direction-l
 
 const RecipeFeeds = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { recipes } = useFetchRecipe();
+  const [recipesData, setRecipesData] = useState<[]>([]);
+  const [categoriesData, setCategoriesData] = useState<string[]>([]);
+  // console.log("ini recipes", recipes);
+
+  useEffect(() => {
+    if (recipes) {
+      const categories: string[] = [];
+      recipes.forEach((recipe) => {
+        if (recipe.type) {
+          categories.push(recipe.type);
+        }
+      });
+      setCategoriesData(categories);
+    }
+  }, [recipes]);
 
   const categories = [
     "Healty Recipe",
@@ -145,14 +163,26 @@ const RecipeFeeds = () => {
             </div>
           </div>
           {selectedCategory === "Healty Recipe" && (
-            <HealtyRecipes recipeCategoryName="Healty Recipes" />
+            <HealtyRecipes categories={categoriesData} />
           )}
-          {selectedCategory === "Main Dishes" && <MainDishes />}
-          {selectedCategory === "Appetizers" && <Appetizers />}
-          {selectedCategory === "Desserts" && <Desserts />}
-          {selectedCategory === "Beverages" && <Beverages />}
-          {selectedCategory === "Side Dishes" && <SideDishes />}
-          {selectedCategory === "Home" && <HealtyRecipes />}
+          {selectedCategory === "Main Dishes" && (
+            <MainDishes categories={categoriesData} />
+          )}
+          {selectedCategory === "Appetizers" && (
+            <Appetizers categories={categoriesData} />
+          )}
+          {selectedCategory === "Desserts" && (
+            <Desserts categories={categoriesData} />
+          )}
+          {selectedCategory === "Beverages" && (
+            <Beverages categories={categoriesData} />
+          )}
+          {selectedCategory === "Side Dishes" && (
+            <SideDishes categories={categoriesData} />
+          )}
+          {selectedCategory === "Home" && (
+            <HealtyRecipes categories={categoriesData} />
+          )}
         </div>
       </div>
     </div>

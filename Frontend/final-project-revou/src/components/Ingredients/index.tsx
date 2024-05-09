@@ -19,7 +19,7 @@ const Ingredients: React.FC<Props> = ({ recipeData }) => {
     setUserInput(event.target.value);
   };
 
-  console.log("inidata", recipeData);
+  // console.log("inidata", recipeData);
 
   return (
     <div className="flex flex-col mt-10 sm:px-8 md:mt-0 ">

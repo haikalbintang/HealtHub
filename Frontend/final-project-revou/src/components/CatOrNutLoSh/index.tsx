@@ -7,7 +7,7 @@ import useFetchProfile from "@/hooks/useFetchProfile";
 import { useEffect, useState } from "react";
 import { ProfileData } from "../ModalRecipe";
 const CatOrNutLoSh = ({ recipeData, setRecipeData }: any) => {
-  console.log("hasildata ini", recipeData);
+  // console.log("hasildata ini", recipeData);
   const { profile } = useFetchProfile();
   // const { recipes, error, refetchRecipes } = useFetchRecipe();
   const [profileData, setProfileData] = useState({} as ProfileData);
@@ -30,7 +30,7 @@ const CatOrNutLoSh = ({ recipeData, setRecipeData }: any) => {
   const splitted: string[] = recipeData.categories || [];
   const split_lists: string[][] = splitted.map((item) => [item]);
 
-  console.log(split_lists);
+  // console.log(split_lists);
 
   return (
     <>

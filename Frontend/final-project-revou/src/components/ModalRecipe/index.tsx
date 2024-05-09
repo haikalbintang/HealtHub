@@ -6,7 +6,13 @@ import food2 from "../../components/images/slidersv3/1.png";
 import { Button } from "../ui/button";
 import { RecipeData } from "../RecipesFeeds/AllRecipes";
 import Link from "next/link";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import {
+  useRouter,
+  usePathname,
+  useSearchParams,
+  RedirectType,
+} from "next/navigation";
+import { redirect } from "next/navigation";
 
 interface RecipeProps {
   author_id: number;
@@ -37,7 +43,9 @@ export interface ProfileData {
 
 const ModalRecipe = ({ recipe, showModal, setShowModal }: any) => {
   const router = useRouter();
-  console.log("ini route", router);
+  const searchParams = useSearchParams();
+  const search = searchParams.get("id");
+  // console.log("ini route", router);
   const [profileData, setProfileData] = useState({} as ProfileData);
   const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
   useEffect(() => {
@@ -58,28 +66,30 @@ const ModalRecipe = ({ recipe, showModal, setShowModal }: any) => {
       console.error(error);
     }
   };
-  useEffect(() => {
-    const fetchRecipeDetail = async () => {
-      try {
-        const response = await fetch(
-          `http://127.0.0.1:5000/recipes/details/${recipe.id}`
-        );
-        if (response.ok) {
-          const recipe_data = await response.json();
-          setSelectedRecipe(recipe_data);
-          console.log("test id", recipe_data);
-        } else {
-          throw new Error("Failed to fetch author's username");
-        }
-      } catch (error) {
-        console.error(error);
-      }
-      fetchRecipeDetail();
-    };
-  });
+  // useEffect(() => {
+  //   const fetchRecipeDetail = async () => {
+  //     if (search) {
+  //       try {
+  //         const response = await fetch(
+  //           `http://127.0.0.1:5000/recipes/details/${search}`
+  //         );
+  //         if (response.ok) {
+  //           const recipe_data = await response.json();
+  //           setSelectedRecipe(recipe_data);
+  //           console.log("test id", response);
+  //         } else {
+  //           throw new Error("Failed to fetch author's username");
+  //         }
+  //       } catch (error) {
+  //         console.error(error);
+  //       }
+  //       fetchRecipeDetail();
+  //     }
+  //   };
+  // });
 
   const handleRedirectToRecipees = (id: number) => {
-    // setSearchParamsData({ id: id.toString() });
+    router.push(`/RecipeDetailResponsive/${id}`);
   };
   const closeModal = () => {
     setShowModal(false);
@@ -149,11 +159,7 @@ const ModalRecipe = ({ recipe, showModal, setShowModal }: any) => {
                 className="flex justify-center items-end h-1/5 "
                 // onClick={handleRecipeReadMore}
               >
-                <Button
-                  onClick={() =>
-                    router.push("/RecipeDetailResponsive/" + recipe.id)
-                  }
-                >
+                <Button onClick={() => handleRedirectToRecipees(recipe.id)}>
                   Read More
                 </Button>
               </div>

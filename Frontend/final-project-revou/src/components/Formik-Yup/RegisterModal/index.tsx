@@ -32,7 +32,7 @@ const initialValues = {
 };
 
 const onSubmit = (values: UserData) => {
-  console.log(values);
+  // console.log(values);
 };
 
 const validationSchema = yup.object({

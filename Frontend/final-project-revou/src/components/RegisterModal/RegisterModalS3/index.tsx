@@ -12,7 +12,7 @@ interface Props {
   form: any;
 }
 
-export default function RegisterModalS1({ form }: Props): JSX.Element {
+export default function RegisterModalS3({ form }: Props): JSX.Element {
   return (
     <>
       <FormField

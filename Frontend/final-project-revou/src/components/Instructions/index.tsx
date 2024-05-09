@@ -6,11 +6,11 @@ interface Props {
 }
 
 const Instructions = ({ recipeData }: any) => {
-  console.log(recipeData);
+  // console.log("dari instruction", recipeData);
   const steps: string[] = (recipeData.instruction || "")
     .split(/\d+\.\s+/)
     .filter((step: any) => step.trim() !== "");
-  console.log("ini steps", steps);
+  // console.log("ini steps", steps);
   return (
     <div className="xl:px-8">
       <div className="gap-3">

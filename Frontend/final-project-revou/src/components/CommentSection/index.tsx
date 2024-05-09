@@ -1,48 +1,88 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { chefMainCard } from "@/components/ChefProfile";
 import photo1 from "../../components/images/chefimage/gordonram.jpeg";
 import photo2 from "../../components/images/chefimage/jemieolif.jpg";
+import noimage from "../images/svg/cardlogo/No_image_available.svg.png";
+import useFetchProfile from "@/hooks/useFetchProfile";
+import useFetchRecipe from "@/hooks/UseFetchRecipe";
+import axios from "axios";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
+interface RecipeData {
+  comments: {
+    message: string;
+    comment: string;
+    id: string;
+  }[];
+}
 
-const CommentsCard = [
-  {
-    recipename: "salad",
-    userName: "Amanda Satya",
-    userImage: photo2.src,
-    comments: [
-      {
-        username: "Amanda Satya",
-        userImage: photo1.src,
-        comment:
-          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, distinctio!",
-        time: "5 min ago",
-      },
-      {
-        username: "Iman Finuaz ",
-        userImage: photo1.src,
-        comment:
-          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, distinctio!",
-        time: "2 hour ago",
-      },
-      {
-        username: "Haikal Bintang",
-        userImage: photo1.src,
-        comment:
-          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, distinctio!",
-        time: "3 hour ago",
-      },
-      {
-        username: "Fachrezi Ramadhani",
-        userImage: photo1.src,
-        comment:
-          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, distin",
-        time: "4 hour ago",
-      },
-    ],
-  },
-];
+const CommentSection = ({ recipeData, setRecipeData }: any) => {
+  const [profileComment, setProfileComment] = useState("");
+  const { recipes } = useFetchRecipe();
 
-export default function CommentSection() {
+  const { profile } = useFetchProfile();
+
+  // useEffect(() => {
+  //   const fetchDataProfile = async () => {
+  //     if (profile) {
+  //       console.log("first", profile);
+  //       const profileId = profile.id;
+  //       const apiUrl = `http://127.0.0.1:5000/users/${profileId}`;
+  //       try {
+  //         const response = await fetch(apiUrl);
+  //         if (!response.ok) {
+  //           throw new Error("Failed to fetch data");
+  //         }
+  //         const data = await response.json();
+  //         console.log("data profile", data);
+  //         setProfileComment(data);
+  //       } catch (error) {
+  //         console.error(error);
+  //       }
+  //     }
+  //   };
+
+  //   fetchDataProfile();
+  // });
+
+  const postComments = async (event?: React.FormEvent<HTMLFormElement>) => {
+    event?.preventDefault();
+    try {
+      const authToken = localStorage.getItem("access_token");
+      if (
+        authToken &&
+        recipeData &&
+        recipeData.comments &&
+        recipeData.comments.length > 0
+      ) {
+        const headers = {
+          Authorization: `Bearer ${authToken}`,
+        };
+        const commentsId =
+          recipeData.comments[recipeData.comments.length - 1].id;
+        console.log("comments id", commentsId);
+
+        const response = await axios.post(
+          `http://127.0.0.1:5000/recipes/comments/${commentsId}`,
+          { message: profileComment },
+          { headers }
+        );
+        setProfileComment("");
+      } else {
+        console.error("Recipe data or comments not available.");
+      }
+    } catch (error) {
+      console.error("Error posting comment:", error);
+    }
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevent default form submission
+    postComments();
+  };
+  console.log("inirecipedata", recipeData);
+  // console.log("ini profile", profile);
+
+  const imageIsValid = profile?.image && profile?.image !== "";
   return (
     <div className="px-2 mt-10">
       <div className="border-2 border-slate-700 bg-slate-100 rounded-xl p-4">
@@ -50,77 +90,86 @@ export default function CommentSection() {
           <div className="flex">
             <h1 className="text-xl text-slate-800 font-bold">Comments</h1>
             <div className="flex justify-center items-center h-8 w-8 bg-slate-800 ml-2 text-white rounded-full">
-              {CommentsCard[0].comments.length}
+              {/* {CommentsCard[0].comments.length} */}
             </div>
           </div>
           <div className="mt-4">
             <h1 className="text-slate-800">
-              Add comment as{" "}
-              <span className="font-semibold text-slate-800">
-                {CommentsCard[0].userName}:
-              </span>
+              Add comment as
+              {profile ? (
+                <span className="font-semibold text-slate-800">
+                  {profile?.first_name} {profile?.last_name}
+                </span>
+              ) : (
+                <span className="font-semibold text-slate-800">
+                  You Must Login first to comment,{" "}
+                  <span className="font-semibold text-red-500">Login here</span>
+                </span>
+              )}
             </h1>
           </div>
-          <form action="" method="post">
+          <form action="" method="post" onSubmit={handleSubmit}>
             <div className="relative mt-1">
-              <textarea className="w-full h-20 border-slate-400 border-2 bg-white text-slate-800 rounded-xl text-sm" />
+              <textarea
+                className="w-full h-20 border-slate-400 border-2 bg-white text-slate-800 rounded-xl text-sm"
+                value={profileComment}
+                onChange={(e) => setProfileComment(e.target.value)}
+              />
               <div className="absolute -top-5 -right-2">
                 <picture>
-                  <img
-                    src={CommentsCard[0].userImage}
-                    alt=""
-                    className="h-12 w-12 rounded-full object-cover shadow-md shadow-slate-800"
-                  />
+                  {imageIsValid ? (
+                    <img
+                      src={profile?.image}
+                      alt=""
+                      className="h-12 w-12 rounded-full object-cover shadow-md shadow-slate-800"
+                    />
+                  ) : (
+                    <img
+                      src={noimage.src}
+                      alt=""
+                      className="h-12 w-12 rounded-full object-cover shadow-md shadow-slate-800"
+                    />
+                  )}
                 </picture>
               </div>
             </div>
             <div className="flex justify-end items-center mt-2">
-              <Button className="bg-red-500 hover:bg-red-600">Submit</Button>
+              <Button type="submit" className="bg-red-500 hover:bg-red-600">
+                Submit
+              </Button>
             </div>
           </form>
         </div>
-        {CommentsCard[0].comments.map((card: any) => (
-          <div key={card.id} className="flex border-b-2 w-full">
-            {/* <div className="hidden lg:flex justify-center items-center p-2">
-              <picture>
-                <img
-                  src={card.userImage}
-                  alt=""
-                  className=" h-12 w-12 rounded-full object-cover"
-                />
-              </picture>
-            </div> */}
-            <div className="flex flex-col justify-start items-start w-full p-2">
-              <div className="flex flex-col lg:px-0 bg-white rounded-xl w-full ">
-                <div className="flex gap-3 p-3">
-                  <div className="">
-                    <picture>
-                      <img
-                        src={card.userImage}
-                        alt=""
-                        className="h-12 w-14 rounded-full object-cover"
-                      />
-                    </picture>
+        <div className="flex border-b-2 w-full">
+          <div className="flex flex-col justify-start items-start w-full p-2">
+            <div className="flex flex-col lg:px-0 bg-white rounded-xl w-full ">
+              <div className="p-2">
+                {/* <div className="p-2">
+                  {recipeData &&
+                    recipeData.comments &&
+                    recipeData.comments.map((comment, index) => (
+                      <p key={index} className="text-slate-800">
+                        {comment.id}
+                      </p>
+                    ))}
+                </div> */}
+                {recipeData ? (
+                  <div className="p-2">
+                    {recipeData?.comments?.map((comment: any, index: any) => (
+                      <div key={index}>
+                        <p className="text-slate-800">{comment.message}</p>
+                      </div>
+                    ))}
                   </div>
-                  <div className="flex justify-between items-center w-full">
-                    <div>
-                      <h2 className="text-slate-800 font-semibold">
-                        {card.username}
-                      </h2>
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-700">{card.time}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-2">
-                  <p className="text-sm text-slate-800">{card.comment}</p>
-                </div>
+                ) : (
+                  <h1>There is no comment yet</h1>
+                )}
               </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
-}
+};
+export default CommentSection;

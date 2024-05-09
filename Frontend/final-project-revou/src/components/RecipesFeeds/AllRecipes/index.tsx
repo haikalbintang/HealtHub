@@ -54,7 +54,7 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
   const handleRecipeClick = (recipe: RecipeData) => {
     setSelectedRecipe(recipe);
     setShowModal(true);
-    console.log(setSelectedRecipe);
+    // console.log(setSelectedRecipe);
   };
   return (
     <div className="item-list">

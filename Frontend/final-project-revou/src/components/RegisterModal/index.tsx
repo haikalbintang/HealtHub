@@ -4,6 +4,7 @@ import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
+import axios from "axios";
 
 import Modal from "../Modal";
 import useMultistepForm from "@/hooks/useMultistepForm";
@@ -43,6 +44,18 @@ interface Props {
 
 export default function RegisterModal({ setShowRegisterModal }: Props) {
   // 1. Define your form.
+  const registerForm = async (values: z.infer<typeof formSchema>) => {
+    try {
+      console.log("first");
+      const response = await axios.post(
+        "http://127.0.0.1:5000/users/register",
+        values
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,11 +71,19 @@ export default function RegisterModal({ setShowRegisterModal }: Props) {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log("Form submitted!");
-    console.log(values);
+    // console.log("Form submitted!");
+    // console.log(values);
+
+    try {
+      await registerForm(values);
+    } catch (error) {
+      console.log(error);
+    }
+
+    form.reset();
   }
 
   const { currentStepIndex, steps, isFirstStep, isLastStep, back, next, step } =
@@ -92,7 +113,11 @@ export default function RegisterModal({ setShowRegisterModal }: Props) {
                 </Button>
               )}
               {isLastStep ? (
-                <Button className="bg-red-500 hover:bg-red-600" type={"submit"}>
+                <Button
+                  className="bg-red-500 hover:bg-red-600"
+                  type="submit"
+                  onClick={form.handleSubmit(onSubmit)}
+                >
                   Submit
                 </Button>
               ) : (

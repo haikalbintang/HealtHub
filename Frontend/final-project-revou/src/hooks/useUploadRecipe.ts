@@ -84,7 +84,7 @@ const useUploadRecipeImage = () => {
         const { data: uploadData, error: uploadError } = await supabase.storage
           .from("recipe_image")
           .upload(pathInStorage, file);
-        console.log("Uploading file:", file);
+        // console.log("Uploading file:", file);
 
         if (uploadError) {
           console.error("Error uploading file:", uploadError.message);
@@ -94,10 +94,10 @@ const useUploadRecipeImage = () => {
         const imageUrl = uploadData
           ? `https://lwgscyxqeipmjzaxphkv.supabase.co/storage/v1/object/public/recipe_image/${uploadData?.path}`
           : null;
-        console.log("Image URL:", imageUrl);
+        // console.log("Image URL:", imageUrl);
         setImageUrl(imageUrl);
-        console.log("ini setimage", setImageUrl);
-        console.log("imageurl", imageUrl);
+        // console.log("ini setimage", setImageUrl);
+        // console.log("imageurl", imageUrl);
 
         return imageUrl;
       } catch (error) {
