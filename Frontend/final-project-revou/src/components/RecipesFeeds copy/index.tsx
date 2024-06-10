@@ -65,7 +65,7 @@ const RecipeFeeds_vmhb = () => {
       {/* Sidebar */}
       {isSidebarOpen && (
         <div className="z-20 absolute top-0 left-0 sm:hidden sm:static flex-col items-center p-5 pl-0 pt-0">
-          <div className="flex flex-col justify-center items-start p-4 bg-slate-50 rounded-lg shadow-sm shadow-slate-500 gap-2 lg:gap-5">
+          <div className="flex flex-col justify-center items-start p-4 bg-orange-200 rounded-lg shadow-sm shadow-slate-500 gap-2 lg:gap-5">
             {sideBarCategories.map((sideBarCategory) => (
               <div
                 key={sideBarCategory.name}
@@ -86,7 +86,7 @@ const RecipeFeeds_vmhb = () => {
         </div>
       )}
       <div className="hidden z-20 absolute top-0 left-0 sm:static sm:flex flex-col items-center p-5 pl-0 pt-0">
-        <div className="flex flex-col justify-center items-start p-4 sm:pr-8 bg-slate-50 rounded-lg shadow-sm shadow-slate-500 gap-2 lg:gap-5">
+        <div className="flex flex-col bg-orange-200 justify-center items-start p-4 sm:pr-8 rounded-lg shadow-sm shadow-slate-500 gap-2 lg:gap-5">
           {sideBarCategories.map((sideBarCategory) => (
             <div
               key={sideBarCategory.name}

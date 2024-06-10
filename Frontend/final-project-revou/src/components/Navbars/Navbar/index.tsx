@@ -1,6 +1,7 @@
 import { useState } from "react";
 import svg1 from "../../images/svg/whole-foods-1.svg";
 import Link from "next/link";
+import Button1 from "@/components/Button/Button1";
 
 type SetToggleMenuType = (
   value: boolean | ((prev: boolean) => boolean)
@@ -104,26 +105,28 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
         <div className="hidden sm:flex sm:justify-center sm:items-center font-sans font-medium text-lg">
           <ul className="flex gap-10 md:gap-16 lg:gap-28 xl:gap-32 2xl:gap-40 justify-center items-center">
             <li>
-              <a href="#">Recipe</a>
+              <Link href="/feeds">Explore</Link>
             </li>
             <li>
-              <a href="#">About us</a>
+              <Link href="/about-us">About us</Link>
             </li>
             <li>
-              <a href="">
+              <Link href="/">
                 {" "}
                 <picture>
                   <img src={svg1.src} alt="" />
                 </picture>
-              </a>
-            </li>
-            <li>
-              <a href="#">Products</a>
-            </li>
-            <li>
-              <Link href="" onClick={toggleLoginModal}>
-                Sign In
               </Link>
+            </li>
+            <li>
+              <a href="#">Profile</a>
+            </li>
+            <li>
+              <Button1>
+                <Link href="" onClick={toggleLoginModal}>
+                  Sign In
+                </Link>
+              </Button1>
             </li>
           </ul>
         </div>

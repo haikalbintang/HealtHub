@@ -14,27 +14,25 @@ export default function NavbarWrapper() {
 
   return (
     <>
-      <div className="">
-        <Navbar
-          setShowLoginModal={setShowLoginModal}
+      <Navbar
+        setShowLoginModal={setShowLoginModal}
+        setShowNavbarHamburgerMenu={setShowNavbarHamburgerMenu}
+      />
+      {showNavbarHamburgerMenu && (
+        <NavbarDropdown
           setShowNavbarHamburgerMenu={setShowNavbarHamburgerMenu}
+          setShowLoginModal={setShowLoginModal}
         />
-        {showNavbarHamburgerMenu && (
-          <NavbarDropdown
-            setShowNavbarHamburgerMenu={setShowNavbarHamburgerMenu}
-            setShowLoginModal={setShowLoginModal}
-          />
-        )}
-        {showLoginModal && (
-          <LoginModal
-            setShowLoginModal={setShowLoginModal}
-            setShowRegisterModal={setShowRegisterModal}
-          />
-        )}
-        {showRegisterModal && (
-          <RegisterModal setShowRegisterModal={setShowRegisterModal} />
-        )}
-      </div>
+      )}
+      {showLoginModal && (
+        <LoginModal
+          setShowLoginModal={setShowLoginModal}
+          setShowRegisterModal={setShowRegisterModal}
+        />
+      )}
+      {showRegisterModal && (
+        <RegisterModal setShowRegisterModal={setShowRegisterModal} />
+      )}
     </>
   );
 }

@@ -10,9 +10,9 @@ const MyProfile: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
       <Sidebar_vmhb />
-    </div>
+    </>
   );
 };
 

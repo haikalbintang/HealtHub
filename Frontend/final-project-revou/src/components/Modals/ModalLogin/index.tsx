@@ -8,6 +8,9 @@ import facebooksvg from "../../images/svg/317727_facebook_social media_social_ic
 import inboxsvg from "../../images/svg/email-1-svgrepo-com.svg";
 import locksvg from "../../images/svg/4213432_closed_lock_password_protect_secure_icon.svg";
 import Modal from "../Modal";
+import Header1 from "@/components/Header/Header1";
+import SignInWith from "@/components/SignIn/SignInWith";
+import Header2 from "@/components/Header/Header2";
 
 type SetToggleMenuType = (
   value: boolean | ((prev: boolean) => boolean)
@@ -67,46 +70,34 @@ export default function ModalLogin({
       <Modal setShowModal={setShowLoginModal}>
         <div className="w-1/2 flex flex-col justify-center items-center mx-auto">
           <div className="px-0 sm:p-6">
-            <div className="justify-center p-5 pb-0">
-              <h1 className="text-3xl font-bold text-slate-800">
-                Welcome Back!
-              </h1>
-              <p className="text-slate-700">Please enter your credentials</p>
-            </div>
+            <Header1
+              h1={"Welcome Back!"}
+              desc={"Please enter your credentials"}
+            />
             <div className="flex flex-col gap-2 p-5">
-              <div className="flex py-2">
-                <Button
-                  className="gap-1 w-72 py-6 pl-1 text-base text-slate-600 bg-slate-200 hover:bg-slate-100 hover:text-slate-800"
-                  onClick={() => setShowLoginModal(false)}
-                >
-                  <img
-                    src={googlesvg.src}
-                    alt="Google logo."
-                    className="w-12 h-12"
-                  />
-                  Sign-in with Google
-                </Button>
-              </div>
-              <div className="flex py-2">
-                <Button
-                  className="gap-1 w-72 py-6 text-base text-slate-600 bg-slate-200 hover:bg-slate-100 hover:text-slate-800"
-                  onClick={() => setShowLoginModal(false)}
-                >
-                  <img
-                    src={facebooksvg.src}
-                    alt="Facebook logo."
-                    className="w-8 h-8 mr-2"
-                  />
-                  <p className="text-base">Sign-in with Facebook</p>
-                </Button>
-              </div>
+              <SignInWith
+                setShowLoginModal={setShowLoginModal}
+                text={"Sign-in with Google"}
+              >
+                <img
+                  src={googlesvg.src}
+                  alt="Google logo."
+                  className="w-12 h-12"
+                />
+              </SignInWith>
+              <SignInWith
+                setShowLoginModal={setShowLoginModal}
+                text={"Sign-in with Facebook"}
+              >
+                <img
+                  src={facebooksvg.src}
+                  alt="Facebook logo."
+                  className="w-8 h-8 mr-2"
+                />
+              </SignInWith>
               {/* LoginForm */}
               <div className="flex justify-center items-center mt-6 gap-4">
-                <h2 className="text-base">&mdash;&mdash;&mdash;</h2>
-                <h2 className="text-base text-slate-700">
-                  Or Sign-in with Email
-                </h2>
-                <h2 className="text-base">&mdash;&mdash;&mdash;</h2>
+                <Header2 text={"Or Sign-in with Email"} />
               </div>
               <form onSubmit={handleSubmit}>
                 <div className="py-2">
