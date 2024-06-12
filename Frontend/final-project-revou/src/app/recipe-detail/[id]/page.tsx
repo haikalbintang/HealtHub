@@ -1,17 +1,16 @@
 "use client";
+
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-import NavbarWrapper from "@/components/Navbars/NavbarWrapper";
-import RecipeHeroPage from "@/components/RecipeHeroPage";
-import CatOrNutLoSh from "@/components/CatOrNutLoSh";
-import Author from "@/components/Author";
-import RecipeSummary from "@/components/RecipeSummary";
-import Ingredients from "@/components/Ingredients";
-import Instructions from "@/components/Instructions";
-import RecipeTags from "@/components/RecipeTags";
-import CommentSection from "@/components/CommentSection";
-import SliderImagev2_2 from "@/components/SliderImageS/SliderImage_vmhb/SliderImagev2_2_2";
+import RecipeHeroPage from "@/components/RecipeDetail/RecipeHeroPage";
+import CatOrNutLoSh from "@/components/RecipeDetail/CatOrNutLoSh";
+import Author from "@/components/RecipeDetail/Author";
+import RecipeSummary from "@/components/RecipeDetail/RecipeSummary";
+import Ingredients from "@/components/RecipeDetail/Ingredients";
+import Instructions from "@/components/RecipeDetail/Instructions";
+import RecipeTags from "@/components/RecipeDetail/RecipeTags";
+import CommentSection from "@/components/RecipeDetail/CommentSection";
 
 // import { recipeDetailCards } from "@/data";
 
@@ -19,13 +18,7 @@ import Food1 from "../../../components/images/sliderImagesv2/food1.jpg";
 import Food2 from "../../../components/images/sliderImagesv2/food2.jpg";
 import Food3 from "../../../components/images/sliderImagesv2/food3.jpg";
 import Food4 from "../../../components/images/sliderImagesv2/food4.jpg";
-import SliderImagev2_2_2 from "@/components/SliderImageS/SliderImage_vmhb/SliderImagev2_2_2";
-import Footer from "@/components/Legacies/Footer";
-import SliderImagev2_2_3 from "@/components/SliderImageS/SliderImage_vmhb/SliderImagev2_2_3";
-import Footer_v2 from "@/components/Footers/Footer_vmhb";
-import SliderImagev2_2_4 from "@/components/SliderImageS/SliderImage_vmhb/SliderImagev2_2_4";
 import useFetchRecipe, { Recipe } from "@/hooks/UseFetchRecipe";
-import { RecipeData } from "@/components/RecipesFeeds/AllRecipes";
 
 export default function Recipees() {
   const router = useRouter();
@@ -89,16 +82,16 @@ export default function Recipees() {
         <div className="lg:w-1/3 ">
           <CommentSection />
         </div>
-        <div className="lg:w-2/3 xl:hidden">
+        {/* <div className="lg:w-2/3 xl:hidden">
           <SliderImagev2_2_3 className="hidden lg:block xl:hidden" />
         </div>
         <div className="xl:w-2/3 2xl:px-20">
           <SliderImagev2_2_4 className="hidden xl:block" />
-        </div>
+        </div> */}
       </div>
-      <SliderImagev2_2_2 className="sm:hidden" />
+      {/* <SliderImagev2_2_2 className="sm:hidden" />
       <SliderImagev2_2_3 className="hidden sm:block md:hidden" />
-      <SliderImagev2_2_4 className="hidden md:block lg:hidden" />
+      <SliderImagev2_2_4 className="hidden md:block lg:hidden" /> */}
     </div>
   );
 }

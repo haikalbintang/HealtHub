@@ -9,7 +9,7 @@ import inboxsvg from "../../images/svg/email-1-svgrepo-com.svg";
 import locksvg from "../../images/svg/4213432_closed_lock_password_protect_secure_icon.svg";
 import Modal from "../Modal";
 import Header1 from "@/components/Header/Header1";
-import SignInWith from "@/components/SignIn/SignInWith";
+import SignInWith from "@/components/Button/SignIn/SignInWith";
 import Header2 from "@/components/Header/Header2";
 
 type SetToggleMenuType = (

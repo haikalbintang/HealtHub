@@ -1,4 +1,4 @@
-import GroupProfile from "@/components/GroupProfile";
+import GroupProfile from "@/components/AboutUs/GroupProfile";
 
 export default function AboutUs() {
   return (

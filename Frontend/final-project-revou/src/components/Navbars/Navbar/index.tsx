@@ -119,7 +119,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
               </Link>
             </li>
             <li>
-              <a href="#">Profile</a>
+              <a href="/profile/me">Profile</a>
             </li>
             <li>
               <Button1>

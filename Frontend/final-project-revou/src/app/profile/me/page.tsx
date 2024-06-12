@@ -1,6 +1,7 @@
 "use client";
+
 import React, { useState } from "react";
-import Sidebar_vmhb from "@/components/Sidebars/Sidebar_vmhb";
+import MyProfileSidebar from "@/components/Profiles/MyProfileSidebar";
 
 const MyProfile: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -11,7 +12,7 @@ const MyProfile: React.FC = () => {
 
   return (
     <>
-      <Sidebar_vmhb />
+      <MyProfileSidebar />
     </>
   );
 };
