@@ -2,8 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
+import { Button } from "@/components/shadcn-ui/ui/button";
+import { Form } from "@/components/shadcn-ui/ui/form";
 
 import Modal from "../Modal";
 import useMultistepForm from "@/hooks/useMultistepForm";
@@ -11,18 +11,31 @@ import RegisterModalS1 from "./RegisterModalS1";
 import RegisterModalS2 from "./RegisterModalS2";
 import RegisterModalS3 from "./RegisterModalS3";
 
-const formSchema = z
+export const registerSchema = z
   .object({
-    email: z.string().email(),
-    password: z.string().min(8),
-    passwordConfirm: z.string(),
-    username: z.string().min(2).max(50),
-    firstName: z.string(),
-    lastName: z.string(),
-    resetPasswordQuestion: z.string(),
-    resetPasswordAnswer: z.string(),
+    email: z
+      .string()
+      .email({ message: "Invalid email" })
+      .min(1, { message: "This field is required" }),
+    password: z
+      .string()
+      .min(1, { message: "This field is required" })
+      .min(4, { message: "Password must be at least 4 characters long" }),
+    passwordConfirm: z.string().min(1, { message: "This field is required" }),
+    username: z
+      .string()
+      .min(1, { message: "This field is required" })
+      .min(4, { message: "Username must be at least 4 characters long" })
+      .max(20),
+    firstName: z.string().min(1, { message: "This field is required" }),
+    lastName: z.string().min(1, { message: "This field is required" }),
+    resetPasswordQuestion: z
+      .string()
+      .min(1, { message: "This field is required" }),
+    resetPasswordAnswer: z
+      .string()
+      .min(1, { message: "This field is required" }),
   })
-  .required()
   .refine(
     (data) => {
       return data.password === data.passwordConfirm;
@@ -32,6 +45,8 @@ const formSchema = z
       path: ["passwordConfirm"],
     }
   );
+
+export type FormData = z.infer<typeof registerSchema>;
 
 type SetToggleMenuType = (
   value: boolean | ((prev: boolean) => boolean)
@@ -43,8 +58,8 @@ interface Props {
 
 export default function ModalRegister({ setShowRegisterModal }: Props) {
   // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<FormData>({
+    resolver: zodResolver(registerSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -58,7 +73,7 @@ export default function ModalRegister({ setShowRegisterModal }: Props) {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: FormData) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log("Form submitted!");

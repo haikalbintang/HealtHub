@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Button } from "../../../ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 
-import inboxsvg from "@/components/images/svg/email-1-svgrepo-com.svg";
-import locksvg from "@/components/images/svg/4213432_closed_lock_password_protect_secure_icon.svg";
+import inboxsvg from "@/assets/images/svg/email-1-svgrepo-com.svg";
+import locksvg from "@/assets/images/svg/4213432_closed_lock_password_protect_secure_icon.svg";
 
 type SetToggleMenuType = (
   value: boolean | ((prev: boolean) => boolean)

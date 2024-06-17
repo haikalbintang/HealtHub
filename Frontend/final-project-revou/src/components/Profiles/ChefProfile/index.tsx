@@ -1,14 +1,14 @@
 // import React, { useState } from "react";
-// import { Button } from "@/components/ui/button";
-// import food1 from "@/components/images/sliderImagesv2/food1.jpg";
-// import food2 from "@/components/images/sliderImagesv2/food2.jpg";
-// import food3 from "@/components/images/sliderImagesv2/food3.jpg";
-// import food4 from "@/components/images/sliderImagesv2/food4.jpg";
+// import { Button } from "@/components/shadcn-ui/ui/button";
+// import food1 from "@/assets/images/sliderImagesv2/food1.jpg";
+// import food2 from "@/assets/images/sliderImagesv2/food2.jpg";
+// import food3 from "@/assets/images/sliderImagesv2/food3.jpg";
+// import food4 from "@/assets/images/sliderImagesv2/food4.jpg";
 
-// import chef1 from "@/components/images/chefimage/Joel-Robuchon.jpg";
-// import chef2 from "@/components/images/chefimage/jemieolif.jpg";
-// import chef3 from "@/components/images/chefimage/gordonram.jpeg";
-// import chef4 from "@/components/images/chefimage/Pierre-Gagnaire.jpg";
+// import chef1 from "@/assets/images/chefimage/Joel-Robuchon.jpg";
+// import chef2 from "@/assets/images/chefimage/jemieolif.jpg";
+// import chef3 from "@/assets/images/chefimage/gordonram.jpeg";
+// import chef4 from "@/assets/images/chefimage/Pierre-Gagnaire.jpg";
 
 // interface Props {
 //   className?: string;

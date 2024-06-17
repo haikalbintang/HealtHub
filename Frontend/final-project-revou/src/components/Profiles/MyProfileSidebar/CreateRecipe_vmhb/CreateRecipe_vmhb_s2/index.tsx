@@ -5,16 +5,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "@/components/shadcn-ui/ui/form";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/shadcn-ui/ui/select";
 
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/shadcn-ui/ui/input";
 
 interface Props {
   createRecipeForm: any;

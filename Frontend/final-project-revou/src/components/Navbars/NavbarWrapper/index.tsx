@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import LoginModal from "../../Modals/ModalLogin";
-import Navbar from "../Navbar";
-import NavbarDropdown from "../NavbarDropdown";
 import RegisterModal from "../../Modals/ModalRegister";
+import Navbar from "@/components/Navbars/Navbar"
+import NavbarDropdown from "../NavbarDropdown";
 
 export default function NavbarWrapper() {
   const [showNavbarHamburgerMenu, setShowNavbarHamburgerMenu] =

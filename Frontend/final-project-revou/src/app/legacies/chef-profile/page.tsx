@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import ChefProfile from "../../../components/Profiles/ChefProfile";
 import { chefMainCard } from "../../../components/Profiles/ChefProfile";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 
 import facebooksvg from "../../components/images/svg/317727_facebook_social media_social_icon.svg";
 import tiktoksvg from "../../components/images/svg/tiktok-logo-logo-svgrepo-com.svg";

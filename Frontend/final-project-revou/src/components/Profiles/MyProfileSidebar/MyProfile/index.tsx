@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import useFetchProfile from "@/hooks/useFetchProfile";
 import useEditProfile from "@/hooks/useEditProfile";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 import { chefMainCard2 } from "@/data";
 import Swal from "sweetalert2";
 import useUploadComponent from "@/hooks/useUploadComponent";

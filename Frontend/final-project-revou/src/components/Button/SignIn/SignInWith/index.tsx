@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 import { ReactNode } from "react";
 
 type SetToggleMenuType = (
@@ -6,12 +6,13 @@ type SetToggleMenuType = (
 ) => void;
 
 interface SignInWithProps {
-    text: string;
+  text: string;
   children: ReactNode;
   setShowLoginModal: SetToggleMenuType;
 }
 
-export default function SignInWith({ text,
+export default function SignInWith({
+  text,
   children,
   setShowLoginModal,
 }: SignInWithProps) {

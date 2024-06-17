@@ -5,14 +5,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "../../../ui/input";
+} from "@/components/shadcn-ui/ui/form";
+import { Input } from "../../../shadcn-ui/ui/input";
+import { RegisterProps } from "../RegisterModalS1";
 
-interface Props {
-  form: any;
-}
-
-export default function RegisterModalS1({ form }: Props): JSX.Element {
+export default function RegisterModalS1({ form }: RegisterProps): JSX.Element {
   return (
     <>
       <FormField

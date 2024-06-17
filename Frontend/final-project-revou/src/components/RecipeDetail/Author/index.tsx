@@ -1,9 +1,9 @@
 import { chefMainCard } from "@/data";
 
-import facebooksvg from "@/components/images/svg/317727_facebook_social media_social_icon.svg";
-import tiktoksvg from "@/components/images/svg/tiktok-logo-logo-svgrepo-com.svg";
-import instagramsvg from "@/components/images/svg/instagram2.svg";
-import { Button } from "../../ui/button";
+import facebooksvg from "@/assets/images/svg/317727_facebook_social media_social_icon.svg";
+import tiktoksvg from "@/assets/images/svg/tiktok-logo-logo-svgrepo-com.svg";
+import instagramsvg from "@/assets/images/svg/instagram2.svg";
+import { Button } from "@/components/shadcn-ui/ui/button";
 import useFetchProfile from "@/hooks/useFetchProfile";
 
 export default function Author() {

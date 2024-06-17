@@ -1,34 +1,42 @@
 import { useState } from "react";
-import svg1 from "../../images/svg/whole-foods-1.svg";
+import svg1 from "../../../assets/images/svg/whole-foods-1.svg";
 import Link from "next/link";
 import Button1 from "@/components/Button/Button1";
+import Image from "next/image";
 
 type SetToggleMenuType = (
   value: boolean | ((prev: boolean) => boolean)
 ) => void;
 
-interface Props {
+interface NavbarProps {
   setShowLoginModal: SetToggleMenuType;
   setShowNavbarHamburgerMenu: SetToggleMenuType;
 }
 
-const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
+export default function Navbar({
+  setShowLoginModal,
+  setShowNavbarHamburgerMenu,
+}: NavbarProps) {
   const [showSearchBar, setShowSearchBar] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
 
   const toggleSearchBar = () => {
     setShowSearchBar((prev: boolean) => !prev);
   };
-
   const toggleNavbarHamburgerMenu = () => {
     setShowNavbarHamburgerMenu((prev: boolean) => !prev);
   };
   const toggleLoginModal = () => {
     setShowLoginModal((prev: boolean) => !prev);
   };
+  const handleSetActiveLink = (link: string) => {
+    setActiveLink(link);
+  };
 
   return (
     <>
       <div className="hidden items-center justify-around sm:flex sm:gap-6 sm:rounded-b-xl sm:p-2 sm:px- bg-orange-200">
+        {/* Contact Us */}
         <div className="flex gap-2">
           <svg
             width="25px"
@@ -52,6 +60,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
           </h1>
         </div>
         <div className="flex justify-between gap-4 md:gap-8">
+          {/* Search Bar */}
           <div className="flex border-b-2 border-slate-800 sm:max-w-44">
             <input
               type="text"
@@ -68,6 +77,7 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
               <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
             </svg>
           </div>
+          {/* Medsoc Logos */}
           <div className="flex justify-center items-center gap-2">
             <h1>
               <svg
@@ -104,27 +114,39 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
       <div className="relative z-10 justify-center flex items-center ">
         <div className="hidden sm:flex sm:justify-center sm:items-center font-sans font-medium text-lg">
           <ul className="flex gap-10 md:gap-16 lg:gap-28 xl:gap-32 2xl:gap-40 justify-center items-center">
-            <li>
-              <Link href="/feeds">Explore</Link>
+            <li
+              className={`border-orange-50 ${
+                activeLink === "feeds" ? "border-emerald-800" : ""
+              } hover:border-b-4 hover:border-emerald-800 border-b-4 tracking-wider`}
+              onClick={() => handleSetActiveLink("feeds")}
+            >
+              <Link href="/feeds">EXPLORE</Link>
             </li>
-            <li>
-              <Link href="/about-us">About us</Link>
+            <li
+              className={`border-orange-50 ${
+                activeLink === "about-us" ? "border-emerald-800" : ""
+              } hover:border-b-4 hover:border-emerald-800 border-b-4 tracking-wider`}
+              onClick={() => handleSetActiveLink("about-us")}
+            >
+              <Link href="/about-us">ABOUT US</Link>
             </li>
             <li>
               <Link href="/">
-                {" "}
-                <picture>
-                  <img src={svg1.src} alt="" />
-                </picture>
+                <Image src={svg1} alt="HealthHub Logo" priority />
               </Link>
             </li>
-            <li>
-              <a href="/profile/me">Profile</a>
+            <li
+              className={`border-orange-50 ${
+                activeLink === "profile" ? "border-emerald-800" : ""
+              } hover:border-b-4 hover:border-emerald-800 border-b-4 tracking-wider`}
+              onClick={() => handleSetActiveLink("profile")}
+            >
+              <Link href="/profile/me">PROFILE</Link>
             </li>
             <li>
               <Button1>
                 <Link href="" onClick={toggleLoginModal}>
-                  Sign In
+                  <span className="tracking-wider">SIGN IN</span>
                 </Link>
               </Button1>
             </li>
@@ -198,6 +220,4 @@ const Navbar = ({ setShowLoginModal, setShowNavbarHamburgerMenu }: Props) => {
       {/* End of mobile menu */}
     </>
   );
-};
-
-export default Navbar;
+}

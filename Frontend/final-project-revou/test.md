@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { chefMainCard2 } from "@/data";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import useFetchProfile from "@/hooks/useFetchProfile";
 import axios from "axios";

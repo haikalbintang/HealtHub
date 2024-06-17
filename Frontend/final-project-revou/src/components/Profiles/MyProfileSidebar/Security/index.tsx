@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useFetchProfile from "@/hooks/useFetchProfile";
 import useEditSecurity from "@/hooks/useEditSecurity";
 import Swal from "sweetalert2";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 const Security: React.FC = () => {
   const { profile, error, refetchProfile } = useFetchProfile();
   const { securityData, loading, editError, editSecurity } = useEditSecurity();

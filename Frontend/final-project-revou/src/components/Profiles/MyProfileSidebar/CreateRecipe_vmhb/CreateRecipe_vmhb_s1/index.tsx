@@ -5,9 +5,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+} from "@/components/shadcn-ui/ui/form";
+import { Input } from "@/components/shadcn-ui/ui/input";
+import { Textarea } from "@/components/shadcn-ui/ui/textarea";
 
 interface Props {
   createRecipeForm: any;

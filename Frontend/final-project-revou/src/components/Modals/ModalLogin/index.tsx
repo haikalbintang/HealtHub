@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
-import { Button } from "@/components/ui/button";
-import bg1 from "../../images/sliderImagesv2/food3.jpg";
-import googlesvg from "../../images/svg/7123025_logo_google_g_icon.svg";
-import facebooksvg from "../../images/svg/317727_facebook_social media_social_icon.svg";
-import inboxsvg from "../../images/svg/email-1-svgrepo-com.svg";
-import locksvg from "../../images/svg/4213432_closed_lock_password_protect_secure_icon.svg";
+import { Button } from "@/components/shadcn-ui/ui/button";
+import bg1 from "../../../assets/images/sliderImagesv2/food3.jpg";
+import googlesvg from "../../../assets/images/svg/7123025_logo_google_g_icon.svg";
+import facebooksvg from "../../../assets/images/svg/317727_facebook_social media_social_icon.svg";
+import inboxsvg from "../../../assets/images/svg/email-1-svgrepo-com.svg";
+import locksvg from "../../../assets/images/svg/4213432_closed_lock_password_protect_secure_icon.svg";
 import Modal from "../Modal";
 import Header1 from "@/components/Header/Header1";
 import SignInWith from "@/components/Button/SignIn/SignInWith";
@@ -70,10 +70,12 @@ export default function ModalLogin({
       <Modal setShowModal={setShowLoginModal}>
         <div className="w-1/2 flex flex-col justify-center items-center mx-auto">
           <div className="px-0 sm:p-6">
-            <Header1
-              h1={"Welcome Back!"}
-              desc={"Please enter your credentials"}
-            />
+            <div className="p-5 pb-0">
+              <Header1
+                h1={"Welcome Back!"}
+                desc={"Please enter your credentials"}
+              />
+            </div>
             <div className="flex flex-col gap-2 p-5">
               <SignInWith
                 setShowLoginModal={setShowLoginModal}

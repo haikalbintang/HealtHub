@@ -2,8 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
+import { Button } from "@/components/shadcn-ui/ui/button";
+import { Form } from "@/components/shadcn-ui/ui/form";
 
 import useMultistepForm from "@/hooks/useMultistepForm";
 import CreateRecipe_vmhb_s1 from "./CreateRecipe_vmhb_s1";

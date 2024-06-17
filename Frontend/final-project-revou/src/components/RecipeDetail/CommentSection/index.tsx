@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { chefMainCard } from "@/components/Profiles/ChefProfile";
-import photo1 from "@/components/images/chefimage/gordonram.jpeg";
-import photo2 from "@/components/images/chefimage/jemieolif.jpg";
+import { Button } from "@/components/shadcn-ui/ui/button";
+import photo1 from "@/assets/images/chefimage/gordonram.jpeg";
+import photo2 from "@/assets/images/chefimage/jemieolif.jpg";
 
 const CommentsCard = [
   {

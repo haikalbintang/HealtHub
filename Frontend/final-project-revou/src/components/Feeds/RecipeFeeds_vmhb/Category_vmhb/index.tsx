@@ -5,7 +5,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/shadcn-ui/ui/card";
 
 export default function Category_vmhb() {
   return (

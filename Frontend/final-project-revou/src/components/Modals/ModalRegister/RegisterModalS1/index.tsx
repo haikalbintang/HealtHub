@@ -5,14 +5,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "../../../ui/input";
+} from "@/components/shadcn-ui/ui/form";
+import { Input } from "../../../shadcn-ui/ui/input";
+import { FormData } from "..";
+import { Control } from "react-hook-form";
 
-interface Props {
-  form: any;
+export interface RegisterProps {
+  form: {
+    control: Control<FormData>;
+  };
 }
 
-export default function RegisterModalS1({ form }: Props): JSX.Element {
+export default function RegisterModalS1({ form }: RegisterProps): JSX.Element {
   return (
     <>
       <FormField
@@ -38,7 +42,7 @@ export default function RegisterModalS1({ form }: Props): JSX.Element {
             <FormControl>
               <Input placeholder="Password" type="password" {...field} />
             </FormControl>
-            <FormDescription>Minimum 8 characters</FormDescription>
+            <FormDescription>Minimum 4 characters</FormDescription>
             <FormMessage />
           </FormItem>
         )}

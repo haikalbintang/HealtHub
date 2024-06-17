@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "../../ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 import { recipeDetailCards } from "@/data";
 
 interface Props {

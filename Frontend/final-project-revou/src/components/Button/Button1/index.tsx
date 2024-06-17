@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 import { ReactNode } from "react";
 
 interface Button1Props {
-    children: ReactNode
+  children: ReactNode;
 }
 
 export default function Button1({ children }: Button1Props) {

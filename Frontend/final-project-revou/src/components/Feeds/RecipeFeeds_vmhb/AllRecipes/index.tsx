@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 import { chefMainCard2 } from "@/data";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import ModalRecipe from "@/components/Modals/ModalRecipe";
 import useUploadComponent from "@/hooks/useUploadComponent";
-import ComplexityLogo from "@/components/images/svg/levels-svgrepo-com.svg";
-import NutriLogo from "@/components/images/svg/cardlogo/scoreboard-svgrepo-com.svg";
-import ServingLoo from "@/components/images/svg/cardlogo/cover-dish-svgrepo-com.svg";
+import ComplexityLogo from "../../../../assets/images/svg/levels-svgrepo-com.svg";
+import NutriLogo from "../../../../assets/images/svg/cardlogo/scoreboard-svgrepo-com.svg";
+import ServingLoo from "../../../../assets/images/svg/cardlogo/cover-dish-svgrepo-com.svg";
 import Link from "next/link";
+import FeedsCardLong from "../../FeedsCardLong";
 interface Props {
   recipeCategoryName: string;
 }
@@ -59,7 +60,8 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
   return (
     <div className="item-list">
       <h2>{recipeCategoryName}</h2>
-      <div className="pr-16 ">
+      <FeedsCardLong />
+      {/* <div className="pr-16 ">
         <div className="grid grid-cols-4 gap-7 px-20 py-5 ">
           {recipes.slice(0, showCount).map((recipe, index: number) => (
             <div
@@ -96,7 +98,7 @@ const AllRecipes: React.FC<Props> = ({ recipeCategoryName }) => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       <div className="px-10 pt-4 flex justify-end items-center gap-2">
         {showCount > 4 && (
           <Button onClick={toggleShowLess} className="text-white">

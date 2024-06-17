@@ -14,10 +14,10 @@ import CommentSection from "@/components/RecipeDetail/CommentSection";
 
 // import { recipeDetailCards } from "@/data";
 
-import Food1 from "../../../components/images/sliderImagesv2/food1.jpg";
-import Food2 from "../../../components/images/sliderImagesv2/food2.jpg";
-import Food3 from "../../../components/images/sliderImagesv2/food3.jpg";
-import Food4 from "../../../components/images/sliderImagesv2/food4.jpg";
+import Food1 from "@/assets/images/sliderImagesv2/food1.jpg";
+import Food2 from "@/assets/images/sliderImagesv2/food2.jpg";
+import Food3 from "@/assets/images/sliderImagesv2/food3.jpg";
+import Food4 from "@/assets/images/sliderImagesv2/food4.jpg";
 import useFetchRecipe, { Recipe } from "@/hooks/UseFetchRecipe";
 
 export default function Recipees() {

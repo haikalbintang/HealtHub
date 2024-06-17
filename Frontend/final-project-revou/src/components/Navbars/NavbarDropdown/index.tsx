@@ -1,5 +1,5 @@
 import Link from "next/link";
-import svg1 from "../../images/svg/whole-foods-1.svg";
+import svg1 from "../../../assets/images/svg/whole-foods-1.svg";
 
 type SetToggleMenuType = (
   value: boolean | ((prev: boolean) => boolean)

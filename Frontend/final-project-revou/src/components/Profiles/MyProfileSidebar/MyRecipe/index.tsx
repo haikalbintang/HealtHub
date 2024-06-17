@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
 import useFetchProfile from "@/hooks/useFetchProfile";
 import axios from "axios";
-import ComplexityLogo from "@/components/images/svg/levels-svgrepo-com.svg";
-import NutriLogo from "@/components/images/svg/cardlogo/scoreboard-svgrepo-com.svg";
-import ServingLoo from "@/components/images/svg/cardlogo/cover-dish-svgrepo-com.svg";
+import ComplexityLogo from "@/assets/images/svg/levels-svgrepo-com.svg";
+import NutriLogo from "@/assets/images/svg/cardlogo/scoreboard-svgrepo-com.svg";
+import ServingLoo from "@/assets/images/svg/cardlogo/cover-dish-svgrepo-com.svg";
 
 const MyRecipe: React.FC = () => {
   const [showCount, setShowCount] = useState(4);

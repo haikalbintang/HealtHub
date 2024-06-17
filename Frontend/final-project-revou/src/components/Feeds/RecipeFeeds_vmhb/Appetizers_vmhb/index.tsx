@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn-ui/ui/button";
 import { chefMainCard, chefMainCard2 } from "@/data";
 
 const Appetizers_vmhb: React.FC = () => {

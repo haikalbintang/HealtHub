@@ -1,17 +1,17 @@
-import food1 from "../components/images/sliderImagesv2/authentic-italian-pasta.jpg";
-import food2 from "../components/images/sliderImagesv2/food2.jpg";
-import food3 from "../components/images/sliderImagesv2/food3.jpg";
-import food4 from "../components/images/sliderImagesv2/food4.jpg";
+import food1 from "../assets/images/sliderImagesv2/authentic-italian-pasta.jpg";
+import food2 from "../assets/images/sliderImagesv2/food2.jpg";
+import food3 from "../assets/images/sliderImagesv2/food3.jpg";
+import food4 from "../assets/images/sliderImagesv2/food4.jpg";
 
-import chef1 from "../components/images/chefimage/Joel-Robuchon.jpg";
-import chef2 from "../components/images/chefimage/jemieolif.jpg";
-import chef3 from "../components/images/chefimage/gordonram.jpeg";
-import chef4 from "../components/images/chefimage/Pierre-Gagnaire.jpg";
+import chef1 from "../assets/images/chefimage/Joel-Robuchon.jpg";
+import chef2 from "../assets/images/chefimage/jemieolif.jpg";
+import chef3 from "../assets/images/chefimage/gordonram.jpeg";
+import chef4 from "../assets/images/chefimage/Pierre-Gagnaire.jpg";
 
-import tools1 from "../components/images/cookingtools/cleaver-butcher-svgrepo-com.svg";
-import tools2 from "../components/images/cookingtools/grater-svgrepo-com.svg";
-import tools3 from "../components/images/cookingtools/pizza-knife-svgrepo-com.svg";
-import tools4 from "../components/images/cookingtools/spatula-svgrepo-com.svg";
+import tools1 from "../assets/images/cookingtools/cleaver-butcher-svgrepo-com.svg";
+import tools2 from "../assets/images/cookingtools/grater-svgrepo-com.svg";
+import tools3 from "../assets/images/cookingtools/pizza-knife-svgrepo-com.svg";
+import tools4 from "../assets/images/cookingtools/spatula-svgrepo-com.svg";
 
 export const recipeDetailCards = [
   {

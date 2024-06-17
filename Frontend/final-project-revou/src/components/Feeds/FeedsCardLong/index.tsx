@@ -1,11 +1,12 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import ModalRecipe from "@/components/Modals/ModalRecipe";
 
-import food1 from "@/components/images/sliderImagesv2/food1.jpg";
-import food2 from "@/components/images/sliderImagesv2/food2.jpg";
-import food3 from "@/components/images/sliderImagesv2/food3.jpg";
-import food4 from "@/components/images/sliderImagesv2/food4.jpg";
+import food1 from "@/assets/images/sliderImagesv2/food1.jpg";
+import food2 from "@/assets/images/sliderImagesv2/food2.jpg";
+import food3 from "@/assets/images/sliderImagesv2/food3.jpg";
+import food4 from "@/assets/images/sliderImagesv2/food4.jpg";
 import axios, { AxiosResponse } from "axios";
 import CardLong from "@/components/Card/CardLong";
 import useFetchRecipe from "@/hooks/UseFetchRecipe";
@@ -27,7 +28,7 @@ export interface RecipeData {
   attachment: string;
   author_id: number;
 }
-export default function Feeds_withCardNew_v2() {
+export default function FeedsCardLong() {
   // const [recipeData, setRecipeData] = useState<any[]>([]);
   const [selectedRecipe, setSelectedRecipe] = useState<RecipeData | null>(null);
   const [showRecipeModal, setShowRecipeModal] = useState(false);
@@ -58,6 +59,26 @@ export default function Feeds_withCardNew_v2() {
       complexity: "medium",
       description: "Sate Maranggi bukan berasal dari ...",
       attachment: food1.src,
+    },
+    {
+      title: "Sosis Bakar",
+      nutriscore: 9.5,
+      rating: 4.8,
+      like_count: 124,
+      complexity: "easy",
+      description:
+        "Sosisnya dibakar, bukan digoreng ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non necessitatibus expedita dolor deleniti amet sint perspiciatis corporis itaque aperiam modi minima blanditiis qui possimus dolorum, sit eum nostrum repellat. Delectus!",
+      attachment: food2.src,
+    },
+    {
+      title: "Sosis Bakar",
+      nutriscore: 9.5,
+      rating: 4.8,
+      like_count: 124,
+      complexity: "easy",
+      description:
+        "Sosisnya dibakar, bukan digoreng ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non necessitatibus expedita dolor deleniti amet sint perspiciatis corporis itaque aperiam modi minima blanditiis qui possimus dolorum, sit eum nostrum repellat. Delectus!",
+      attachment: food2.src,
     },
     {
       title: "Sosis Bakar",

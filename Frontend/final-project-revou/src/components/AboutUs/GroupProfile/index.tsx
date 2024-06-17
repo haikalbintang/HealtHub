@@ -1,8 +1,8 @@
 import Image from "next/image";
-import masIman from "@/components/images/profilePicture/Iman.jpg";
-import masSatya from "@/components/images/profilePicture/Satya.jpg";
-import masRezi from "@/components/images/profilePicture/Rezi.jpg";
-import masHaikal from "@/components/images/profilePicture/Haikal.jpeg";
+import masIman from "@/assets/images/profilePicture/Iman.jpg";
+import masSatya from "@/assets/images/profilePicture/Satya.jpg";
+import masRezi from "@/assets/images/profilePicture/Rezi.jpg";
+import masHaikal from "@/assets/images/profilePicture/Haikal.jpeg";
 
 export default function GroupProfile() {
   return (

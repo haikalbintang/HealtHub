@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../Modal";
-import food1 from "@/components/images/sliderImagesv2/food1.jpg";
-import time from "@/components/images/svg/clock-lines-svgrepo-com.svg";
-import food2 from "@/components/images/slidersv3/1.png";
-import { Button } from "../../ui/button";
-import { RecipeData } from "../../RecipesFeeds/AllRecipes";
+import food1 from "../../../assets/images/sliderImagesv2/food1.jpg";
+import time from "../../../assets/images/svg/clock-lines-svgrepo-com.svg";
+import food2 from "../../../assets/images/slidersv3/1.png";
+import { Button } from "../../shadcn-ui/ui/button";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
@@ -175,13 +174,8 @@ const ModalRecipe = ({ recipe, showModal, setShowModal }: any) => {
                 className="flex justify-center items-end h-1/5 "
                 // onClick={handleRecipeReadMore}
               >
-                <Button
-                  onClick={() =>
-                    router.push("/DedicatedRecipeDetail/" + recipe.id)
-                  }
-                  className="px-6 py-6 rounded-3xl text-xl bg-emerald-700 text-emerald-100 hover:bg-emerald-800 hover:text-emerald-50 shadow-md shadow-slate-900"
-                >
-                  Cook Now
+                <Button className="px-6 py-6 rounded-3xl text-xl bg-emerald-700 text-emerald-100 hover:bg-emerald-800 hover:text-emerald-50 shadow-md shadow-slate-900">
+                  <Link href={"/recipe-detail/" + recipe.id}>Cook Now</Link>
                 </Button>
               </div>
             </div>
