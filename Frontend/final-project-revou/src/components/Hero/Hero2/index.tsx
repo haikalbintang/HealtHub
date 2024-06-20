@@ -3,12 +3,18 @@
 import React, { useState } from "react";
 import About1 from "../../../assets/images/about1.png";
 import Button2 from "@/components/Button/Button2";
-import LoginModal from "@/components/Modals/ModalLogin";
-import RegisterModal from "@/components/Modals/ModalRegister";
+import ModalLogin from "@/components/Modals/ModalLogin";
+import ModalRegister from "@/components/Modals/ModalRegister";
+import Image from "next/image";
 
 const Hero2 = () => {
-  const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
-  const [showRegisterModal, setShowRegisterModal] = useState<boolean>(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+
+  const handleSignUp = () => {
+    setIsLoginModalOpen(false);
+    setIsRegisterModalOpen(true);
+  };
 
   return (
     <>
@@ -34,23 +40,28 @@ const Hero2 = () => {
                 section.
               </p>
             </div>
-            <Button2 handleClick={() => setShowLoginModal(true)}>
+            <Button2 handleClick={() => setIsLoginModalOpen(true)}>
               Discover Them Here!
             </Button2>
           </div>
-          <div className="hidden md:block w-1/2">
-            <img src={About1.src} alt="" className="w-full" />
-          </div>
+
+          <Image
+            src={About1.src}
+            alt=""
+            width={569}
+            height={557}
+            className="hidden md:block w-1/2"
+          />
         </div>
       </div>
-      {showLoginModal && (
-        <LoginModal
-          setShowLoginModal={setShowLoginModal}
-          setShowRegisterModal={setShowRegisterModal}
+      {isLoginModalOpen && (
+        <ModalLogin
+          handleClose={() => setIsLoginModalOpen(false)}
+          handleSignUp={handleSignUp}
         />
       )}
-      {showRegisterModal && (
-        <RegisterModal setShowRegisterModal={setShowRegisterModal} />
+      {isRegisterModalOpen && (
+        <ModalRegister handleClose={() => setIsRegisterModalOpen(false)} />
       )}
     </>
   );

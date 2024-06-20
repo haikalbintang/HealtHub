@@ -11,39 +11,34 @@ import Modal from "../Modal";
 import Header1 from "@/components/Header/Header1";
 import SignInWith from "@/components/Button/SignIn/SignInWith";
 import Header2 from "@/components/Header/Header2";
+import { SetToggleMenuType } from "@/types";
+import ModalRegister from "../ModalRegister";
+import Image from "next/image";
 
-type SetToggleMenuType = (
-  value: boolean | ((prev: boolean) => boolean)
-) => void;
-
-interface Props {
-  setShowLoginModal: SetToggleMenuType;
-  setShowRegisterModal: SetToggleMenuType;
+interface ModalLoginProps {
+  show?: boolean;
+  handleClose: () => void;
+  handleSignUp: () => void;
 }
 
 export default function ModalLogin({
-  setShowLoginModal,
-  setShowRegisterModal,
-}: Props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  show,
+  handleClose,
+  handleSignUp,
+}: ModalLoginProps) {
   const [loginData, setLoginData] = useState({
     username: "",
     password: "",
     email: "",
   });
-  const API_BASE_URL = "http://127.0.0.1:5000";
 
-  function goToRegisterFromLogin() {
-    setShowLoginModal(false);
-    setShowRegisterModal(true);
-  }
+  const API_BASE_URL = "http://127.0.0.1:5000";
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       await handleLogin();
-      setShowLoginModal(false);
+      handleClose();
     } catch (error) {
       console.error(error);
     }
@@ -67,7 +62,7 @@ export default function ModalLogin({
 
   return (
     <>
-      <Modal setShowModal={setShowLoginModal}>
+      <Modal handleClose={handleClose}>
         <div className="w-1/2 flex flex-col justify-center items-center mx-auto">
           <div className="px-0 sm:p-6">
             <div className="p-5 pb-0">
@@ -77,26 +72,27 @@ export default function ModalLogin({
               />
             </div>
             <div className="flex flex-col gap-2 p-5">
-              <SignInWith
-                setShowLoginModal={setShowLoginModal}
-                text={"Sign-in with Google"}
-              >
-                <img
-                  src={googlesvg.src}
-                  alt="Google logo."
-                  className="w-12 h-12"
-                />
-              </SignInWith>
-              <SignInWith
-                setShowLoginModal={setShowLoginModal}
-                text={"Sign-in with Facebook"}
-              >
-                <img
-                  src={facebooksvg.src}
-                  alt="Facebook logo."
-                  className="w-8 h-8 mr-2"
-                />
-              </SignInWith>
+              <div onClick={handleClose}>
+                <SignInWith text={"Sign-in with Google"}>
+                  <Image
+                    src={googlesvg.src}
+                    alt="Google logo."
+                    width={48}
+                    height={48}
+                  />
+                </SignInWith>
+              </div>
+              <div onClick={handleClose}>
+                <SignInWith text={"Sign-in with Facebook"}>
+                  <Image
+                    src={facebooksvg.src}
+                    alt="Facebook logo."
+                    width={32}
+                    height={32}
+                    className="mr-2"
+                  />
+                </SignInWith>
+              </div>
               {/* LoginForm */}
               <div className="flex justify-center items-center mt-6 gap-4">
                 <Header2 text={"Or Sign-in with Email"} />
@@ -123,7 +119,12 @@ export default function ModalLogin({
                       required
                     />
                     <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
-                      <img src={inboxsvg.src} alt="Logo" className="h-6 w-6" />
+                      <Image
+                        src={inboxsvg.src}
+                        alt="Logo"
+                        width={24}
+                        height={24}
+                      />
                     </div>
                   </div>
                 </div>
@@ -142,13 +143,21 @@ export default function ModalLogin({
                       value={loginData.password}
                       className="border border-gray-300 rounded-xl w-72 p-2 text-sm pl-9"
                       onChange={(e) =>
-                        setLoginData({ ...loginData, password: e.target.value })
+                        setLoginData({
+                          ...loginData,
+                          password: e.target.value,
+                        })
                       }
                       placeholder="Enter your password"
                       required
                     />
                     <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
-                      <img src={locksvg.src} alt="Logo" className="h-5 w-5" />
+                      <Image
+                        src={locksvg.src}
+                        alt="Logo"
+                        width={20}
+                        height={20}
+                      />
                     </div>
                   </div>
                 </div>
@@ -167,29 +176,23 @@ export default function ModalLogin({
                       Remember Me
                     </label>
                   </div>
-                  <div
-                    onClick={() => setShowLoginModal(false)}
-                    className="cursor-pointer"
-                  >
+                  <div onClick={handleClose} className="cursor-pointer">
                     <p className="text-xs border-b-2 border-slate-700 hover:border-slate-800 text-slate-600 hover:text-slate-800">
                       Forgot Password?
                     </p>
                   </div>
                 </div>
-                <div>
-                  <Button
-                    className="w-72 bg-red-500 hover:bg-red-600 mt-4"
-                    type="submit"
-                    value={"Login"}
-                  >
-                    <p className="text-base">Login</p>
-                  </Button>
-                </div>
+                <Button
+                  className="w-72 bg-red-500 hover:bg-red-600 mt-4"
+                  type="submit"
+                >
+                  Login
+                </Button>
                 <div className="mt-2">
                   <p className="text-sm text-slate-700">
                     Don&apos;t have an account? Sign up{" "}
                     <span
-                      onClick={() => goToRegisterFromLogin()}
+                      onClick={handleSignUp}
                       className="text-red-500 hover:text-red-600 cursor-pointer hover:font-semibold"
                     >
                       here
@@ -202,7 +205,7 @@ export default function ModalLogin({
 
           <div className="absolute top-1 right-1">
             <button
-              onClick={() => setShowLoginModal(false)}
+              onClick={handleClose}
               type="button"
               className="bg-transparent rounded-md m-3 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
             >
@@ -223,11 +226,13 @@ export default function ModalLogin({
             </button>
           </div>
         </div>
-        <div className="hidden w-1/2 md:flex md:min-w-96">
-          <img
+        <div className="hidden w-1/2 md:flex md:w-96">
+          <Image
             src={bg1.src}
             alt=""
-            className="object-cover rounded-tr-xl rounded-br-xl"
+            width={384}
+            height={384}
+            className="object-cover rounded-r-xl"
           />
         </div>
       </Modal>

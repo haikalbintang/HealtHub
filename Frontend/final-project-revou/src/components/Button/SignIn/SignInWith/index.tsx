@@ -8,20 +8,12 @@ type SetToggleMenuType = (
 interface SignInWithProps {
   text: string;
   children: ReactNode;
-  setShowLoginModal: SetToggleMenuType;
 }
 
-export default function SignInWith({
-  text,
-  children,
-  setShowLoginModal,
-}: SignInWithProps) {
+export default function SignInWith({ text, children }: SignInWithProps) {
   return (
     <div className="flex py-2">
-      <Button
-        className="gap-1 w-72 py-6 pl-1 text-base text-slate-600 bg-slate-200 hover:bg-slate-100 hover:text-slate-800"
-        onClick={() => setShowLoginModal(false)}
-      >
+      <Button className="gap-1 w-72 py-6 pl-1 text-base text-slate-600 bg-slate-200 hover:bg-slate-100 hover:text-slate-800">
         {children}
         <p>{text}</p>
       </Button>

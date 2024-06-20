@@ -3,31 +3,23 @@ import svg1 from "../../../assets/images/svg/whole-foods-1.svg";
 import Link from "next/link";
 import Button1 from "@/components/Button/Button1";
 import Image from "next/image";
-
-type SetToggleMenuType = (
-  value: boolean | ((prev: boolean) => boolean)
-) => void;
+import { SetToggleMenuType } from "@/types";
+import NavbarDropdown from "../NavbarDropdown";
 
 interface NavbarProps {
-  setShowLoginModal: SetToggleMenuType;
-  setShowNavbarHamburgerMenu: SetToggleMenuType;
+  onOpenLoginModal: () => void;
 }
 
-export default function Navbar({
-  setShowLoginModal,
-  setShowNavbarHamburgerMenu,
-}: NavbarProps) {
+export default function Navbar({ onOpenLoginModal }: NavbarProps) {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [activeLink, setActiveLink] = useState("");
+  const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState(false);
 
   const toggleSearchBar = () => {
     setShowSearchBar((prev: boolean) => !prev);
   };
   const toggleNavbarHamburgerMenu = () => {
-    setShowNavbarHamburgerMenu((prev: boolean) => !prev);
-  };
-  const toggleLoginModal = () => {
-    setShowLoginModal((prev: boolean) => !prev);
+    setIsHamburgerMenuOpen((prev) => !prev);
   };
   const handleSetActiveLink = (link: string) => {
     setActiveLink(link);
@@ -132,7 +124,13 @@ export default function Navbar({
             </li>
             <li>
               <Link href="/">
-                <Image src={svg1} alt="HealthHub Logo" priority />
+                <Image
+                  src={svg1}
+                  alt="HealthHub Logo"
+                  width={100}
+                  height={100}
+                  priority
+                />
               </Link>
             </li>
             <li
@@ -145,7 +143,7 @@ export default function Navbar({
             </li>
             <li>
               <Button1>
-                <Link href="" onClick={toggleLoginModal}>
+                <Link href="" onClick={onOpenLoginModal}>
                   <span className="tracking-wider">SIGN IN</span>
                 </Link>
               </Button1>
@@ -218,6 +216,12 @@ export default function Navbar({
         </div>
       </div>
       {/* End of mobile menu */}
+      {isHamburgerMenuOpen && (
+        <NavbarDropdown
+          closeHamburgerMenu={toggleNavbarHamburgerMenu}
+          onOpenLoginModal={onOpenLoginModal}
+        />
+      )}
     </>
   );
 }

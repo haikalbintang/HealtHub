@@ -1,37 +1,31 @@
 "use client";
 
 import { useState } from "react";
-import LoginModal from "../../Modals/ModalLogin";
-import RegisterModal from "../../Modals/ModalRegister";
-import Navbar from "@/components/Navbars/Navbar"
-import NavbarDropdown from "../NavbarDropdown";
+import Navbar from "@/components/Navbars/Navbar";
+import ModalRegister from "../../Modals/ModalRegister";
+import ModalLogin from "@/components/Modals/ModalLogin";
 
 export default function NavbarWrapper() {
-  const [showNavbarHamburgerMenu, setShowNavbarHamburgerMenu] =
-    useState<boolean>(false);
-  const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
-  const [showRegisterModal, setShowRegisterModal] = useState<boolean>(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+
+  const handleSignUp = () => {
+    setIsLoginModalOpen(false);
+    setIsRegisterModalOpen(true);
+  };
 
   return (
     <>
-      <Navbar
-        setShowLoginModal={setShowLoginModal}
-        setShowNavbarHamburgerMenu={setShowNavbarHamburgerMenu}
-      />
-      {showNavbarHamburgerMenu && (
-        <NavbarDropdown
-          setShowNavbarHamburgerMenu={setShowNavbarHamburgerMenu}
-          setShowLoginModal={setShowLoginModal}
+      <Navbar onOpenLoginModal={() => setIsLoginModalOpen(true)} />
+
+      {isLoginModalOpen && (
+        <ModalLogin
+          handleClose={() => setIsLoginModalOpen(false)}
+          handleSignUp={handleSignUp}
         />
       )}
-      {showLoginModal && (
-        <LoginModal
-          setShowLoginModal={setShowLoginModal}
-          setShowRegisterModal={setShowRegisterModal}
-        />
-      )}
-      {showRegisterModal && (
-        <RegisterModal setShowRegisterModal={setShowRegisterModal} />
+      {isRegisterModalOpen && (
+        <ModalRegister handleClose={() => setIsRegisterModalOpen(false)} />
       )}
     </>
   );

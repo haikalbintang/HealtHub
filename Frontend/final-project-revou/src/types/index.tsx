@@ -8,3 +8,7 @@ export interface RegisterFormData {
   resetPasswordQuestion: string;
   resetPasswordAnswer: string;
 }
+
+export type SetToggleMenuType = (
+  value: boolean | ((prev: boolean) => boolean)
+) => void;
